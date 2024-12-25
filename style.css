@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 120%;
+    background-color: aliceblue;
+}
+
+.header{
+    width: 30%;
+    margin: 50px auto 0px;
+    color: rgb(219, 219, 219);
+    background: #74b8f8;
+    text-align: center;
+    border: 1px solid #ffacac;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20%;
+}
+
+form, .content{
+    width: 30%;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #88a7c5;
+    background: white;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.input-group{
+    margin: 10px 0px 10px 0px;
+}
+
+.input-group label{
+    display: block;
+    text-align: left;
+    margin: 3px;
+}
+
+.input-group input{
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(171, 171, 171);
+}
+
+.btn{
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background: rgb(115, 204, 225);
+    border: none;
+    border-radius: 5px;
+}
+
+.btn2{
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background: rgb(232, 109, 109);
+    border: none;
+    border-radius: 5px;
+}
+
+.eeror{
+    width: 92%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid rgb(250, 93, 93);
+    background: white;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.success{
+    color: #74b8f8;
+    background: white;
+    border: 1px solid #68f5ff;
+    margin-bottom: 20px;
+}
+
+.box {
+    background-color: rgb(53, 124, 211);
+    text-align: center;
+    border-radius: 5px;
+    margin:0px 30% ;
+    padding: 20px;
+}
+.boxbook {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+    margin:0px 30% ;
+}
