@@ -1,72 +1,29 @@
 <?php
-    session_start();
-    include('server.php');
-    ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $age = $_POST['age'];
 
-    <link rel="stylesheet" href="style.css";>
-</head>
+    $conn = new mysqli('localhost','root','','project_db');
 
-<body>
-<header class="layer1"></header>
-    <header class="box"><H1 class="title">เว็บไซต์สำหรับแนะนำสาขาที่ถนัด</H1></header>
-    <div class="boxbook"><img src="detective.png"style="width:50px;margin: 10px;;"><h1>Luksood GU.</h1></img></div>
-
-    <form action="register_db.php" method="post">
-    <?php if(isset($_SESSION['error'])): ?>
-            <div class ="error">
-                <h3>
-                    <?php
-                        echo $_SESSION['success'];
-                        unset($_SESSION['success']);
-                    ?>
-                </h3>
-            </div>
-        <?php endif ?>   
-
-        <!-- <div class="input-group">
-            <label for="name">ชื่อ</label>
-            <input type="text" name="name">
-        </div>
-        <div class="input-group">
-            <label for="name">นามสกุล</label>
-            <input type="text" name="surname">
-        </div>
-        <div class="input-group">
-            <label for="name">อายุ</label>
-            <input type="text" name="age"> -->
-        </div>
-        <div class="input-group">
-            <label for="username">User Name</label>
-            <input type="text" name="username">
-        </div>
-        <div class="input-group">
-            <label for="password_1">PassWord</label>
-            <input type="password" name="password_1">
-        </div>
-        <div class="input-group">
-            <label for="password_2">Confirm PassWord</label>
-            <input type="password" name="password_2">
-        </div>
-        </form>
-
-        <form action="register_db.php"><p>ยืนยัน</p>
-        <div class="input-group">
-            <button type="submit" name="req_user" class="btn">Next</button>
-        </div>
-        </form>
-
-        <form action="login.php"><p>เป็นสมาชิกอยู่แล้ว</p>
-        <div class="input-group">
-            <button type="submit" class="btn2">log in</button></form>
-        
-      
-    
-
-</body>
-</html>
+    if($conn->connect_error){
+        echo "$conn->connect_error";
+        die("Connection Failed : ". $conn->connecterror);
+    } else {
+        $stmt = $conn->prepare("insert into user(Username, password, firstname, lastname, age) values(?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $username, $password, $firstname, $lastname, $age);
+        $execval = $stmt->execute();
+        echo $execval;
+        echo '<script>alert("Register Successfully");
+                window.location.href = "http://localhost/Project2/dashboard.html"
+                </script>';
+        $stmt->close();
+        $conn->close();
+    }
+    // echo "$username";
+    // echo "$password";
+    // echo "$firstname";
+    // echo "$lastname";
+    // echo "$age";
+?>

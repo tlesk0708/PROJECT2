@@ -67,23 +67,6 @@ form, .content{
     border-radius: 5px;
 }
 
-.eeror{
-    width: 92%;
-    margin: 0px auto;
-    padding: 10px;
-    border: 1px solid rgb(250, 93, 93);
-    background: white;
-    border-radius: 5px;
-    text-align: left;
-}
-
-.success{
-    color: #74b8f8;
-    background: white;
-    border: 1px solid #68f5ff;
-    margin-bottom: 20px;
-}
-
 .box {
     background-color: rgb(53, 124, 211);
     text-align: center;
@@ -96,4 +79,29 @@ form, .content{
     padding: 20px;
     text-align: center;
     margin:0px 30% ;
+}
+
+.whitebox{
+    background-color: rgb(244, 244, 244);
+    width: 80%;
+    height: 200px;
+    margin-left: 10%;
+    margin-right: 25%;
+    margin-top: 10px;
+    text-align:left;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.boxbody1{
+    background-color: rgb(59, 119, 191);
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
