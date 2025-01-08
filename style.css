@@ -16,18 +16,18 @@ body{
     text-align: center;
     border: 1px solid #ffacac;
     border-bottom: none;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 10px 10px;
     padding: 20%;
 }
 
 form, .content{
-    width: 30%;
+    width: 80%;
     text-align: center;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #88a7c5;
     background: white;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
 }
 
 .input-group{
@@ -68,17 +68,23 @@ form, .content{
 }
 
 .box {
-    background-color: rgb(53, 124, 211);
+    background-color: rgb(123, 178, 246);
     text-align: center;
-    border-radius: 5px;
-    margin:0px 30% ;
+    border-radius: 10px 10px 0px 0px;
     padding: 20px;
 }
 .boxbook {
     background-color: rgb(255, 255, 255);
     padding: 20px;
     text-align: center;
-    margin:0px 30% ;
+    border-radius: 0px 0px 10px 10px;
+
+}
+.body1 {
+    background-color: rgb(205, 242, 252);
+    padding: 20px;
+    text-align: center;
+    margin:0px 20% ;
 }
 
 .whitebox{
@@ -94,11 +100,10 @@ form, .content{
 }
 
 .boxbody1{
-    background-color: rgb(59, 119, 191);
-    width: 50%;
+    background-color: rgb(177, 209, 247);
+    width: 90%;
     height: 100%;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 5%;
     margin-top: 1%;
     margin-bottom: 1%;
     text-align: center;
