@@ -24,11 +24,12 @@ form, .content{
     width: 80%;
     text-align: center;
     margin: 20px auto;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #88a7c5;
     background: white;
     border-radius: 10px 10px 10px 10px;
 }
+
 
 .input-group{
     margin: 10px 0px 10px 0px;
@@ -50,21 +51,23 @@ form, .content{
 }
 
 .btn{
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 15px;
     color: white;
     background: rgb(115, 204, 225);
     border: none;
     border-radius: 5px;
+    margin: 0 100px 0 100px;
 }
 
 .btn2{
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 15px;
     color: white;
     background: rgb(232, 109, 109);
     border: none;
     border-radius: 5px;
+    margin: 0 100px 0 100px;
 }
 
 .box {
@@ -98,6 +101,16 @@ form, .content{
     padding-top: 5px;
     padding-left: 10px;
 }
+.headbox{
+    background-color: rgb(244, 244, 244);
+    width: 80%;
+    height: 75px;
+    margin-left: 10%;
+    margin-right: 25%;
+    text-align:center;
+    padding-top: 15px;
+    border-radius: 20px 20px 20px 20px;
+}
 
 .boxbody1{
     background-color: rgb(177, 209, 247);
@@ -109,4 +122,47 @@ form, .content{
     text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* จัดตัวหนังสือให้อยู่ด้านบนปุ่ม */
+    align-items: center; /* จัดให้อยู่ตรงกลาง */
+}
+
+.button-container p {
+    margin: 0 0 10px; /* เพิ่มระยะห่างระหว่างข้อความกับปุ่ม */
+    font-size: 15px;
+    text-align: center;
+}
+
+.buttonred-container button {
+    padding: 10px 20px;
+    font-size: 15px;
+    background: rgb(232, 109, 109);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 100px 0 100px;
+}
+.buttonblue-container button {
+    padding: 10px 20px;
+    font-size: 15px;
+    background: rgb(115, 204, 225);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 100px 0 100px;
+}
+
+.button-container button:hover {
+    background-color: #dee3e7;
+}
+.boxexam {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    min-height: 80% /* ความสูงเต็มจอ */
 }
