@@ -5,29 +5,58 @@
 
 body{
     font-size: 120%;
+    font-family: Arial, sans-serif;
     background-color: aliceblue;
+    padding-top: 70px;
+
 }
 
-.header{
-    width: 30%;
-    margin: 50px auto 0px;
-    color: rgb(219, 219, 219);
-    background: #74b8f8;
+.body1 {
+    background-color: rgb(205, 242, 252);
     text-align: center;
-    border: 1px solid #ffacac;
-    border-bottom: none;
-    border-radius: 10px 10px 10px 10px;
-    padding: 20%;
+    margin:0px 5% ;
+    border-radius: 1%;
 }
+
+.boxbody1{
+    background-color: rgb(177, 209, 247);
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    border-radius: 0%;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(171, 171, 171);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #92ceff;
+}
+
 
 form, .content{
-    width: 80%;
+    width: 70%;
     text-align: center;
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 10px;
     border: 1px solid #88a7c5;
     background: white;
     border-radius: 10px 10px 10px 10px;
+    background-color: rgba(250, 248, 248, 0.8); /* ใช้ rgba เพื่อให้พื้นหลังโปร่งแสง */
 }
 
 
@@ -50,48 +79,41 @@ form, .content{
     border: 1px solid rgb(171, 171, 171);
 }
 
-.btn{
+.btn {
     padding: 10px 20px;
     font-size: 15px;
     color: white;
     background: rgb(115, 204, 225);
     border: none;
     border-radius: 5px;
-    margin: 0 100px 0 100px;
+    margin: 0 100px;
+    transition: background 0.3s ease, opacity 0.3s ease;
 }
 
-.btn2{
+.btn:hover {
+    background: rgba(115, 204, 225, 0.5);
+    opacity: 0.7;
+}
+
+.btn2 {
     padding: 10px 20px;
     font-size: 15px;
     color: white;
     background: rgb(232, 109, 109);
     border: none;
     border-radius: 5px;
-    margin: 0 100px 0 100px;
+    margin: 0 100px;
+    transition: background 0.3s ease, opacity 0.3s ease;
 }
 
-.box {
-    background-color: rgb(123, 178, 246);
-    text-align: center;
-    border-radius: 10px 10px 0px 0px;
-    padding: 20px;
+.btn2:hover {
+    background: rgba(232, 109, 109, 0.5);
+    opacity: 0.7;
 }
-.boxbook {
-    background-color: rgb(255, 255, 255);
-    padding: 20px;
-    text-align: center;
-    border-radius: 0px 0px 10px 10px;
 
-}
-.body1 {
-    background-color: rgb(205, 242, 252);
-    padding: 20px;
-    text-align: center;
-    margin:0px 20% ;
-}
 
 .whitebox{
-    background-color: rgb(244, 244, 244);
+    background-color: rgb(250, 248, 248);
     width: 80%;
     height: 200px;
     margin-left: 10%;
@@ -100,7 +122,23 @@ form, .content{
     text-align:left;
     padding-top: 5px;
     padding-left: 10px;
+    border: 1px solid rgb(171, 171, 171);
 }
+
+.whitebox2 {
+    background-color: rgba(250, 248, 248, 0.8); /* ใช้ rgba เพื่อให้พื้นหลังโปร่งแสง */
+    width: 50%;
+    height: 200px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 10px;
+    text-align: left;
+    padding-top: 5px;
+    padding-left: 10px;
+    border: 1px solid rgb(171, 171, 171);
+    border-radius: 1%;
+}
+
 .headbox{
     background-color: rgb(244, 244, 244);
     width: 80%;
@@ -112,26 +150,16 @@ form, .content{
     border-radius: 20px 20px 20px 20px;
 }
 
-.boxbody1{
-    background-color: rgb(177, 209, 247);
-    width: 90%;
-    height: 100%;
-    margin-left: 5%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
+
 
 .button-container {
     display: flex;
-    flex-direction: column; /* จัดตัวหนังสือให้อยู่ด้านบนปุ่ม */
-    align-items: center; /* จัดให้อยู่ตรงกลาง */
+    flex-direction: column;
+    align-items: center;
 }
 
 .button-container p {
-    margin: 0 0 10px; /* เพิ่มระยะห่างระหว่างข้อความกับปุ่ม */
+    margin: 0 0 10px;
     font-size: 15px;
     text-align: center;
 }
@@ -144,8 +172,15 @@ form, .content{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 100px 0 100px;
+    margin: 0 100px;
+    transition: background 0.3s ease, opacity 0.3s ease;
 }
+
+.buttonred-container button:hover {
+    background: rgba(232, 109, 109, 0.5);
+    opacity: 0.7;
+}
+
 .buttonblue-container button {
     padding: 10px 20px;
     font-size: 15px;
@@ -154,7 +189,13 @@ form, .content{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 100px 0 100px;
+    margin: 0 100px;
+    transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+.buttonblue-container button:hover {
+    background: rgba(115, 204, 225, 0.5);
+    opacity: 0.7;
 }
 
 .button-container button:hover {
@@ -163,6 +204,135 @@ form, .content{
 .boxexam {
     display: flex;
     justify-content: center;
-    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
-    min-height: 80% /* ความสูงเต็มจอ */
+    align-items: center; 
+    min-height: 80% 
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.right-text span {
+    font-size: 30px;
+    color: #575757;
+    padding-right: 30px;
+}
+.center-text span {
+    padding: 5px 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #575757;
+}
+.center-text span:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid rgb(198, 198, 198);
+    box-shadow: 0 0 5px rgba(85, 167, 255, 0.5);
+}
+
+.info-box {
+    display: none; 
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 15px 20px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: auto;
+    max-width: 90%;
+    z-index: 1000;
+    font-size: 16px;
+}
+
+.info-box h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #000000;
+}
+
+.info-box ul {
+    padding-left: 20px;
+    text-align: left;
+}
+
+#info-box.show {
+    top: 80px;
+    opacity: 1;
+}
+
+#info-box button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #f14444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#info-box button:hover {
+    background-color: #0056b3;
+}
+
+.image-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 0px; 
+}
+
+.imegebox {
+    background-image: url('student.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    opacity: 0.8;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.imegebox2 {
+    background-image: url('security.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    opacity: 0.8;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.imegebox3 {
+    background-image: url('dna.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    opacity: 0.8;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.imegebox h2 {
+    text-align: center;
+}
+
+.imegebox p {
+    font-size: 16px;
 }
