@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2024 at 02:40 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jan 11, 2025 at 05:28 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `user` (
-  `user ID` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `user ID` int(11) NOT NULL,
   `password` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
@@ -40,10 +40,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user ID`, `username`, `password`, `firstname`, `lastname`, `age`) VALUES
-(1, 'tlesk', 'tlesk0708', 'peerapon', 'su', 21),
-(2, 'tlesk', 'tle0708', 'peerapon', 'su', 21),
-(3, 'tlesk', '$2y$10$VAfAOrAxUzB.MVwON/bI3u3QD2kCCqtv4hblfkH1gphCHVoq3LJlW', 'peerapon', 'su', 21);
+INSERT INTO `user` (`username`, `user ID`, `password`, `firstname`, `lastname`, `age`) VALUES
+('Tong', 1, '1234', 'สรวิศ', 'เลอธนกุล', 30),
+('Toong', 3, '1234', 'rwar', 'rawra', 30);
 
 --
 -- Indexes for dumped tables
@@ -53,7 +52,8 @@ INSERT INTO `user` (`user ID`, `username`, `password`, `firstname`, `lastname`, 
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user ID`);
+  ADD PRIMARY KEY (`username`),
+  ADD UNIQUE KEY `user ID` (`user ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -63,7 +63,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
