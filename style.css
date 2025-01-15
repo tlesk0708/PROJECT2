@@ -8,19 +8,35 @@ body{
     font-family: Arial, sans-serif;
     background-color: aliceblue;
     padding-top: 70px;
+    
 
 }
 
 .body1 {
-    background-color: rgb(205, 242, 252);
+    background-color: rgb(213, 247, 255);
     text-align: center;
     margin:0px 5% ;
     border-radius: 1%;
+    align-items: center;
+    justify-items: center;
+ 
+}
+
+.boxbodywhite{
+    background-color: rgb(241, 241, 241);
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 50px;
+    border: 1px solid rgb(171, 171, 171);
+    justify-items: center;
+
 }
 
 .boxbody1{
     background-color: rgb(177, 209, 247);
-    width: 90%;
+    width: 80%;
     height: 100%;
     margin-left: 5%;
     margin-top: 1%;
@@ -29,7 +45,58 @@ body{
     padding-top: 10px;
     padding-bottom: 50px;
     border-radius: 0%;
+    justify-items: center;
 }
+
+.whitebox {
+    margin-bottom: 5px;
+    /* padding: 15px; */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    text-align:left;
+    width: 100%;
+    
+}
+
+
+
+.whitebox2 {
+    background-color: rgba(250, 248, 248, 0.8); /* ใช้ rgba เพื่อให้พื้นหลังโปร่งแสง */
+    width: 50%;
+    height: 200px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 10px;
+    text-align: left;
+    padding-top: 5px;
+    padding-left: 10px;
+    border: 1px solid rgb(171, 171, 171);
+    border-radius: 1%;
+}
+.whitebox3 {
+    width: 70%;
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid rgb(239, 239, 240);
+    background: rgb(248, 255, 255);
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(250, 248, 248, 0.8); /* ใช้ rgba เพื่อให้พื้นหลังโปร่งแสง */
+   
+}
+.whitebox4 {
+    margin-bottom: 5px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    width: 30%;
+    height: 90px;
+    
+}
+
+
 
 header{
     position: fixed;
@@ -48,20 +115,12 @@ header{
 }
 
 
-form, .content{
-    width: 70%;
-    text-align: center;
-    margin: 10px auto;
-    padding: 10px;
-    border: 1px solid #88a7c5;
-    background: white;
-    border-radius: 10px 10px 10px 10px;
-    background-color: rgba(250, 248, 248, 0.8); /* ใช้ rgba เพื่อให้พื้นหลังโปร่งแสง */
-}
+
 
 
 .input-group{
     margin: 10px 0px 10px 0px;
+    
 }
 
 .input-group label{
@@ -69,6 +128,18 @@ form, .content{
     text-align: left;
     margin: 3px;
 }
+.input-group p{
+    display: block;
+    text-align:left;
+    margin: 3px;
+    padding: 0 0 5px 25px;
+}
+.input-group p1{
+    display: block;
+    text-align:center;
+    margin: 3px;
+}
+
 
 .input-group input{
     height: 30px;
@@ -77,6 +148,17 @@ form, .content{
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid rgb(171, 171, 171);
+}
+
+.botton{
+    width: 40%;
+    text-align: center;
+    margin: 5px auto;
+    padding: 10px;
+    border: 1px solid #88a7c5;
+    background: rgb(248, 255, 255);
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(250, 248, 248, 0.8); /* ใช้ rgba เพื่อให้พื้นหลังโปร่งแสง */
 }
 
 .btn {
@@ -111,33 +193,6 @@ form, .content{
     opacity: 0.7;
 }
 
-
-.whitebox{
-    background-color: rgb(250, 248, 248);
-    width: 80%;
-    height: 200px;
-    margin-left: 10%;
-    margin-right: 25%;
-    margin-top: 10px;
-    text-align:left;
-    padding-top: 5px;
-    padding-left: 10px;
-    border: 1px solid rgb(171, 171, 171);
-}
-
-.whitebox2 {
-    background-color: rgba(250, 248, 248, 0.8); /* ใช้ rgba เพื่อให้พื้นหลังโปร่งแสง */
-    width: 50%;
-    height: 200px;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 10px;
-    text-align: left;
-    padding-top: 5px;
-    padding-left: 10px;
-    border: 1px solid rgb(171, 171, 171);
-    border-radius: 1%;
-}
 
 .headbox{
     background-color: rgb(244, 244, 244);
@@ -232,6 +287,7 @@ form, .content{
     cursor: pointer;
     transition: all 0.3s ease;
     color: #575757;
+    font-size: 30px;
 }
 .center-text span:hover {
     background-color: rgba(0, 0, 0, 0.1);
@@ -327,6 +383,7 @@ form, .content{
     border-radius: 10px;
     opacity: 0.8;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    justify-items: center;
 }
 
 .imegebox h2 {
@@ -335,4 +392,47 @@ form, .content{
 
 .imegebox p {
     font-size: 16px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    padding: 10px;
+    display: inline-block;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="radio"]:checked + label {
+    background-color: green;
+    color: white;
+}
+
+label:hover {
+    background-color: #ddd;
+}
+
+.content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
 }

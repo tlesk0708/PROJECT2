@@ -7,47 +7,79 @@
 
     <link rel="stylesheet" href="style.css";>
 </head>
-
+<body>
 <header>
     <div class="logo">
         <img src="detective.png" alt="Logo">
         <span>Luksood GU.</span>
     </div>
-        <span style="text-align: center;color: #575757;">แบบประเมินความพึงพอใจ</span>
+        <span style="font-size: 30px;">แบบประเมินความพึงพอใจ</span>
     <div class="right-text">
         <span>แนะนำคณะที่ใช่</span>
     </div>
 </header>
 
-<body><div class="body1">
-    <div class="boxbody1">
-        <div class="whitebox"><H4>ความตรงกับความต้องการ </H4> <br>
-            <input type="radio" name="form1" value="ไม่เห็นด้วยเลย" required> ไม่เห็นด้วยเลย<br>
-            <input type="radio" name="form1" value="ไม่ค่อยเห็นด้วย"> ไม่ค่อยเห็นด้วย<br>
-            <input type="radio" name="form1" value="เห็นด้วย"> เห็นด้วย<br>
-            <input type="radio" name="form1" value="เห็นด้วยที่สุด"> เห็นด้วยที่สุด<br><br>
+<div class="body1">
+    <div class="boxbodywhite">
+    <form id="quizForm" action="Assessment.php" method="POST">
+        <div class="whitebox">
+            <div style="padding: 15px;">
+                <h4>ความตรงกับความต้องการ?</h4><br>
+                <input type="radio" id="q1_1" name="question1" value="ไม่เห็นด้วยเลย">
+                <label for="q1_1">ไม่เห็นด้วยเลย</label>
+    
+                <input type="radio" id="q1_2" name="question1" value="ไม่ค่อยเห็นด้วย">
+                <label for="q1_2">ไม่ค่อยเห็นด้วย</label>
+    
+                <input type="radio" id="q1_3" name="question1" value="เห็นด้วย">
+                <label for="q1_3">เห็นด้วย</label>
+    
+                <input type="radio" id="q1_4" name="question1" value="เห็นด้วยที่สุด">
+                <label for="q1_4">เห็นด้วยที่สุด</label>
+            </div>
         </div>
-        <div class="whitebox"><H4>ใช้คำถามที่เข้าใจง่าย</H4><br>
-            <input type="radio" name="form2" value="ไม่เห็นด้วยเลย" required> ไม่เห็นด้วยเลย<br>
-            <input type="radio" name="form2" value="ไม่ค่อยเห็นด้วย"> ไม่ค่อยเห็นด้วย<br>
-            <input type="radio" name="form2" value="เห็นด้วย"> เห็นด้วย<br>
-            <input type="radio" name="form2" value="เห็นด้วยที่สุด"> เห็นด้วยที่สุด<br><br>
+        <div class="whitebox">
+            <div style="padding: 15px;">
+                <h4>ใช้คำถามที่เข้าใจง่าย?</h4><br>
+                <input type="radio" id="q2_1" name="question2" value="ไม่เห็นด้วยเลย">
+                <label for="q2_1">ไม่เห็นด้วยเลย</label>
+    
+                <input type="radio" id="q2_2" name="question2" value="ไม่ค่อยเห็นด้วย">
+                <label for="q2_2">ไม่ค่อยเห็นด้วย</label>
+    
+                <input type="radio" id="q2_3" name="question2" value="เห็นด้วย">
+                <label for="q2_3">เห็นด้วย</label>
+    
+                <input type="radio" id="q2_4" name="question2" value="เห็นด้วยที่สุด">
+                <label for="q2_4">เห็นด้วยที่สุด</label>
+            </div>
         </div>
-        <div class="whitebox"><H4>ความพึงพอใจโดยรวม</H4><br>
-            <input type="radio" name="form3" value="ไม่ชอบเลย" required> ไม่ชอบเลย<br>
-            <input type="radio" name="form3" value="ไม่ค่อยชอบ"> ไม่ค่อยชอบ<br>
-            <input type="radio" name="form3" value="ชอบ"> ชอบ<br>
-            <input type="radio" name="form3" value="ชอบมาก"> ชอบมาก<br><br>
+        <div class="whitebox">
+            <div style="padding: 15px;">
+                <h4>ความพึงพอใจโดยรวม?</h4><br>
+                <input type="radio" id="q3_1" name="question3" value="ไม่ชอบเลย">
+                <label for="q3_1">ไม่ชอบเลย</label>
+    
+                <input type="radio" id="q3_2" name="question3" value="ไม่ค่อยชอบ">
+                <label for="q3_2">ไม่ค่อยชอบ</label>
+    
+                <input type="radio" id="q3_3" name="question3" value="ชอบ">
+                <label for="q3_3">ชอบ</label>
+    
+                <input type="radio" id="q3_4" name="question3" value="ชอบมาก">
+                <label for="q3_4">ชอบมาก</label>
+            </div>
         </div>
-        
-    </div>
+    </div>   
+    
 
-    <div class="content">
-        <div class="boxexam"> 
-    <div class="buttonblue-container">
-        <p>บันทึกคำตอบ</p>
-        <a href="dashboard.html"><button type="submit" class="btn" onclick="showWelcomeAlert()">Save</button></a>
-    </div>
+
+        <div class="botton">
+            <div class="input-group"><p1>บันทึกคำตอบ</p1>
+                <button type="submit" class="btn">Save</button>
+            </div>
+        </div>
+    </form>
 
     <script>
         function showWelcomeAlert() {

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 
-    <link rel="stylesheet" href="style.css";>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <header>
@@ -13,46 +14,53 @@
         <img src="detective.png" alt="Logo">
         <span>Luksood GU.</span>
     </div>
-        
+
+    <span style="font-size: 30px;">Register</span>   
+
     <div class="right-text">
         <span>แนะนำคณะที่ใช่</span>
     </div>
 </header>
 
-<body><div class="body1">
-    <div class="imegebox2">
-    <form action="register.php" method="post">
-        <div class="input-group">
-            <label for="firstname">ชื่อจริง</label>
-            <input type="text" name="firstname">
-        </div>
-        <div class="input-group">
-            <label for="lastname">นามสกุล</label>
-            <input type="text" name="lastname">
-        </div>
-        <div class="input-group">
-            <label for="age">อายุ</label>
-            <input type="int" name="age">
-        </div>
-        <div class="input-group">
-            <label for="username">User Name</label>
-            <input type="text" name="username">
-        </div>
-        <div class="input-group">
-            <label for="password">PassWord</label>
-            <input type="password" name="password">
-        </div>
+<body>
+    <div class="body1">
+        <div class="imegebox2">
+            <div class="whitebox3">
+            <form action="register.php" method="post" onsubmit="return validateForm()">
+                <div class="input-group">
+                    <p for="firstname">ชื่อจริง</p>
+                    <input type="text" name="firstname" placeholder="กรุณากรอกชื่อจริงของคุณ" required>
+                </div>
+                <div class="input-group">
+                    <p for="lastname">นามสกุล</p>
+                    <input type="text" name="lastname" placeholder="กรุณากรอกนามสกุลของคุณ" required>
+                </div>
+                <div class="input-group">
+                    <p for="age">อายุ</p>
+                    <input type="number" name="age" placeholder="กรุณากรอกอายุของคุณ" min="0" required>
+                </div>
+                <div class="input-group">
+                    <p for="username">User Name</p>
+                    <input type="text" name="username" placeholder="กรุณากรอกชื่อผู้ใช้" required>
+                </div>
+                <div class="input-group">
+                    <p for="password">PassWord</p>
+                    <input type="password" name="password" placeholder="กรุณากรอกรหัสผ่าน (ต้องมีตัวอักษร 4 ตัวและตัวเลข)" required>
+                </div>
 
-        <p>สมัครสมาชิก</p>
-        <div class="input-group">
-            <button type="submit" class="btn">Next</button>
+                <div class="botton">
+                    <p>สมัครสมาชิก</p>
+                    <button type="submit" class="btn">Next</button>
+                </div>
+            </form>
+
+            <form action="login.html">
+                <div class="botton">
+                    <p>เป็นสมาชิกอยู่แล้ว</p>
+                    <button type="submit" class="btn2">log in</button>
+                </div>
+            </form>
         </div>
-        </form>
-
-        <form action="login.html"><p>เป็นสมาชิกอยู่แล้ว</p>
-        <div class="input-group">
-            <button type="submit" class="btn2">log in</button></form>
-
         </div>
     </div>
 </body>
