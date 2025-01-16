@@ -1,100 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 
-    <link rel="stylesheet" href="style.css";>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<header>
-    <div class="logo">
-        <img src="detective.png" alt="Logo">
-        <span>Luksood GU.</span>
-    </div>
-        <span style="text-align: center;color: #575757;">แบบทดสอบ หน้าที่ 3</span>
-    <div class="right-text">
-        <span>แนะนำคณะที่ใช่</span>
-    </div>
-</header>
+<body>
+    <header>
+        <div class="logo">
+            <img src="detective.png" alt="Logo">
+            <span>Luksood GU.</span>
+        </div>
+        <span style="font-size: 30px;">แบบทดสอบ</span>
+        <div class="right-text">
+            <span>แนะนำคณะที่ใช่</span>
+        </div>
+    </header>
 
-<body><div class="body1">
-    <div class="boxbody1">
-        <div class="whitebox"><H4>ข้อที่ 21 คุณชอบทำงานที่มีขั้นตอนที่ชัดเจนและต้องปฏิบัติตามไหม?</H4><br>
-            <input type="radio" name="question21" value="ไม่ชอบเลย" required> ไม่ชอบเลย<br>
-            <input type="radio" name="question21" value="ชอบบางครั้ง"> ชอบบางครั้ง<br>
-            <input type="radio" name="question21" value="ชอบ"> ชอบ<br>
-            <input type="radio" name="question21" value="ชอบมาก"> ชอบมาก<br><br>
-        </div>
-        <div class="whitebox"><H4>ข้อที่ 22 คุณชอบทำงานที่เกี่ยวข้องกับการจัดการเอกสารหรือข้อมูลไหม?</H4><br>
-            <input type="radio" name="question22" value="ไม่ชอบเลย" required> ไม่ชอบเลย<br>
-            <input type="radio" name="question22" value="ชอบบางครั้ง"> ชอบบางครั้ง<br>
-            <input type="radio" name="question22" value="ชอบ"> ชอบ<br>
-            <input type="radio" name="question22" value="ชอบมาก"> ชอบมาก<br><br>
-        </div>
-        <div class="whitebox"><H4>ข้อที่ 23 คุณชอบทำงานที่มีการวางแผนและจัดการล่วงหน้าไหม?</H4><br>
-            <input type="radio" name="question23" value="ไม่ชอบเลย" required> ไม่ชอบเลย<br>
-            <input type="radio" name="question23" value="ชอบบางครั้ง"> ชอบบางครั้ง<br>
-            <input type="radio" name="question23" value="ชอบ"> ชอบ<br>
-            <input type="radio" name="question23" value="ชอบมาก"> ชอบมาก<br><br>
-        </div>
-        <div class="whitebox"><H4>ข้อที่ 24 คุณสนใจงานที่ต้องตรวจสอบความถูกต้องหรือทำการตรวจทานไหม?</H4><br>
-            <input type="radio" name="question24" value="ไม่สนใจเลย" required> ไม่สนใจเลย<br>
-            <input type="radio" name="question24" value="สนใจบางครั้ง"> สนใจบางครั้ง<br>
-            <input type="radio" name="question24" value="สนใจ"> สนใจ<br>
-            <input type="radio" name="question24" value="สนใจมาก"> สนใจมาก<br><br>
-        </div>
-        <div class="whitebox"><H4>ข้อที่ 25 คุณชอบอยู่ท่ามกลางผู้คนหรือไม่?</H4><br>
-            <input type="radio" name="question25" value="ชอบ" required> ชอบ<br>
-            <input type="radio" name="question25" value="ชอบบางครั้ง"> ชอบบางครั้ง<br>
-            <input type="radio" name="question25" value="ชอบอยู่คนเดียว"> ชอบอยู่คนเดียว<br>
-            <input type="radio" name="question25" value="ชอบเงียบสงบ"> ชอบเงียบสงบ<br><br>
-        </div>
-        <div class="whitebox"><H4>ข้อที่ 26 คุณรู้สึกมีพลังเมื่ออยู่กับคนเยอะๆ หรือไม่?</H4><br>
-            <input type="radio" name="question26" value="รู้สึกพลังเต็มที่" required> รู้สึกพลังเต็มที่<br>
-            <input type="radio" name="question26" value="รู้สึกดี"> รู้สึกดี<br>
-            <input type="radio" name="question26" value="รู้สึกดีกว่าเมื่ออยู่คนเดียว"> รู้สึกดีกว่าเมื่ออยู่คนเดียว<br>
-            <input type="radio" name="question26" value="รู้สึกเหนื่อย"> รู้สึกเหนื่อย<br><br>
-        </div>
-        <div class="whitebox"><H4>ข้อที่ 27 คุณชอบพูดคุยกับคนใหม่ๆ หรือคนที่รู้จักดี?</H4><br>
-            <input type="radio" name="question27" value="ชอบคนใหม่ๆ" required> ชอบคนใหม่ๆ<br>
-            <input type="radio" name="question27" value="ชอบพบปะคนใหม่"> ชอบพบปะคนใหม่<br>
-            <input type="radio" name="question27" value="ชอบคนที่คุ้นเคย"> ชอบคนที่คุ้นเคย<br>
-            <input type="radio" name="question27" value="ชอบอยู่คนเดียว"> ชอบอยู่คนเดียว<br><br>
-        </div>
-        <div class="whitebox"><H4>ข้อที่ 28 คุณรู้สึกสบายใจเมื่ออยู่คนเดียวหรือไม่?</H4><br>
-            <input type="radio" name="question28" value="ไม่ค่อยสบายใจ" required> ไม่ค่อยสบายใจ<br>
-            <input type="radio" name="question28" value="สบายใจบางครั้ง"> สบายใจบางครั้ง<br>
-            <input type="radio" name="question28" value="สบายใจมาก"> สบายใจมาก<br>
-            <input type="radio" name="question28" value="สบายใจที่สุด"> สบายใจที่สุด<br><br>
-        </div>
-        <div class="whitebox"><H4>ข้อที่ 29 คุณชอบทำงานที่มีรายละเอียดและข้อเท็จจริงชัดเจนหรือไม่?</H4><br>
-            <input type="radio" name="question29" value="ชอบมาก" required> ชอบมาก<br>
-            <input type="radio" name="question29" value="ชอบบางครั้ง"> ชอบบางครั้ง<br>
-            <input type="radio" name="question29" value="ไม่ชอบเท่าไหร่"> ไม่ชอบเท่าไหร่<br>
-            <input type="radio" name="question29" value="ไม่สนใจ+"> ไม่สนใจ<br><br>
-        </div>
-        <div class="whitebox"><H4>ข้อที่ 30 คุณชอบใช้ข้อมูลที่สามารถตรวจสอบได้จริงหรือไม่?</H4><br>
-            <input type="radio" name="question30" value="ชอบมาก" required> ชอบมาก<br>
-            <input type="radio" name="question30" value="ชอบ"> ชอบ<br>
-            <input type="radio" name="question30" value="ชอบคิดถึงอนาคต"> ชอบคิดถึงอนาคต<br>
-            <input type="radio" name="question30" value="ชอบนึกถึงสิ่งที่เป็นไปได้"> ชอบนึกถึงสิ่งที่เป็นไปได้<br><br>
-        </div>
-    </div>
+    <div class="body1">
+        <div class="boxbodywhite">
+            <form id="quizForm" action="exam3.php" method="POST">
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 21 คุณชอบทำงานที่มีขั้นตอนที่ชัดเจนและต้องปฏิบัติตามไหม?</h4><br>
+                        <input type="radio" id="q21_1" name="question21" value="ไม่ชอบเลย">
+                        <label for="q21_1">ไม่ชอบเลย</label>
+    
+                        <input type="radio" id="q21_2" name="question21" value="ชอบบางครั้ง">
+                        <label for="q21_2">ชอบบางครั้ง</label>
+    
+                        <input type="radio" id="q21_3" name="question21" value="ชอบ">
+                        <label for="q21_3">ชอบ</label>
+    
+                        <input type="radio" id="q21_4" name="question21" value="ชอบมาก">
+                        <label for="q21_4">ชอบมาก</label>
+                    </div>
+                </div>
 
-    <div class="content">
-        <div class="boxexam"> 
-    <div class="buttonred-container">
-        <p>ย้อนกลับ</p>
-        <a href="exam2.html"><button type="submit" class="btn2">Back</button></a>
-    </div>
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 22 คุณชอบทำงานที่เกี่ยวข้องกับการจัดการเอกสารหรือข้อมูลไหม?</h4><br>
+                        <input type="radio" id="q22_1" name="question22" value="ไม่ชอบเลย">
+                        <label for="q22_1">ไม่ชอบเลย</label>
+    
+                        <input type="radio" id="q22_2" name="question22" value="ชอบบางครั้ง">
+                        <label for="q22_2">ชอบบางครั้ง</label>
+    
+                        <input type="radio" id="q22_3" name="question22" value="ชอบ">
+                        <label for="q22_3">ชอบ</label>
+    
+                        <input type="radio" id="q22_4" name="question22" value="ชอบมาก">
+                        <label for="q22_4">ชอบมาก</label>
+                    </div>
+                </div>
 
-    <div class="buttonblue-container">
-        <p>หน้าถัดไป</p>
-        <a href="exam4.html"><button type="submit" class="btn">Next</button></a>
-    </div>
-    </div>
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 23 คุณชอบทำงานที่มีการวางแผนและจัดการล่วงหน้าไหม?</h4><br>
+                        <input type="radio" id="q23_1" name="question23" value="ไม่ชอบเลย">
+                        <label for="q23_1">ไม่ชอบเลย</label>
+    
+                        <input type="radio" id="q23_2" name="question23" value="ชอบบางครั้ง">
+                        <label for="q23_2">ชอบบางครั้ง</label>
+    
+                        <input type="radio" id="q23_3" name="question23" value="ชอบ">
+                        <label for="q23_3">ชอบ</label>
+    
+                        <input type="radio" id="q23_4" name="question23" value="ชอบมาก">
+                        <label for="q23_4">ชอบมาก</label>
+                    </div>
+                </div>
 
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 24 คุณชอบทำงานที่มีการวางแผนและจัดการล่วงหน้าไหม?</h4><br>
+                        <input type="radio" id="q24_1" name="question24" value="ไม่สนใจ">
+                        <label for="q24_1">ไม่สนใจ</label>
+    
+                        <input type="radio" id="q24_2" name="question24" value="สนใจบางครั้ง">
+                        <label for="q24_2">สนใจบางครั้ง</label>
+    
+                        <input type="radio" id="q24_3" name="question24" value="สนใจ">
+                        <label for="q24_3">สนใจ</label>
+    
+                        <input type="radio" id="q24_4" name="question24" value="สนใจมาก">
+                        <label for="q24_4">สนใจมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 25 คุณชอบอยู่ท่ามกลางผู้คนหรือไม่?</h4><br>
+                        <input type="radio" id="q25_1" name="question25" value="ชอบ">
+                        <label for="q25_1">ชอบ</label>
+    
+                        <input type="radio" id="q25_2" name="question25" value="ชอบบางครั้ง">
+                        <label for="q25_2">ชอบบางครั้ง</label>
+    
+                        <input type="radio" id="q25_3" name="question25" value="ชอบอยู่คนเดียว">
+                        <label for="q25_3">ชอบอยู่คนเดียว</label>
+    
+                        <input type="radio" id="q25_4" name="question25" value="ชอบเงียบ">
+                        <label for="q25_4">ชอบเงียบ</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 26 คุณรู้สึกมีพลังเมื่ออยู่กับคนเยอะๆ หรือไม่?</h4><br>
+                        <input type="radio" id="q26_1" name="question26" value="รู้สึกพลังเต็มที่">
+                        <label for="q26_1">รู้สึกพลังเต็มที่</label>
+    
+                        <input type="radio" id="q26_2" name="question26" value="รู้สึกดี">
+                        <label for="q26_2">รู้สึกดี</label>
+    
+                        <input type="radio" id="q26_3" name="question26" value="รู้สึกดีกว่าเมื่ออยู่คนเดียว">
+                        <label for="q26_3">รู้สึกดีกว่าเมื่ออยู่คนเดียว</label>
+    
+                        <input type="radio" id="q26_4" name="question26" value="รู้สึกเหนื่อย">
+                        <label for="q26_4">รู้สึกเหนื่อย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 27 คุณชอบพูดคุยกับคนใหม่ๆ หรือคนที่รู้จักดี?</h4><br>
+                        <input type="radio" id="q27_1" name="question27" value="ชอบคนใหม่ๆ">
+                        <label for="q27_1">ชอบคนใหม่ๆ</label>
+    
+                        <input type="radio" id="q27_2" name="question27" value="ชอบพบปะคนใหม่">
+                        <label for="q27_2">ชอบพบปะคนใหม่</label>
+    
+                        <input type="radio" id="q27_3" name="question27" value="ชอบคนที่คุ้นเคย">
+                        <label for="q27_3">ชอบคนที่คุ้นเคย</label>
+    
+                        <input type="radio" id="q27_4" name="question27" value="ชอบอยู่คนเดียว">
+                        <label for="q27_4">ชอบอยู่คนเดียว</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 28 คุณรู้สึกสบายใจเมื่ออยู่คนเดียวหรือไม่?</h4><br>
+                        <input type="radio" id="q28_1" name="question28" value="ไม่ค่อยสบายใจ">
+                        <label for="q28_1">ไม่ค่อยสบายใจ</label>
+    
+                        <input type="radio" id="q28_2" name="question28" value="สบายใจบางครั้ง">
+                        <label for="q28_2">สบายใจบางครั้ง</label>
+    
+                        <input type="radio" id="q28_3" name="question28" value="สบายใจมาก">
+                        <label for="q28_3">สบายใจมาก</label>
+    
+                        <input type="radio" id="q28_4" name="question28" value="สบายใจที่สุด">
+                        <label for="q28_4">สบายใจที่สุด</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 29 คุณชอบทำงานที่มีรายละเอียดและข้อเท็จจริงชัดเจนหรือไม่?</h4><br>
+                        <input type="radio" id="q29_1" name="question29" value="ชอบมาก">
+                        <label for="q29_1">ชอบมาก</label>
+    
+                        <input type="radio" id="q29_2" name="question29" value="ชอบบางครั้ง">
+                        <label for="q29_2">ชอบบางครั้ง</label>
+    
+                        <input type="radio" id="q29_3" name="question29" value="ไม่ชอบเท่าไหร่">
+                        <label for="q29_3">ไม่ชอบเท่าไหร่</label>
+    
+                        <input type="radio" id="q29_4" name="question29" value="ไม่สนใจ">
+                        <label for="q29_4">ไม่สนใจ</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 30 คุณชอบใช้ข้อมูลที่สามารถตรวจสอบได้จริงหรือไม่?</h4><br>
+                        <input type="radio" id="q30_1" name="question30" value="ชอบมาก">
+                        <label for="q30_1">ชอบมาก</label>
+    
+                        <input type="radio" id="q30_2" name="question30" value="ชอบ">
+                        <label for="q30_2">ชอบ</label>
+    
+                        <input type="radio" id="q30_3" name="question30" value="ชอบคิดถึงอนาคต">
+                        <label for="q30_3">ชอบคิดถึงอนาคต</label>
+    
+                        <input type="radio" id="q30_4" name="question30" value="ชอบนึกถึงสิ่งที่เป็นไปได้">
+                        <label for="q30_4">ชอบนึกถึงสิ่งที่เป็นไปได้</label>
+                    </div>
+                </div>
+        </div>
+        <div class="botton">
+            <p1>บันทึกคำตอบ</p1><br>
+            <button type="submit" class="btn">Save</button>
+        </div>
+        </form>
+
+
+        <div class="botton">
+            <p>ย้อนกลับ</p>
+            <a href="dashboard.html"><button type="submit" class="btn2">Back</button></a>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>

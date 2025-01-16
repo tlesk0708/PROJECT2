@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo '<script>
             alert("กรุณาตอบคำถามให้ครบทุกข้อ");
-            window.location.href = "exam.html";
+            window.location.href = "exam4.html";
         </script>';
     }
 } else {
