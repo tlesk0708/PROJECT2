@@ -16,24 +16,24 @@ try {
 // ตรวจสอบว่าข้อมูลถูกส่งมาจากฟอร์มหรือไม่
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // รับค่าจากฟอร์ม
-    $question1 = $_POST['question1'] ?? null;
-    $question2 = $_POST['question2'] ?? null;
-    $question3 = $_POST['question3'] ?? null;
+    $question1 = $_POST['assessment1'] ?? null;
+    $question2 = $_POST['assessment2'] ?? null;
+    $question3 = $_POST['assessment3'] ?? null;
     
 
     // ตรวจสอบว่าไม่มีคำถามไหนถูกปล่อยว่าง
-    if ($question1 && $question2 && $question3)
+    if ($assessment1 && $assessment2 && $assessment3)
         {try {
             // เตรียมคำสั่ง SQL เพื่อเพิ่มข้อมูล
-            $sql = "INSERT INTO Assessment (question1, question2, question3)
+            $sql = "INSERT INTO assessment (assessment1, assessment2, assessment3)
                 VALUES 
-                (:question1, :question2, :question3)";
+                (:assessment1, :assessment2, :assessment3)";
             $stmt = $pdo->prepare($sql);
 
             // ผูกค่ากับคำสั่ง SQL
-            $stmt->bindParam(':question1', $question1);
-            $stmt->bindParam(':question2', $question2);
-            $stmt->bindParam(':question3', $question3);
+            $stmt->bindParam(':assessment1', $assessment1);
+            $stmt->bindParam(':assessment2', $assessment2);
+            $stmt->bindParam(':assessment3', $assessment3);
 
             // รันคำสั่ง SQL
             $stmt->execute();

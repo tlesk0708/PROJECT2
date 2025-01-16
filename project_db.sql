@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2025 at 07:07 PM
+-- Generation Time: Jan 16, 2025 at 07:27 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `answers` (
-  `id` int(100) DEFAULT NULL,
+  `id` int(11) NOT NULL,
   `question1` varchar(255) DEFAULT NULL,
   `question2` varchar(255) DEFAULT NULL,
   `question3` varchar(255) DEFAULT NULL,
@@ -71,13 +71,6 @@ CREATE TABLE `answers` (
   `question40` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `answers`
---
-
-INSERT INTO `answers` (`id`, `question1`, `question2`, `question3`, `question4`, `question5`, `question6`, `question7`, `question8`, `question9`, `question10`, `question11`, `question12`, `question13`, `question14`, `question15`, `question16`, `question17`, `question18`, `question19`, `question20`, `question21`, `question22`, `question23`, `question24`, `question25`, `question26`, `question27`, `question28`, `question29`, `question30`, `question31`, `question32`, `question33`, `question34`, `question35`, `question36`, `question37`, `question38`, `question39`, `question40`) VALUES
-(NULL, 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่สนใจเลย', 'ไม่สนใจเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่สนุกเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่รู้สึกดีเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่สนใจ', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่ชอบเลย', 'ไม่สนใจ', 'ชอบ', 'รู้สึกพลังเต็มที่', 'ชอบคนใหม่ๆ', 'ไม่ค่อยสบายใจ', 'ชอบมาก', 'ชอบมาก', 'คิดบ่อย', 'ชอบมาก', 'ใช่', 'ใช้เหตุผล', 'ใช้เหตุผล', 'ใช้เหตุผล', 'ชอบ', 'ชอบ', 'ใช่', 'ชอบ');
-
 -- --------------------------------------------------------
 
 --
@@ -85,23 +78,11 @@ INSERT INTO `answers` (`id`, `question1`, `question2`, `question3`, `question4`,
 --
 
 CREATE TABLE `assessment` (
-  `id` int(100) NOT NULL,
-  `question1` varchar(255) NOT NULL,
-  `question2` varchar(255) NOT NULL,
-  `question3` varchar(255) NOT NULL
+  `assessment_id` int(100) NOT NULL,
+  `assessment1` varchar(255) NOT NULL,
+  `assessment2` varchar(255) NOT NULL,
+  `assessment3` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `assessment`
---
-
-INSERT INTO `assessment` (`id`, `question1`, `question2`, `question3`) VALUES
-(1, 'ไม่เห็นด้วยเลย', 'ไม่ค่อยเห็นด้วย', 'ไม่ค่อยชอบ'),
-(2, 'ไม่เห็นด้วยเลย', 'ไม่ค่อยเห็นด้วย', 'ไม่ค่อยชอบ'),
-(3, 'ไม่เห็นด้วยเลย', 'ไม่ค่อยเห็นด้วย', 'ไม่ค่อยชอบ'),
-(4, 'ไม่เห็นด้วยเลย', 'ไม่เห็นด้วยเลย', 'ไม่ค่อยชอบ'),
-(5, 'เห็นด้วยที่สุด', 'เห็นด้วยที่สุด', 'ชอบมาก'),
-(6, 'ไม่เห็นด้วยเลย', 'ไม่ค่อยเห็นด้วย', 'ไม่ค่อยชอบ');
 
 -- --------------------------------------------------------
 
@@ -137,10 +118,16 @@ INSERT INTO `user` (`username`, `user_id`, `password`, `firstname`, `lastname`, 
 --
 
 --
+-- Indexes for table `answers`
+--
+ALTER TABLE `answers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `assessment`
 --
 ALTER TABLE `assessment`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`assessment_id`);
 
 --
 -- Indexes for table `user`
@@ -154,10 +141,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `answers`
+--
+ALTER TABLE `answers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `assessment`
 --
 ALTER TABLE `assessment`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `assessment_id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
