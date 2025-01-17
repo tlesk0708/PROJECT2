@@ -13,7 +13,7 @@ function closeInfo() {
 function validateForm() {
     const age = document.forms[0]["age"].value.trim();
     const password = document.forms[0]["password"].value;
-
+    
     // ตรวจสอบอายุ: ต้องเป็นตัวเลขที่ไม่ต่ำกว่า 0
     if (age < 0) {
         alert("อายุไม่สามารถต่ำกว่า 0 ได้");
@@ -28,6 +28,7 @@ function validateForm() {
     }
 
     return true; // ส่งฟอร์มถ้าทุกอย่างถูกต้อง
+
 }
 
 // ฟังก์ชันตรวจสอบรหัสผ่าน

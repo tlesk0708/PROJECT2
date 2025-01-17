@@ -37,7 +37,7 @@
                 </div>
                 <div class="input-group">
                     <p for="age">อายุ</p>
-                    <input type="number" name="age" placeholder="กรุณากรอกอายุของคุณ" min="0" required>
+                    <input type="number" id="age" name="age" placeholder="กรุณากรอกอายุของคุณ" onkeydown="blockEKey(event)" min="0" required>
                 </div>
                 <div class="input-group">
                     <p for="username">User Name</p>
@@ -63,5 +63,12 @@
         </div>
         </div>
     </div>
+    <script>
+        function blockEKey(event) {
+    if (event.key.toLowerCase() === "e" || event.key === "+" || event.key === "-") {
+        event.preventDefault(); // ป้องกันไม่ให้พิมพ์ตัวอักษร e, + หรือ -
+    }
+}
+    </script>
 </body>
 </html>
