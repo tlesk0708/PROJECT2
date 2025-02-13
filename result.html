@@ -25,6 +25,14 @@
             <div class="imegebox3">
                 <div class="whitebox3">
                     <h1 style="text-align: center;">ผลลัพธ์</h1>
+
+                    <div id="facultyRecommendations">
+                        <h3>คณะที่แนะนำสำหรับคุณ:</h3>
+                        <ul id="facultyList">
+                            <!-- รายการคณะที่แนะนำจะแสดงที่นี่ -->
+                        </ul>
+                    </div>
+
                     <!-- แสดงกราฟ Pie Chart -->
                     <div class="charts-container" style="display: flex; justify-content: space-around; margin-top: 20px;">
                         <div style="width: 50%;">
@@ -98,6 +106,8 @@
             plugins: ['textPlugin'] // เพิ่ม Plugin ข้อความ
         });
     </script>
+
+<script src="score.js"></script>
     
 </body>
 </html>

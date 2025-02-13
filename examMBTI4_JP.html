@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="detective.png" alt="Logo">
+            <span>Luksood GU.</span>
+        </div>
+        <span style="font-size: 30px;">แบบทดสอบ</span>
+        <div class="right-text">
+            <span>แนะนำคณะที่ใช่</span>
+        </div>
+    </header>
+    <div class="body1">
+        <div class="boxbodywhite">
+            <form id="quizForm" action="result.html" method="POST">
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 37 คุณชอบทำงานที่มีกฎระเบียบหรือไม่?</h4><br>
+                        <input type="radio" id="q37_1" name="question37" value="ชอบ">
+                        <label for="q37_1" data-number= 1>ชอบ</label>
+    
+                        <input type="radio" id="q37_2" name="question37" value="ชอบมาก">
+                        <label for="q37_2" data-number= 1>ชอบมาก</label>
+    
+                        <input type="radio" id="q37_3" name="question37" value="ชอบกฎระเบียบที่ยืดหยุ่น">
+                        <label for="q37_3" data-number= 1>ชอบกฎระเบียบที่ยืดหยุ่น</label>
+    
+                        <input type="radio" id="q37_4" name="question37" value="ชอบไม่มีกฎระเบียบ">
+                        <label for="q37_4" data-number= 1>ชอบไม่มีกฎระเบียบ</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 38 คุณชอบทำงานที่มีขั้นตอนชัดเจนหรือไม่?</h4><br>
+                        <input type="radio" id="q38_1" name="question38" value="ชอบ">
+                        <label for="q38_1" data-number= 1>ชอบ</label>
+    
+                        <input type="radio" id="q38_2" name="question38" value="ชอบมาก">
+                        <label for="q38_2" data-number= 1>ชอบมาก</label>
+    
+                        <input type="radio" id="q38_3" name="question38" value="ชอบงานที่ยืดหยุ่น">
+                        <label for="q38_3" data-number= 1>ชอบงานที่ยืดหยุ่น</label>
+    
+                        <input type="radio" id="q38_4" name="question38" value="ชอบงานที่ไม่ต้องวางแผน">
+                        <label for="q38_4" data-number= 1>ชอบงานที่ไม่ต้องวางแผน</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 39 คุณชอบทำงานที่มีขั้นตอนชัดเจนหรือไม่?</h4><br>
+                        <input type="radio" id="q39_1" name="question39" value="ใช่">
+                        <label for="q39_1" data-number= 1>ใช่</label>
+    
+                        <input type="radio" id="q39_2" name="question39" value="รู้สึกดีมาก">
+                        <label for="q39_2" data-number= 1>รู้สึกดีมาก</label>
+    
+                        <input type="radio" id="q39_3" name="question39" value="ชอบแบบไม่มีแบบแผน">
+                        <label for="q39_3" data-number= 1>ชอบแบบไม่มีแบบแผน</label>
+    
+                        <input type="radio" id="q39_4" name="question39" value="ไม่ชอบวางแผนเลย">
+                        <label for="q39_4" data-number= 1>ไม่ชอบวางแผนเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 40 คุณชอบทำงานที่มีเสรีภาพหรือไม่?</h4><br>
+                        <input type="radio" id="q40_1" name="question40" value="ชอบ">
+                        <label for="q40_1" data-number= 1>ชอบ</label>
+    
+                        <input type="radio" id="q40_2" name="question40" value="ชอบมาก">
+                        <label for="q40_2" data-number= 1>ชอบมาก</label>
+    
+                        <input type="radio" id="q40_3" name="question40" value="ชอบงานที่กำหนดแบบแผน">
+                        <label for="q40_3" data-number= 1>ชอบงานที่กำหนดแบบแผน</label>
+    
+                        <input type="radio" id="q40_4" name="question40" value="ชอบแผนที่ชัดเจน">
+                        <label for="q40_4" data-number= 1>ชอบแผนที่ชัดเจน</label>
+                    </div>
+                </div>
+
+        </div>
+    <div class="botton">
+        <p1>บันทึกคำตอบ</p1><br>
+        <button type="submit" class="btn" onclick="saveResults()">Save</button>
+    </div>
+    </form>
+
+
+    <div class="botton">
+        <p>ย้อนกลับ</p>
+        <a href="dashboard.html"><button type="submit" class="btn2">Back</button></a>
+    </div>
+</div>
+</div>
+<script src="script.js"></script>
+<script src="score.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="detective.png" alt="Logo">
+            <span>Luksood GU.</span>
+        </div>
+        <span style="font-size: 30px;">แบบทดสอบ</span>
+        <div class="right-text">
+            <span>แนะนำคณะที่ใช่</span>
+        </div>
+    </header>
+    <div class="body1">
+        <div class="boxbodywhite">
+            <form id="quizForm" action="examMBTI4_JP.html" method="POST">
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 33 คุณตัดสินใจโดยพิจารณาจากเหตุผลและข้อเท็จจริงหรือไม่?</h4><br>
+                        <input type="radio" id="q33_1" name="question33" value="ใช่">
+                        <label for="q33_1" >ใช่</label>
+    
+                        <input type="radio" id="q33_2" name="question33" value="ใช้เหตุผล">
+                        <label for="q33_2" >ใช้เหตุผล</label>
+    
+                        <input type="radio" id="q33_3" name="question33" value="ใช้ความรู้สึก">
+                        <label for="q33_3" >ใช้ความรู้สึก</label>
+    
+                        <input type="radio" id="q33_4" name="question33" value="ใช้ความรู้สึกบางครั้ง">
+                        <label for="q33_4" >ใช้ความรู้สึกบางครั้ง</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 34 คุณมักจะตัดสินใจตามเหตุผลหรือความคิดเห็นของผู้อื่น?</h4><br>
+                        <input type="radio" id="q34_1" name="question34" value="ใช้เหตุผล">
+                        <label for="q34_1" >ใช้เหตุผล</label>
+    
+                        <input type="radio" id="q34_2" name="question34" value="ใช้เหตุผลส่วนใหญ่">
+                        <label for="q34_2" >ใช้เหตุผลส่วนใหญ่</label>
+    
+                        <input type="radio" id="q34_3" name="question34" value="ใช้ความรู้สึก">
+                        <label for="q34_3" >ใช้ความรู้สึก</label>
+    
+                        <input type="radio" id="q34_4" name="question34" value="ตามสถานการณ์">
+                        <label for="q34_4" >ตามสถานการณ์</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 35 คุณตัดสินใจโดยคำนึงถึงข้อเท็จจริงหรือความรู้สึกของผู้อื่น?</h4><br>
+                        <input type="radio" id="q35_1" name="question35" value="ใช้เหตุผล">
+                        <label for="q35_1" >ใช้เหตุผล</label>
+    
+                        <input type="radio" id="q35_2" name="question35" value="ใช้เหตุผลส่วนใหญ่">
+                        <label for="q35_2" >ใช้เหตุผลส่วนใหญ่</label>
+    
+                        <input type="radio" id="q35_3" name="question35" value="ใช้ความรู้สึก">
+                        <label for="q35_3" >ใช้ความรู้สึก</label>
+    
+                        <input type="radio" id="q35_4" name="question35" value="ตามสถานการณ์">
+                        <label for="q35_4" >ตามสถานการณ์</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 36 คุณตัดสินใจโดยคำนึงถึงข้อเท็จจริงหรือความรู้สึกของผู้อื่น?</h4><br>
+                        <input type="radio" id="q36_1" name="question36" value="ใช้เหตุผล">
+                        <label for="q36_1" >ใช้เหตุผล</label>
+    
+                        <input type="radio" id="q36_2" name="question36" value="ใช้เหตุผลบางครั้ง">
+                        <label for="q36_2" >ใช้เหตุผลบางครั้ง</label>
+    
+                        <input type="radio" id="q36_3" name="question36" value="ใช้ความรู้สึก">
+                        <label for="q36_3" >ใช้ความรู้สึก</label>
+    
+                        <input type="radio" id="q36_4" name="question36" value="ขึ้นอยู่กับสถานการณ์">
+                        <label for="q36_4" >ขึ้นอยู่กับสถานการณ์</label>
+                    </div>
+                </div>
+        </div>
+    <div class="botton">
+        <p1>บันทึกคำตอบ</p1><br>
+        <button type="submit" class="btn" onclick="calculateScore_TF()">Save</button>
+    </div>
+    </form>
+
+
+    <div class="botton">
+        <p>ย้อนกลับ</p>
+        <a href="dashboard.html"><button type="submit" class="btn2">Back</button></a>
+    </div>
+</div>
+</div>
+<script src="script.js"></script>
+<script src="score.js"></script>
+</body>
+
+</html>

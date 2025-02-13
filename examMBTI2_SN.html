@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="detective.png" alt="Logo">
+            <span>Luksood GU.</span>
+        </div>
+        <span style="font-size: 30px;">แบบทดสอบ</span>
+        <div class="right-text">
+            <span>แนะนำคณะที่ใช่</span>
+        </div>
+    </header>
+    <div class="body1">
+        <div class="boxbodywhite">
+            <form id="quizForm" action="examMBTI3_TF.html" method="POST">
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 29 คุณชอบทำงานที่มีรายละเอียดและข้อเท็จจริงชัดเจนหรือไม่?</h4><br>
+                        <input type="radio" id="q29_1" name="question29" value="ชอบมาก">
+                        <label for="q29_1" >ชอบมาก</label>
+    
+                        <input type="radio" id="q29_2" name="question29" value="ชอบบางครั้ง">
+                        <label for="q29_2" >ชอบบางครั้ง</label>
+    
+                        <input type="radio" id="q29_3" name="question29" value="ไม่ชอบเท่าไหร่">
+                        <label for="q29_3" >ไม่ชอบเท่าไหร่</label>
+    
+                        <input type="radio" id="q29_4" name="question29" value="ไม่สนใจ">
+                        <label for="q29_4" >ไม่สนใจ</label>
+                    </div> 
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 30 คุณชอบใช้ข้อมูลที่สามารถตรวจสอบได้จริงหรือไม่?</h4><br>
+                        <input type="radio" id="q30_1" name="question30" value="ชอบมาก">
+                        <label for="q30_1" >ชอบมาก</label>
+    
+                        <input type="radio" id="q30_2" name="question30" value="ชอบ">
+                        <label for="q30_2" >ชอบ</label>
+    
+                        <input type="radio" id="q30_3" name="question30" value="ชอบคิดถึงอนาคต">
+                        <label for="q30_3" >ชอบคิดถึงอนาคต</label>
+    
+                        <input type="radio" id="q30_4" name="question30" value="ชอบนึกถึงสิ่งที่เป็นไปได้">
+                        <label for="q30_4" >ชอบนึกถึงสิ่งที่เป็นไปได้</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 31 คุณมักจะคิดถึงอนาคตหรือเหตุการณ์ที่อาจเกิดขึ้น?</h4><br>
+                        <input type="radio" id="q31_1" name="question31" value="คิดบ่อย">
+                        <label for="q31_1" >คิดบ่อย</label>
+    
+                        <input type="radio" id="q31_2" name="question31" value="คิดบางครั้ง">
+                        <label for="q31_2" >คิดบางครั้ง</label>
+    
+                        <input type="radio" id="q31_3" name="question31" value="มองที่ปัจจุบัน">
+                        <label for="q31_3" >มองที่ปัจจุบัน</label>
+    
+                        <input type="radio" id="q31_4" name="question31" value="สนใจสิ่งที่เป็นจริง">
+                        <label for="q31_4" >สนใจสิ่งที่เป็นจริง</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 32 คุุณชอบทำงานที่สร้างสรรค์และมีทฤษฎีใหม่ๆ หรือไม่?</h4><br>
+                        <input type="radio" id="q32_1" name="question32" value="ชอบมาก">
+                        <label for="q32_1" >ชอบมาก</label>
+    
+                        <input type="radio" id="q32_2" name="question32" value="ชอบ">
+                        <label for="q32_2" >ชอบ</label>
+    
+                        <input type="radio" id="q32_3" name="question32" value="ชอบงานที่มีกระบวนการชัดเจน">
+                        <label for="q32_3" >ชอบงานที่มีกระบวนการชัดเจน</label>
+    
+                        <input type="radio" id="q32_4" name="question32" value="ชอบทำตามที่กำหนดไว้">
+                        <label for="q32_4" >ชอบทำตามที่กำหนดไว้</label>
+                    </div>
+                </div>
+
+        </div>
+    <div class="botton">
+        <p1>บันทึกคำตอบ</p1><br>
+        <button type="submit" class="btn" onclick="calculateScore_SN()">Save</button>
+    </div>
+    </form>
+
+
+    <div class="botton">
+        <p>ย้อนกลับ</p>
+        <a href="dashboard.html"><button type="submit" class="btn2">Back</button></a>
+    </div>
+</div>
+</div>
+<script src="script.js"></script>
+<script src="score.js"></script>
+</body>
+
+</html>

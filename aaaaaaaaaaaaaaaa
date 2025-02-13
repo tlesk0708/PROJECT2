@@ -1,0 +1,13 @@
+<p style="text-align: center;">ในระยะเวลา 2 สัปดาห์ที่ผ่านมา รวมทั้งวันนี้</p>
+          <div class="choice-container" data-score="0">
+            <p class="choice-text" data-number= 0>ไม่มีเลย</p>
+          </div>
+          <div class="choice-container" data-score="1">
+            <p class="choice-text" data-number= 1>เป็นบางวัน 1-7 วัน</p>
+          </div>
+          <div class="choice-container" data-score="2">
+            <p class="choice-text" data-number= 2>เป็นบ่อยมากกว่า 7 วัน</p>
+          </div>
+          <div class="choice-container" data-score="3">
+            <p class="choice-text" data-number= 3>เป็นทุกวัน</p>
+          </div>

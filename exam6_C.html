@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="detective.png" alt="Logo">
+            <span>Luksood GU.</span>
+        </div>
+        <span style="font-size: 30px;">แบบทดสอบ</span>
+        <div class="right-text">
+            <span>แนะนำคณะที่ใช่</span>
+        </div>
+    </header>
+    <div class="body1">
+        <div class="boxbodywhite">
+            <form id="quizForm" action="examMBTI1_EI.html" method="POST">
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 21 คุณชอบทำงานที่มีขั้นตอนที่ชัดเจนและต้องปฏิบัติตามไหม?</h4><br>
+                        <input type="radio" id="q21_1" data-score="1" name="question21" value="ไม่ชอบเลย">
+                        <label for="q21_1" data-number= 1>ไม่ชอบเลย</label>
+    
+                        <input type="radio" id="q21_2" data-score="2" name="question21" value="ชอบบางครั้ง">
+                        <label for="q21_2" data-number= 2>ชอบบางครั้ง</label>
+    
+                        <input type="radio" id="q21_3" data-score="3" name="question21" value="ชอบ">
+                        <label for="q21_3" data-number= 3>ชอบ</label>
+    
+                        <input type="radio" id="q21_4" data-score="4" name="question21" value="ชอบมาก">
+                        <label for="q21_4" data-number= 4>ชอบมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 22 คุณชอบทำงานที่เกี่ยวข้องกับการจัดการเอกสารหรือข้อมูลไหม?</h4><br>
+                        <input type="radio" id="q22_1" data-score="1" name="question22" value="ไม่ชอบเลย">
+                        <label for="q22_1" data-number= 1>ไม่ชอบเลย</label>
+    
+                        <input type="radio" id="q22_2" data-score="2" name="question22" value="ชอบบางครั้ง">
+                        <label for="q22_2" data-number= 2>ชอบบางครั้ง</label>
+    
+                        <input type="radio" id="q22_3" data-score="3" name="question22" value="ชอบ">
+                        <label for="q22_3" data-number= 3>ชอบ</label>
+    
+                        <input type="radio" id="q22_4" data-score="4" name="question22" value="ชอบมาก">
+                        <label for="q22_4" data-number= 4>ชอบมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 23 คุณชอบทำงานที่มีการวางแผนและจัดการล่วงหน้าไหม?</h4><br>
+                        <input type="radio" id="q23_1" data-score="1" name="question23" value="ไม่ชอบเลย">
+                        <label for="q23_1" data-number= 1>ไม่ชอบเลย</label>
+    
+                        <input type="radio" id="q23_2" data-score="2" name="question23" value="ชอบบางครั้ง">
+                        <label for="q23_2" data-number= 2>ชอบบางครั้ง</label>
+    
+                        <input type="radio" id="q23_3" data-score="3" name="question23" value="ชอบ">
+                        <label for="q23_3" data-number= 3>ชอบ</label>
+    
+                        <input type="radio" id="q23_4" data-score="4" name="question23" value="ชอบมาก">
+                        <label for="q23_4" data-number= 4>ชอบมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>ข้อที่ 24 คุณชอบทำงานที่มีการวางแผนและจัดการล่วงหน้าไหม?</h4><br>
+                        <input type="radio" id="q24_1" data-score="1" name="question24" value="ไม่สนใจ">
+                        <label for="q24_1" data-number= 1>ไม่สนใจ</label>
+    
+                        <input type="radio" id="q24_2" data-score="2" name="question24" value="สนใจบางครั้ง">
+                        <label for="q24_2" data-number= 2>สนใจบางครั้ง</label>
+    
+                        <input type="radio" id="q24_3" data-score="3" name="question24" value="สนใจ">
+                        <label for="q24_3" data-number= 3>สนใจ</label>
+    
+                        <input type="radio" id="q24_4" data-score="4" name="question24" value="สนใจมาก">
+                        <label for="q24_4" data-number= 4>สนใจมาก</label>
+                    </div>
+                </div>
+        </div>
+    <div class="botton">
+        <p1>บันทึกคำตอบ</p1><br>
+        <button type="submit" class="btn" onclick="calculateScore_C()">Save</button>
+    </div>
+    </form>
+
+
+    <div class="botton">
+        <p>ย้อนกลับ</p>
+        <a href="dashboard.html"><button type="submit" class="btn2">Back</button></a>
+    </div>
+</div>
+</div>
+<script src="script.js"></script>
+<script src="score.js"></script>
+</body>
+
+</html>
