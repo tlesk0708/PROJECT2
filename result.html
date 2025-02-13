@@ -25,14 +25,6 @@
             <div class="imegebox3">
                 <div class="whitebox3">
                     <h1 style="text-align: center;">ผลลัพธ์</h1>
-
-                    <div id="facultyRecommendations">
-                        <h3>คณะที่แนะนำสำหรับคุณ:</h3>
-                        <ul id="facultyList">
-                            <!-- รายการคณะที่แนะนำจะแสดงที่นี่ -->
-                        </ul>
-                    </div>
-
                     <!-- แสดงกราฟ Pie Chart -->
                     <div class="charts-container" style="display: flex; justify-content: space-around; margin-top: 20px;">
                         <div style="width: 50%;">
@@ -54,32 +46,53 @@
 
     <!-- สคริปต์สำหรับสร้างกราฟ -->
     <script>
-        // กำหนดข้อความ labels แยกเป็นตัวแปร
-        const chartLabels = ['คณะวิทยาศาสตร์และเทคโนโลยี', 'คณะวิศวกรรมศาสตร์', 'คณะเทคโนโลยีการเกษตร']; // ชื่อในกราฟ
-        const chartData = [40, 35, 25]; // ข้อมูลเปอร์เซ็นต์
+        // ดึงคะแนน RIASEC จาก localStorage
+        const R_score = parseInt(localStorage.getItem('totalScore_R')) || 0;
+        const I_score = parseInt(localStorage.getItem('totalScore_I')) || 0;
+        const A_score = parseInt(localStorage.getItem('totalScore_A')) || 0;
+        const S_score = parseInt(localStorage.getItem('totalScore_S')) || 0;
+        const E_score = parseInt(localStorage.getItem('totalScore_E')) || 0;
+        const C_score = parseInt(localStorage.getItem('totalScore_C')) || 0;
+    
+        // สร้างอาร์เรย์เก็บค่าคะแนนของแต่ละหมวด
+        let RIASEC_Scores = [
+            { type: 'R', score: R_score, faculty: 'คณะวิศวกรรมศาสตร์' },
+            { type: 'I', score: I_score, faculty: 'คณะวิทยาศาสตร์และเทคโนโลยี' },
+            { type: 'A', score: A_score, faculty: 'คณะศิลปกรรมศาสตร์' },
+            { type: 'S', score: S_score, faculty: 'คณะศิลปศาสตร์' },
+            { type: 'E', score: E_score, faculty: 'คณะบริหารธุรกิจ' },
+            { type: 'C', score: C_score, faculty: 'คณะเทคโนโลยีคหกรรมศาสตร์' }
+        ];
+    
+        // เรียงลำดับคะแนนจากมากไปน้อย
+        RIASEC_Scores.sort((a, b) => b.score - a.score);
+    
+        // เลือก 3 อันดับแรก
+        let top3 = RIASEC_Scores.slice(0, 3);
+    
+        // ดึงข้อมูลสำหรับกราฟ
+        const chartLabels = top3.map(item => item.faculty);
+        const chartData = top3.map(item => item.score);
         const chartColors = ['#FF6384', '#36A2EB', '#FFCE56']; // สีของแต่ละส่วน
     
-        // เพิ่ม Plugin สำหรับแสดงข้อความใน Pie Chart บนพื้นที่สี
+        // สร้าง Plugin แสดงข้อความบน Pie Chart
         Chart.register({
             id: 'textPlugin',
-            afterDatasetDraw: function(chart) {
+            afterDraw(chart) {
                 const ctx = chart.ctx;
                 const datasets = chart.data.datasets[0];
                 const meta = chart.getDatasetMeta(0);
-                
-                // วนลูปผ่านแต่ละส่วนของ Pie Chart
+    
+                ctx.font = '14px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillStyle = '#000';
+    
                 meta.data.forEach((arc, index) => {
-                    const { x, y } = arc.tooltipPosition(); // ตำแหน่งตรงกลางของแต่ละส่วน
+                    const { x, y } = arc.tooltipPosition();
                     const value = datasets.data[index];
-                    const label = chartLabels[index]; // ใช้ตัวแปร chartLabels
-                    
-                    // ตั้งค่าฟอนต์และข้อความ
-                    ctx.save();
-                    ctx.font = '14px Arial';
-                    ctx.fillStyle = '#000000'; // สีข้อความ
-                    ctx.textAlign = 'center';
-                    ctx.fillText(`${label}: ${value}%`, x, y); // แสดงข้อความในแต่ละส่วน
-                    ctx.restore();
+                    const label = chart.data.labels[index];
+    
+                    ctx.fillText(`${label}: ${value}`, x, y);
                 });
             }
         });
@@ -89,23 +102,24 @@
         new Chart(ctx1, {
             type: 'pie',
             data: {
-                labels: chartLabels, // เรียกใช้ตัวแปร labels
+                labels: chartLabels,
                 datasets: [{
-                    data: chartData, // เรียกใช้ตัวแปร data
-                    backgroundColor: chartColors, // เรียกใช้ตัวแปร colors
+                    data: chartData,
+                    backgroundColor: chartColors,
                 }]
             },
             options: {
                 responsive: true,
                 plugins: {
                     legend: {
-                        position: 'top', // ตำแหน่งตำนาน
-                    },
+                        position: 'top',
+                    }
                 }
             },
-            plugins: ['textPlugin'] // เพิ่ม Plugin ข้อความ
+            plugins: ['textPlugin'] // เพิ่ม Plugin แสดงข้อความ
         });
     </script>
+    
 
 <script src="score.js"></script>
     

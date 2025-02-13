@@ -128,10 +128,6 @@ function calculateScore_EI() {
 
 }
 
-    
-
-
-
 // คำนวณคะแนนของ S/N
 function calculateScore_SN() {
     let S_score = 0;
@@ -141,37 +137,43 @@ function calculateScore_SN() {
     let q29 = document.querySelector('input[name="question29"]:checked');
     if (q29) {
         if (q29.value === "ชอบมาก") S_score += 1;
-        else if (q29.value === "ชอบบางครั้ง") S_score += 0.5;
-        else if (q29.value === "ไม่ชอบเท่าไหร่") N_score += 0.5;
+        else if (q29.value === "ชอบบางครั้ง") S_score += 1;
+        else if (q29.value === "ไม่ชอบเท่าไหร่") N_score += 1;
         else if (q29.value === "ไม่สนใจ") N_score += 1;
     }
 
     let q30 = document.querySelector('input[name="question30"]:checked');
     if (q30) {
         if (q30.value === "ชอบมาก") S_score += 1;
-        else if (q30.value === "ชอบ") S_score += 0.5;
-        else if (q30.value === "ชอบคิดถึงอนาคต") N_score += 0.5;
+        else if (q30.value === "ชอบ") S_score += 1;
+        else if (q30.value === "ชอบคิดถึงอนาคต") N_score += 1;
         else if (q30.value === "ชอบนึกถึงสิ่งที่เป็นไปได้") N_score += 1;
     }
 
     let q31 = document.querySelector('input[name="question31"]:checked');
     if (q31) {
         if (q31.value === "มองที่ปัจจุบัน") S_score += 1;
-        else if (q31.value === "สนใจสิ่งที่เป็นจริง") S_score += 0.5;
-        else if (q31.value === "คิดบางครั้ง") N_score += 0.5;
+        else if (q31.value === "สนใจสิ่งที่เป็นจริง") S_score += 1;
+        else if (q31.value === "คิดบางครั้ง") N_score += 1;
         else if (q31.value === "คิดบ่อย") N_score += 1;
     }
 
     let q32 = document.querySelector('input[name="question32"]:checked');
     if (q32) {
         if (q32.value === "ชอบงานที่มีกระบวนการชัดเจน") S_score += 1;
-        else if (q32.value === "ชอบทำตามที่กำหนดไว้") S_score += 0.5;
-        else if (q32.value === "ชอบ") N_score += 0.5;
+        else if (q32.value === "ชอบทำตามที่กำหนดไว้") S_score += 1;
+        else if (q32.value === "ชอบ") N_score += 1;
         else if (q32.value === "ชอบมาก") N_score += 1;
     }
-
     // เก็บค่าไว้ในตัวแปร
-    return { S_score, N_score };
+    localStorage.setItem('S_score', S_score);
+    localStorage.setItem('N_score', N_score);
+
+    if (S_score >= N_score) {
+        alert("คุณเป็น  (S)!");
+    } else {
+        alert("คุณเป็น  (N)!");
+    }
 }
 
 // คำนวณคะแนนของ T/F
@@ -183,37 +185,44 @@ function calculateScore_TF() {
     let q33 = document.querySelector('input[name="question33"]:checked');
     if (q33) {
         if (q33.value === "ใช่") T_score += 1;
-        else if (q33.value === "ใช้เหตุผล") T_score += 0.5;
-        else if (q33.value === "ใช้ความรู้สึก") F_score += 0.5;
+        else if (q33.value === "ใช้เหตุผล") T_score += 1;
+        else if (q33.value === "ใช้ความรู้สึก") F_score += 1;
         else if (q33.value === "ใช้ความรู้สึกบางครั้ง") F_score += 1;
     }
 
     let q34 = document.querySelector('input[name="question34"]:checked');
     if (q34) {
         if (q34.value === "ใช้เหตุผล") T_score += 1;
-        else if (q34.value === "ใช้เหตุผลส่วนใหญ่") T_score += 0.5;
-        else if (q34.value === "ใช้ความรู้สึก") F_score += 0.5;
+        else if (q34.value === "ใช้เหตุผลส่วนใหญ่") T_score += 1;
+        else if (q34.value === "ใช้ความรู้สึก") F_score += 1;
         else if (q34.value === "ตามสถานการณ์") F_score += 1;
     }
 
     let q35 = document.querySelector('input[name="question35"]:checked');
     if (q35) {
         if (q35.value === "ใช้เหตุผล") T_score += 1;
-        else if (q35.value === "ใช้เหตุผลส่วนใหญ่") T_score += 0.5;
-        else if (q35.value === "ใช้ความรู้สึก") F_score += 0.5;
+        else if (q35.value === "ใช้เหตุผลส่วนใหญ่") T_score += 1;
+        else if (q35.value === "ใช้ความรู้สึก") F_score += 1;
         else if (q35.value === "ตามสถานการณ์") F_score += 1;
     }
 
     let q36 = document.querySelector('input[name="question36"]:checked');
     if (q36) {
         if (q36.value === "ใช้เหตุผล") T_score += 1;
-        else if (q36.value === "ใช้เหตุผลบางครั้ง") T_score += 0.5;
-        else if (q36.value === "ใช้ความรู้สึก") F_score += 0.5;
+        else if (q36.value === "ใช้เหตุผลบางครั้ง") T_score += 1;
+        else if (q36.value === "ใช้ความรู้สึก") F_score += 1;
         else if (q36.value === "ขึ้นอยู่กับสถานการณ์") F_score += 1;
     }
 
     // เก็บค่าไว้ในตัวแปร
-    return { T_score, F_score };
+    localStorage.setItem('T_score', T_score);
+    localStorage.setItem('F_score', F_score);
+
+    if (T_score >= F_score) {
+        alert("คุณเป็น  (T)!");
+    } else {
+        alert("คุณเป็น  (F)!");
+    }
 }
 
 // คำนวณคะแนนของ J/P
@@ -225,158 +234,136 @@ function calculateScore_JP() {
     let q37 = document.querySelector('input[name="question37"]:checked');
     if (q37) {
         if (q37.value === "ชอบ") J_score += 1;
-        else if (q37.value === "ชอบมาก") J_score += 0.5;
-        else if (q37.value === "ชอบกฎระเบียบที่ยืดหยุ่น") P_score += 0.5;
+        else if (q37.value === "ชอบมาก") J_score += 1;
+        else if (q37.value === "ชอบกฎระเบียบที่ยืดหยุ่น") P_score += 1;
         else if (q37.value === "ชอบไม่มีกฎระเบียบ") P_score += 1;
     }
 
     let q38 = document.querySelector('input[name="question38"]:checked');
     if (q38) {
         if (q38.value === "ชอบ") J_score += 1;
-        else if (q38.value === "ชอบมาก") J_score += 0.5;
-        else if (q38.value === "ชอบงานที่ยืดหยุ่น") P_score += 0.5;
+        else if (q38.value === "ชอบมาก") J_score += 1;
+        else if (q38.value === "ชอบงานที่ยืดหยุ่น") P_score += 1;
         else if (q38.value === "ชอบงานที่ไม่ต้องวางแผน") P_score += 1;
     }
 
     let q39 = document.querySelector('input[name="question39"]:checked');
     if (q39) {
         if (q39.value === "ใช่") J_score += 1;
-        else if (q39.value === "รู้สึกดีมาก") J_score += 0.5;
-        else if (q39.value === "ชอบแบบไม่มีแบบแผน") P_score += 0.5;
+        else if (q39.value === "รู้สึกดีมาก") J_score += 1;
+        else if (q39.value === "ชอบแบบไม่มีแบบแผน") P_score += 1;
         else if (q39.value === "ไม่ชอบวางแผนเลย") P_score += 1;
     }
 
     let q40 = document.querySelector('input[name="question40"]:checked');
     if (q40) {
         if (q40.value === "ชอบ") P_score += 1;
-        else if (q40.value === "ชอบมาก") P_score += 0.5;
-        else if (q40.value === "ชอบงานที่กำหนดแบบแผน") J_score += 0.5;
+        else if (q40.value === "ชอบมาก") P_score += 1;
+        else if (q40.value === "ชอบงานที่กำหนดแบบแผน") J_score += 1;
         else if (q40.value === "ชอบแผนที่ชัดเจน") J_score += 1;
     }
 
     // เก็บค่าไว้ในตัวแปร
-    return { J_score, P_score };
+    localStorage.setItem('P_score', P_score);
+    localStorage.setItem('J_score', J_score);
+
+    if (P_score >= J_score) {
+        alert("คุณเป็น  (P)!");
+    } else {
+        alert("คุณเป็น  (J)!");
+    }
 }
+// ---------------------------------------------------------------------------------------------------------------------------------
+function calculateMBTI() {
+    // ดึงค่าคะแนนจาก localStorage
+    let E_score = parseInt(localStorage.getItem('E_score')) || 0;
+    let I_score = parseInt(localStorage.getItem('I_score')) || 0;
+    let S_score = parseInt(localStorage.getItem('S_score')) || 0;
+    let N_score = parseInt(localStorage.getItem('N_score')) || 0;
+    let T_score = parseInt(localStorage.getItem('T_score')) || 0;
+    let F_score = parseInt(localStorage.getItem('F_score')) || 0;
+    let J_score = parseInt(localStorage.getItem('J_score')) || 0;
+    let P_score = parseInt(localStorage.getItem('P_score')) || 0;
+
+    // คำนวณประเภท MBTI
+    let resultMBTI = "";
+    resultMBTI += (E_score >= I_score) ? "E" : "I";
+    resultMBTI += (S_score >= N_score) ? "S" : "N";
+    resultMBTI += (T_score >= F_score) ? "T" : "F";
+    resultMBTI += (J_score >= P_score) ? "J" : "P";
+
+    // เก็บค่าผลลัพธ์ MBTI ไว้ใน localStorage
+    localStorage.setItem('MBTI_result', resultMBTI);
+    
+    // แสดงผลลัพธ์
+    alert("คุณเป็น " + resultMBTI + "!");
+}
+
+
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-function suggestMajor() {
-    // รับค่าคะแนนจาก LocalStorage หรือคำนวณจากฟังก์ชันก่อนหน้า
-    const totalScore_R = parseFloat(localStorage.getItem('totalScore_R')) || 0;
-    const totalScore_I = parseFloat(localStorage.getItem('totalScore_I')) || 0;
-    const totalScore_A = parseFloat(localStorage.getItem('totalScore_A')) || 0;
-    const totalScore_S = parseFloat(localStorage.getItem('totalScore_S')) || 0;
-    const totalScore_E = parseFloat(localStorage.getItem('totalScore_E')) || 0;
-    const totalScore_C = parseFloat(localStorage.getItem('totalScore_C')) || 0;
-
-    const { E_score, I_score } = calculateScore_EI();
-    const { S_score, N_score } = calculateScore_SN();
-    const { T_score, F_score } = calculateScore_TF();
-    const { J_score, P_score } = calculateScore_JP();
-
-    // จัดกลุ่ม RIASEC (ตามที่ได้จากคะแนน R, I, A, S, E, C)
-    const riaScore = {
-        R: totalScore_R,
-        I: totalScore_I,
-        A: totalScore_A,
-        S: totalScore_S,
-        E: totalScore_E,
-        C: totalScore_C,
+function recommendFaculty() {
+    let riasecScores = {
+        R: parseInt(localStorage.getItem('totalScore_R')) || 0,
+        I: parseInt(localStorage.getItem('totalScore_I')) || 0,
+        A: parseInt(localStorage.getItem('totalScore_A')) || 0,
+        S: parseInt(localStorage.getItem('totalScore_S')) || 0,
+        E: parseInt(localStorage.getItem('totalScore_E')) || 0,
+        C: parseInt(localStorage.getItem('totalScore_C')) || 0
     };
-
-    // จัดกลุ่ม MBTI (ตามที่ได้จากคะแนน E/I, S/N, T/F, J/P)
-    const mbtiScore = {
-        E: E_score,
-        I: I_score,
-        S: S_score,
-        N: N_score,
-        T: T_score,
-        F: F_score,
-        J: J_score,
-        P: P_score,
-    };
-
-    // หาคะแนนสูงสุดในทั้งสองหมวดหมู่
-    const riaMax = Math.max(...Object.values(riaScore));
-    const mbtiMax = Math.max(...Object.values(mbtiScore));
-
-    // หาค่าที่ตรงกัน
-    const riaMaxCategory = Object.keys(riaScore).find(key => riaScore[key] === riaMax);
-    const mbtiMaxCategory = Object.keys(mbtiScore).find(key => mbtiScore[key] === mbtiMax);
-
-    // แนะนำคณะตาม RIASEC และ MBTI
-    let recommendedMajor = "";
-
-    // คณะเทคโนโลยีการเกษตร
-    if (riaMaxCategory === "R" && riaMaxCategory === "I" &&
-        ["ISFJ", "ISTJ", "ESTP", "ESFP"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะเทคโนโลยีการเกษตร";
+    
+    let mbtiResult = localStorage.getItem('MBTI_result') || "";
+    
+    let faculties = [];
+    
+    if ((riasecScores.R > 0 || riasecScores.I > 0) && ["ISFJ", "ISTJ", "ESTP", "ESFP"].includes(mbtiResult)) {
+        faculties.push("คณะเทคโนโลยีการเกษตร");
     }
-    // คณะเทคโนโลยีคหกรรมศาสตร์
-    else if (riaMaxCategory === "A" && riaMaxCategory === "C" &&
-        ["ISFP", "ESFP", "INFJ", "ENFJ"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะเทคโนโลยีคหกรรมศาสตร์";
+    if ((riasecScores.A > 0 || riasecScores.C > 0) && ["ISFP", "ESFP", "INFJ", "ENFJ"].includes(mbtiResult)) {
+        faculties.push("คณะเทคโนโลยีคหกรรมศาสตร์");
     }
-    // คณะเทคโนโลยีสื่อสารมวลชน
-    else if (riaMaxCategory === "A" && riaMaxCategory === "S" &&
-        ["ENFP", "ENFJ", "ESFP", "INFP"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะเทคโนโลยีสื่อสารมวลชน";
+    if ((riasecScores.A > 0 || riasecScores.S > 0) && ["ENFP", "ENFJ", "ESFP", "INFP"].includes(mbtiResult)) {
+        faculties.push("คณะเทคโนโลยีสื่อสารมวลชน");
     }
-    // คณะการแพทย์บูรณาการ
-    else if (riaMaxCategory === "I" && riaMaxCategory === "S" &&
-        ["ISFJ", "INFJ", "ENFJ", "ESFJ"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะการแพทย์บูรณาการ";
+    if ((riasecScores.I > 0 || riasecScores.S > 0) && ["ISFJ", "INFJ", "ENFJ", "ESFJ"].includes(mbtiResult)) {
+        faculties.push("คณะการแพทย์บูรณาการ");
     }
-    // คณะครุศาสตร์อุตสาหกรรม
-    else if (riaMaxCategory === "I" && riaMaxCategory === "E" &&
-        ["ISTJ", "ISFJ", "ESTJ", "ENTJ"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะครุศาสตร์อุตสาหกรรม";
+    if ((riasecScores.I > 0 || riasecScores.E > 0) && ["ISTJ", "ISFJ", "ESTJ", "ENTJ"].includes(mbtiResult)) {
+        faculties.push("คณะครุศาสตร์อุตสาหกรรม");
     }
-    // คณะบริหารธุรกิจ
-    else if (riaMaxCategory === "E" && riaMaxCategory === "C" &&
-        ["ENTJ", "ESTJ", "ENFP", "ESFJ"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะบริหารธุรกิจ";
+    if ((riasecScores.E > 0 || riasecScores.C > 0) && ["ENTJ", "ESTJ", "ENFP", "ESFJ"].includes(mbtiResult)) {
+        faculties.push("คณะบริหารธุรกิจ");
     }
-    // คณะพยาบาลศาสตร์
-    else if (riaMaxCategory === "S" && riaMaxCategory === "I" &&
-        ["ISFJ", "ESFJ", "INFJ", "ENFJ"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะพยาบาลศาสตร์";
+    if ((riasecScores.S > 0 || riasecScores.I > 0) && ["ISFJ", "ESFJ", "INFJ", "ENFJ"].includes(mbtiResult)) {
+        faculties.push("คณะพยาบาลศาสตร์");
     }
-    // คณะวิทยาศาสตร์และเทคโนโลยี
-    else if (riaMaxCategory === "I" && riaMaxCategory === "R" &&
-        ["INTJ", "INTP", "ISTP", "ISTJ"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะวิทยาศาสตร์และเทคโนโลยี";
+    if ((riasecScores.I > 0 || riasecScores.R > 0) && ["INTJ", "INTP", "ISTP", "ISTJ"].includes(mbtiResult)) {
+        faculties.push("คณะวิทยาศาสตร์และเทคโนโลยี");
     }
-    // คณะวิศวกรรมศาสตร์
-    else if (riaMaxCategory === "R" && riaMaxCategory === "I" &&
-        ["ISTJ", "ESTJ", "INTJ", "ISTP"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะวิศวกรรมศาสตร์";
+    if ((riasecScores.R > 0 || riasecScores.I > 0) && ["ISTJ", "ESTJ", "INTJ", "ISTP"].includes(mbtiResult)) {
+        faculties.push("คณะวิศวกรรมศาสตร์");
     }
-    // คณะศิลปกรรมศาสตร์
-    else if (riaMaxCategory === "A" &&
-        ["INFP", "ISFP", "ENFP", "ENFJ"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะศิลปกรรมศาสตร์";
+    if (riasecScores.A > 0 && ["INFP", "ISFP", "ENFP", "ENFJ"].includes(mbtiResult)) {
+        faculties.push("คณะศิลปกรรมศาสตร์");
     }
-    // คณะศิลปศาสตร์
-    else if (riaMaxCategory === "S" && riaMaxCategory === "A" &&
-        ["INFJ", "ENFJ", "ISFJ", "ESFJ"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะศิลปศาสตร์";
+    if ((riasecScores.S > 0 || riasecScores.A > 0) && ["INFJ", "ENFJ", "ISFJ", "ESFJ"].includes(mbtiResult)) {
+        faculties.push("คณะศิลปศาสตร์");
     }
-    // คณะสถาปัตยกรรมศาสตร์
-    else if (riaMaxCategory === "A" && riaMaxCategory === "R" &&
-        ["INFP", "INTJ", "ISFP", "ENFP"].includes(mbtiMaxCategory)) {
-        recommendedMajor = "คณะสถาปัตยกรรมศาสตร์";
+    if ((riasecScores.A > 0 || riasecScores.R > 0) && ["INFP", "INTJ", "ISFP", "ENFP"].includes(mbtiResult)) {
+        faculties.push("คณะสถาปัตยกรรมศาสตร์");
     }
-
-    // แสดงผลลัพธ์ใน alert
-    alert(`คณะที่แนะนำ: ${recommendedMajor}`);
+    
+    if (faculties.length > 0) {
+        alert("คณะที่เหมาะสมกับคุณคือ: " + faculties.join(", "));
+    } else {
+        alert("ไม่พบคณะที่ตรงกับผลลัพธ์ของคุณ");
+    }
 }
-
-
-
-
 
 
 // ฟังก์ชันที่ทำงานเมื่อกดปุ่ม save
 function saveResults() {
-    calculateScore_JP()
-    suggestMajor()
+    calculateScore_JP();
+    calculateMBTI();
+    recommendFaculty();
+
 }
