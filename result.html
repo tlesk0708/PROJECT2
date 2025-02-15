@@ -3,125 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luksood GU</title>
+    <title>คณะที่เหมาะกับคุณ</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- เชื่อมต่อ Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 
-<header>
-    <div class="logo">
-        <img src="detective.png" alt="Logo">
-        <span>Luksood GU.</span>
-    </div>
-    <span style="font-size: 30px;">คณะที่แนะนำ</span>
-    <div class="right-text">
-        <span>แนะนำคณะที่ใช่</span>
-    </div>
-</header>
-
 <body>
-    <div class="body">
-        <div class="body1">
-            <div class="imegebox3">
-                <div class="whitebox3">
-                    <h1 style="text-align: center;">ผลลัพธ์</h1>
-                    <!-- แสดงกราฟ Pie Chart -->
-                    <div class="charts-container" style="display: flex; justify-content: space-around; margin-top: 20px;">
-                        <div style="width: 50%;">
-                            <canvas id="chart1"></canvas>
+    <div style="text-align: center; margin-top: 20px;">
+        <h1>ผลลัพธ์การแนะนำคณะ</h1>
+        <canvas id="chart1" style="max-width: 500px;"></canvas>
+        <div id="recommendedFaculties" style="margin-top: 20px; font-size: 18px; color: #333;"></div>
+    </div>
+
+    <body>
+        <div class="body">
+            <div class="body1">
+                <div class="imegebox3">
+                    <div class="whitebox3">
+                        <h1 style="text-align: center;">ผลลัพธ์</h1>
+                        <!-- แสดงกราฟ Pie Chart -->
+                        <div class="charts-container" style="display: flex; justify-content: space-around; margin-top: 20px;">
+                            <div style="width: 50%;">
+                                <canvas id="chart1"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="botton">
+                <form action="Assessment.html">
+                    <p>ทำแบบประเมิน</p>
+                    <div class="input-group">
+                        <button type="submit" class="btn2">NEXT</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="botton">
-            <form action="Assessment.html">
-                <p>ทำแบบประเมิน</p>
-                <div class="input-group">
-                    <button type="submit" class="btn2">NEXT</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    
 
-    <!-- สคริปต์สำหรับสร้างกราฟ -->
-    <script>
-        // ดึงคะแนน RIASEC จาก localStorage
-        const R_score = parseInt(localStorage.getItem('totalScore_R')) || 0;
-        const I_score = parseInt(localStorage.getItem('totalScore_I')) || 0;
-        const A_score = parseInt(localStorage.getItem('totalScore_A')) || 0;
-        const S_score = parseInt(localStorage.getItem('totalScore_S')) || 0;
-        const E_score = parseInt(localStorage.getItem('totalScore_E')) || 0;
-        const C_score = parseInt(localStorage.getItem('totalScore_C')) || 0;
-    
-        // สร้างอาร์เรย์เก็บค่าคะแนนของแต่ละหมวด
-        let RIASEC_Scores = [
-            { type: 'R', score: R_score, faculty: 'คณะวิศวกรรมศาสตร์' },
-            { type: 'I', score: I_score, faculty: 'คณะวิทยาศาสตร์และเทคโนโลยี' },
-            { type: 'A', score: A_score, faculty: 'คณะศิลปกรรมศาสตร์' },
-            { type: 'S', score: S_score, faculty: 'คณะศิลปศาสตร์' },
-            { type: 'E', score: E_score, faculty: 'คณะบริหารธุรกิจ' },
-            { type: 'C', score: C_score, faculty: 'คณะเทคโนโลยีคหกรรมศาสตร์' }
-        ];
-    
-        // เรียงลำดับคะแนนจากมากไปน้อย
-        RIASEC_Scores.sort((a, b) => b.score - a.score);
-    
-        // เลือก 3 อันดับแรก
-        let top3 = RIASEC_Scores.slice(0, 3);
-    
-        // ดึงข้อมูลสำหรับกราฟ
-        const chartLabels = top3.map(item => item.faculty);
-        const chartData = top3.map(item => item.score);
-        const chartColors = ['#FF6384', '#36A2EB', '#FFCE56']; // สีของแต่ละส่วน
-    
-        // สร้าง Plugin แสดงข้อความบน Pie Chart
-        Chart.register({
-            id: 'textPlugin',
-            afterDraw(chart) {
-                const ctx = chart.ctx;
-                const datasets = chart.data.datasets[0];
-                const meta = chart.getDatasetMeta(0);
-    
-                ctx.font = '14px Arial';
-                ctx.textAlign = 'center';
-                ctx.fillStyle = '#000';
-    
-                meta.data.forEach((arc, index) => {
-                    const { x, y } = arc.tooltipPosition();
-                    const value = datasets.data[index];
-                    const label = chart.data.labels[index];
-    
-                    ctx.fillText(`${label}: ${value}`, x, y);
-                });
-            }
-        });
-    
-        // สร้าง Pie Chart
-        const ctx1 = document.getElementById('chart1').getContext('2d');
-        new Chart(ctx1, {
-            type: 'pie',
-            data: {
-                labels: chartLabels,
-                datasets: [{
-                    data: chartData,
-                    backgroundColor: chartColors,
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    }
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                recommendFaculty();
+            });
+        
+            function recommendFaculty() {
+                let riasecScores = {
+                    R: parseInt(localStorage.getItem('totalScore_R')) || 0,
+                    I: parseInt(localStorage.getItem('totalScore_I')) || 0,
+                    A: parseInt(localStorage.getItem('totalScore_A')) || 0,
+                    S: parseInt(localStorage.getItem('totalScore_S')) || 0,
+                    E: parseInt(localStorage.getItem('totalScore_E')) || 0,
+                    C: parseInt(localStorage.getItem('totalScore_C')) || 0
+                };
+        
+                let mbtiResult = localStorage.getItem('MBTI_result') || "";
+                let faculties = [];
+        
+                let facultyList = [
+                    { name: "คณะเทคโนโลยีการเกษตร", score: riasecScores.R + riasecScores.I, mbti: ["ISFJ", "ISTJ", "ESTP", "ESFP"] },
+                    { name: "คณะเทคโนโลยีคหกรรมศาสตร์", score: riasecScores.A + riasecScores.C, mbti: ["ISFP", "ESFP", "INFJ", "ENFJ"] },
+                    { name: "คณะเทคโนโลยีสื่อสารมวลชน", score: riasecScores.A + riasecScores.S, mbti: ["ENFP", "ENFJ", "ESFP", "INFP"] },
+                    { name: "คณะการแพทย์บูรณาการ", score: riasecScores.I + riasecScores.S, mbti: ["ISFJ", "INFJ", "ENFJ", "ESFJ"] },
+                    { name: "คณะครุศาสตร์อุตสาหกรรม", score: riasecScores.I + riasecScores.E, mbti: ["ISTJ", "ISFJ", "ESTJ", "ENTJ"] },
+                    { name: "คณะบริหารธุรกิจ", score: riasecScores.E + riasecScores.C, mbti: ["ENTJ", "ESTJ", "ENFP", "ESFJ"] },
+                    { name: "คณะพยาบาลศาสตร์", score: riasecScores.S + riasecScores.I, mbti: ["ISFJ", "ESFJ", "INFJ", "ENFJ"] },
+                    { name: "คณะวิทยาศาสตร์และเทคโนโลยี", score: riasecScores.I + riasecScores.R, mbti: ["INTJ", "INTP", "ISTP", "ISTJ"] },
+                    { name: "คณะวิศวกรรมศาสตร์", score: riasecScores.R + riasecScores.I, mbti: ["ISTJ", "ESTJ", "INTJ", "ISTP"] },
+                    { name: "คณะศิลปกรรมศาสตร์", score: riasecScores.A, mbti: ["INFP", "ISFP", "ENFP", "ENFJ"] },
+                    { name: "คณะศิลปศาสตร์", score: riasecScores.S + riasecScores.A, mbti: ["INFJ", "ENFJ", "ISFJ", "ESFJ"] },
+                    { name: "คณะสถาปัตยกรรมศาสตร์", score: riasecScores.A + riasecScores.R, mbti: ["INFP", "INTJ", "ISFP", "ENFP"] }
+                ];
+        
+                let matchedFaculties = facultyList.filter(faculty => faculty.mbti.includes(mbtiResult));
+                matchedFaculties.sort((a, b) => b.score - a.score);
+                let top3 = matchedFaculties.slice(0, 3);
+        
+                if (top3.length > 0) {
+                    let resultText = `<h2>คณะที่เหมาะสมกับคุณ:</h2><ul>` + 
+                        top3.map(item => `<li>${item.name} (คะแนน: ${item.score})</li>`).join("") + `</ul>`;
+                    
+                    alert("3 คณะที่เหมาะสมกับคุณ:\n" + top3.map(item => `${item.name} (${item.score})`).join("\n"));
+        
+                    // สร้างกราฟและแสดงคะแนนภายใน Pie Chart
+                    const chartLabels = top3.map(item => item.name);
+                    const chartData = top3.map(item => item.score);
+                    const chartColors = ['#FF6384', '#36A2EB', '#FFCE56'];
+        
+                    const ctx1 = document.getElementById('chart1').getContext('2d');
+                    new Chart(ctx1, {
+                        type: 'pie',
+                        data: {
+                            labels: chartLabels,
+                            datasets: [{
+                                data: chartData,
+                                backgroundColor: chartColors,
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                    labels: {
+                                        font: {
+                                            size: 14
+                                        }
+                                    }
+                                },
+                                datalabels: {
+                                    color: '#000',
+                                    font: {
+                                        weight: 'bold',
+                                        size: 14
+                                    },
+                                    formatter: (value, ctx) => {
+                                        let label = ctx.chart.data.labels[ctx.dataIndex];
+                                        return label + "\n(" + value + " คะแนน)";
+                                    }
+                                }
+                            }
+                        },
+                        plugins: [ChartDataLabels]
+                    });
+                } else {
+                    alert("ไม่พบคณะที่ตรงกับผลลัพธ์ของคุณ");
                 }
-            },
-            plugins: ['textPlugin'] // เพิ่ม Plugin แสดงข้อความ
-        });
-    </script>
-    
-
-<script src="score.js"></script>
-    
+            }
+        </script>        
 </body>
 </html>
