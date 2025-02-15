@@ -267,10 +267,10 @@ function calculateScore_JP() {
     localStorage.setItem('P_score', P_score);
     localStorage.setItem('J_score', J_score);
 
-    if (P_score >= J_score) {
-        alert("คุณเป็น  (P)!");
+    if (J_score >= P_score) {
+        alert("คุณเป็น  (๋J)!");
     } else {
-        alert("คุณเป็น  (J)!");
+        alert("คุณเป็น  (P)!");
     }
 }
 // ---------------------------------------------------------------------------------------------------------------------------------
