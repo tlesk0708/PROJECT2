@@ -1,84 +1,168 @@
-function calculateScore_R() {
+function calculateScore_R(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     const form = document.getElementById("quizForm");
+    const questions = form.querySelectorAll(".whitebox"); // นับจำนวนคำถามทั้งหมด
+    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
+
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (selectedAnswers.length < questions.length) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
+    }
 
     let totalScore_R = 0;
-    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
 
     selectedAnswers.forEach((answer) => {
         totalScore_R += parseInt(answer.nextElementSibling.getAttribute("data-number"));
     });
 
-    // เก็บคะแนนลงใน Local Storage หรือในตัวแปรเพื่อใช้ในการแนะนำคณะ
+    // เก็บคะแนนลงใน Local Storage
     localStorage.setItem('totalScore_R', totalScore_R);
-}
 
-function calculateScore_I() {
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    form.submit();
+}
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+function calculateScore_I(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     const form = document.getElementById("quizForm");
+    const questions = form.querySelectorAll(".whitebox"); // นับจำนวนคำถามทั้งหมด
+    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
+
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (selectedAnswers.length < questions.length) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
+    }
 
     let totalScore_I = 0;
-    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
 
     selectedAnswers.forEach((answer) => {
         totalScore_I += parseInt(answer.nextElementSibling.getAttribute("data-number"));
     });
-    // เก็บคะแนนลงใน Local Storage หรือในตัวแปรเพื่อใช้ในการแนะนำคณะ
+
+    // เก็บคะแนนลงใน Local Storage
     localStorage.setItem('totalScore_I', totalScore_I);
+
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    form.submit();
 }
 
-function calculateScore_A() {
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+function calculateScore_A(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     const form = document.getElementById("quizForm");
+    const questions = form.querySelectorAll(".whitebox"); // นับจำนวนคำถามทั้งหมด
+    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
+
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (selectedAnswers.length < questions.length) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
+    }
 
     let totalScore_A = 0;
-    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
 
     selectedAnswers.forEach((answer) => {
         totalScore_A += parseInt(answer.nextElementSibling.getAttribute("data-number"));
     });
-    // เก็บคะแนนลงใน Local Storage หรือในตัวแปรเพื่อใช้ในการแนะนำคณะ
+
+    // เก็บคะแนนลงใน Local Storage
     localStorage.setItem('totalScore_A', totalScore_A);
+
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    form.submit();
 }
 
-function calculateScore_S() {
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+function calculateScore_S(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     const form = document.getElementById("quizForm");
+    const questions = form.querySelectorAll(".whitebox"); // นับจำนวนคำถามทั้งหมด
+    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
+
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (selectedAnswers.length < questions.length) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
+    }
 
     let totalScore_S = 0;
-    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
 
     selectedAnswers.forEach((answer) => {
         totalScore_S += parseInt(answer.nextElementSibling.getAttribute("data-number"));
     });
-    // เก็บคะแนนลงใน Local Storage หรือในตัวแปรเพื่อใช้ในการแนะนำคณะ
+
+    // เก็บคะแนนลงใน Local Storage
     localStorage.setItem('totalScore_S', totalScore_S);
+
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    form.submit();
 }
 
-function calculateScore_E() {
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+function calculateScore_E(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     const form = document.getElementById("quizForm");
+    const questions = form.querySelectorAll(".whitebox"); // นับจำนวนคำถามทั้งหมด
+    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
+
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (selectedAnswers.length < questions.length) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
+    }
 
     let totalScore_E = 0;
-    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
 
     selectedAnswers.forEach((answer) => {
         totalScore_E += parseInt(answer.nextElementSibling.getAttribute("data-number"));
     });
-    // เก็บคะแนนลงใน Local Storage หรือในตัวแปรเพื่อใช้ในการแนะนำคณะ
+
+    // เก็บคะแนนลงใน Local Storage
     localStorage.setItem('totalScore_E', totalScore_E);
+
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    form.submit();
 }
 
-function calculateScore_C() {
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+function calculateScore_C(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     const form = document.getElementById("quizForm");
+    const questions = form.querySelectorAll(".whitebox"); // นับจำนวนคำถามทั้งหมด
+    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
+
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (selectedAnswers.length < questions.length) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
+    }
 
     let totalScore_C = 0;
-    const selectedAnswers = document.querySelectorAll("input[type='radio']:checked");
 
     selectedAnswers.forEach((answer) => {
         totalScore_C += parseInt(answer.nextElementSibling.getAttribute("data-number"));
     });
-    // เก็บคะแนนลงใน Local Storage หรือในตัวแปรเพื่อใช้ในการแนะนำคณะ
+
+    // เก็บคะแนนลงใน Local Storage
     localStorage.setItem('totalScore_C', totalScore_C);
+
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    form.submit();
 }
+
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // คำนวณคะแนนของ E/I
-function calculateScore_EI() {
+function calculateScore_EI(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     let E_score = 0;
     let I_score = 0;
 
@@ -115,6 +199,12 @@ function calculateScore_EI() {
         else if (q28.value === "สบายใจที่สุด") I_score += 1;
     }
 
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q25 || !q26 || !q27 || !q28) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
+    }
+
     // เก็บค่าไว้ในตัวแปร
     localStorage.setItem('E_score', E_score);
     localStorage.setItem('I_score', I_score);
@@ -126,15 +216,31 @@ function calculateScore_EI() {
         alert("คุณเป็น Introversion (I)!");
     }
 
+    // ส่งฟอร์มไปยังหน้าถัดไป (ถ้าตอบครบ)
+    const form = document.getElementById("quizForm");
+    form.submit(); // ส่งฟอร์มไปยังหน้าถัดไป
 }
-
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
 // คำนวณคะแนนของ S/N
-function calculateScore_SN() {
+function calculateScore_SN(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     let S_score = 0;
     let N_score = 0;
 
     // ข้อที่ 29-32
     let q29 = document.querySelector('input[name="question29"]:checked');
+    let q30 = document.querySelector('input[name="question30"]:checked');
+    let q31 = document.querySelector('input[name="question31"]:checked');
+    let q32 = document.querySelector('input[name="question32"]:checked');
+
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q29 || !q30 || !q31 || !q32) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
+    }
+
+    // คำนวณคะแนน
     if (q29) {
         if (q29.value === "ชอบมาก") S_score += 1;
         else if (q29.value === "ชอบบางครั้ง") S_score += 1;
@@ -142,7 +248,6 @@ function calculateScore_SN() {
         else if (q29.value === "ไม่สนใจ") N_score += 1;
     }
 
-    let q30 = document.querySelector('input[name="question30"]:checked');
     if (q30) {
         if (q30.value === "ฉันต้องการข้อมูลที่ชัดเจนและเป็นข้อเท็จจริงก่อนตัดสินใจ") S_score += 1;
         else if (q30.value === "ฉันมักจะใช้ข้อมูลที่มีอยู่ก่อน แต่ก็คิดถึงแนวทางใหม่ ๆ บ้าง") S_score += 1;
@@ -150,7 +255,6 @@ function calculateScore_SN() {
         else if (q30.value === "ฉันให้ความสำคัญกับแนวคิดใหม่ ๆ มากกว่าข้อมูลที่มีอยู่") N_score += 1;
     }
 
-    let q31 = document.querySelector('input[name="question31"]:checked');
     if (q31) {
         if (q31.value === "มองที่ปัจจุบัน") S_score += 1;
         else if (q31.value === "สนใจสิ่งที่เป็นจริง") S_score += 1;
@@ -158,31 +262,49 @@ function calculateScore_SN() {
         else if (q31.value === "คิดบ่อย") N_score += 1;
     }
 
-    let q32 = document.querySelector('input[name="question32"]:checked');
     if (q32) {
         if (q32.value === "ชอบงานที่มีกระบวนการชัดเจน") S_score += 1;
         else if (q32.value === "ชอบทำตามที่กำหนดไว้") S_score += 1;
         else if (q32.value === "ชอบ") N_score += 1;
         else if (q32.value === "ชอบมาก") N_score += 1;
     }
+
     // เก็บค่าไว้ในตัวแปร
     localStorage.setItem('S_score', S_score);
     localStorage.setItem('N_score', N_score);
 
+    // คำนวณและแสดงผลลัพธ์
     if (S_score >= N_score) {
-        alert("คุณเป็น  (S)!");
+        alert("คุณเป็น (S)!");
     } else {
-        alert("คุณเป็น  (N)!");
+        alert("คุณเป็น (N)!");
     }
-}
 
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    const form = document.getElementById("quizForm");
+    form.submit(); // ส่งฟอร์มไปยังหน้าถัดไป
+}
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
 // คำนวณคะแนนของ T/F
-function calculateScore_TF() {
+function calculateScore_TF(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     let T_score = 0;
     let F_score = 0;
 
     // ข้อที่ 33-36
     let q33 = document.querySelector('input[name="question33"]:checked');
+    let q34 = document.querySelector('input[name="question34"]:checked');
+    let q35 = document.querySelector('input[name="question35"]:checked');
+    let q36 = document.querySelector('input[name="question36"]:checked');
+
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q33 || !q34 || !q35 || !q36) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
+    }
+
+    // คำนวณคะแนน
     if (q33) {
         if (q33.value === "ใช่") T_score += 1;
         else if (q33.value === "ใช้เหตุผล") T_score += 1;
@@ -190,7 +312,6 @@ function calculateScore_TF() {
         else if (q33.value === "ใช้ความรู้สึกบางครั้ง") F_score += 1;
     }
 
-    let q34 = document.querySelector('input[name="question34"]:checked');
     if (q34) {
         if (q34.value === "ฉันมองหาทางเลือกที่มีเหตุผลแม้ว่าจะทำให้บางคนไม่พอใจ") T_score += 1;
         else if (q34.value === "ฉันให้ความสำคัญกับข้อเท็จจริงแต่ก็พยายามคิดถึงความรู้สึกของทุกฝ่าย") T_score += 1;
@@ -198,7 +319,6 @@ function calculateScore_TF() {
         else if (q34.value === "ฉันมักจะตัดสินใจโดยคำนึงถึงความรู้สึกของทุกคนก่อนเสมอ") F_score += 1;
     }
 
-    let q35 = document.querySelector('input[name="question35"]:checked');
     if (q35) {
         if (q35.value === "ฉันให้ความสำคัญกับข้อเท็จจริงมากที่สุด") T_score += 1;
         else if (q35.value === "ฉันพิจารณาข้อเท็จจริงก่อน") T_score += 1;
@@ -206,7 +326,6 @@ function calculateScore_TF() {
         else if (q35.value === "ฉันให้ความสำคัญกับความรู้สึกของผู้อื่นมากกว่าข้อเท็จจริงเสมอ") F_score += 1;
     }
 
-    let q36 = document.querySelector('input[name="question36"]:checked');
     if (q36) {
         if (q36.value === "ใช้เหตุผล") T_score += 1;
         else if (q36.value === "ใช้เหตุผลบางครั้ง") T_score += 1;
@@ -218,20 +337,39 @@ function calculateScore_TF() {
     localStorage.setItem('T_score', T_score);
     localStorage.setItem('F_score', F_score);
 
+    // คำนวณและแสดงผลลัพธ์
     if (T_score >= F_score) {
-        alert("คุณเป็น  (T)!");
+        alert("คุณเป็น (T)!");
     } else {
-        alert("คุณเป็น  (F)!");
+        alert("คุณเป็น (F)!");
     }
+
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    const form = document.getElementById("quizForm");
+    form.submit(); // ส่งฟอร์มไปยังหน้าถัดไป
 }
 
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
 // คำนวณคะแนนของ J/P
-function calculateScore_JP() {
+function calculateScore_JP(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
     let J_score = 0;
     let P_score = 0;
 
     // ข้อที่ 37-40
     let q37 = document.querySelector('input[name="question37"]:checked');
+    let q38 = document.querySelector('input[name="question38"]:checked');
+    let q39 = document.querySelector('input[name="question39"]:checked');
+    let q40 = document.querySelector('input[name="question40"]:checked');
+
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q37 || !q38 || !q39 || !q40) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่ทำอะไรต่อ
+    }
+
+    // คำนวณคะแนน
     if (q37) {
         if (q37.value === "ชอบ") J_score += 1;
         else if (q37.value === "ชอบมาก") J_score += 1;
@@ -239,7 +377,6 @@ function calculateScore_JP() {
         else if (q37.value === "ชอบไม่มีกฎระเบียบ") P_score += 1;
     }
 
-    let q38 = document.querySelector('input[name="question38"]:checked');
     if (q38) {
         if (q38.value === "ชอบ") J_score += 1;
         else if (q38.value === "ชอบมาก") J_score += 1;
@@ -247,7 +384,6 @@ function calculateScore_JP() {
         else if (q38.value === "ชอบงานที่ไม่ต้องวางแผน") P_score += 1;
     }
 
-    let q39 = document.querySelector('input[name="question39"]:checked');
     if (q39) {
         if (q39.value === "ใช่") J_score += 1;
         else if (q39.value === "รู้สึกดีมาก") J_score += 1;
@@ -255,7 +391,6 @@ function calculateScore_JP() {
         else if (q39.value === "ไม่ชอบวางแผนเลย") P_score += 1;
     }
 
-    let q40 = document.querySelector('input[name="question40"]:checked');
     if (q40) {
         if (q40.value === "ฉันไม่ค่อยกังวลเรื่องแผนและชอบปรับไปตามสถานการณ์") P_score += 1;
         else if (q40.value === "ฉันรู้สึกอึดอัดเมื่อถูกจำกัดด้วยแผนที่ตายตัวและต้องการอิสระมากกว่า") P_score += 1;
@@ -266,13 +401,16 @@ function calculateScore_JP() {
     // เก็บค่าไว้ในตัวแปร
     localStorage.setItem('J_score', J_score);
     localStorage.setItem('P_score', P_score);
-    
 
+    // คำนวณและแสดงผลลัพธ์
     if (J_score >= P_score) {
-        alert("คุณเป็น  (๋J)!");
+        alert("คุณเป็น (J)!");
     } else {
-        alert("คุณเป็น  (P)!");
+        alert("คุณเป็น (P)!");
     }
+
+    // คืนค่า Promise ที่จะ resolve เมื่อเสร็จสิ้น
+    return Promise.resolve();
 }
 // ---------------------------------------------------------------------------------------------------------------------------------
 function calculateMBTI() {
@@ -349,9 +487,16 @@ function recommendFaculty() {
 
 
 // ฟังก์ชันที่ทำงานเมื่อกดปุ่ม save
-function saveResults() {
-    calculateScore_JP();
-    calculateMBTI();
-    recommendFaculty();
+function saveResults(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
 
+    // เรียกใช้ calculateScore_JP และรอให้ฟังก์ชันเสร็จก่อนที่จะทำงานต่อ
+    calculateScore_JP(event).then(function() {
+        // เมื่อ calculateScore_JP เสร็จสิ้นแล้ว, ให้ทำ calculateMBTI และ recommendFaculty
+        calculateMBTI();
+        recommendFaculty();
+        // หลังจากฟังก์ชันทั้งหมดเสร็จแล้ว, ให้เปลี่ยนหน้าไปยังหน้าถัดไป
+        window.location.href = 'result.html';  // เปลี่ยนเป็น URL ของหน้าถัดไปที่ต้องการ
+    });
 }
+

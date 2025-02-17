@@ -13,21 +13,19 @@ try {
     die("ไม่สามารถเชื่อมต่อกับฐานข้อมูล: " . $e->getMessage());
 }
 
-// ตรวจสอบว่าข้อมูลถูกส่งมาจากฟอร์มหรือไม่
+// ตรวจสอบการส่งข้อมูลจากฟอร์ม
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // รับค่าจากฟอร์ม
-    $question1 = $_POST['assessment1'] ?? null;
-    $question2 = $_POST['assessment2'] ?? null;
-    $question3 = $_POST['assessment3'] ?? null;
-    
+    $assessment1 = $_POST['assessment1'] ?? null;
+    $assessment2 = $_POST['assessment2'] ?? null;
+    $assessment3 = $_POST['assessment3'] ?? null;
 
     // ตรวจสอบว่าไม่มีคำถามไหนถูกปล่อยว่าง
-    if ($assessment1 && $assessment2 && $assessment3)
-        {try {
+    if ($assessment1 && $assessment2 && $assessment3) {
+        try {
             // เตรียมคำสั่ง SQL เพื่อเพิ่มข้อมูล
-            $sql = "INSERT INTO assessment (assessment1, assessment2, assessment3)
-                VALUES 
-                (:assessment1, :assessment2, :assessment3)";
+            $sql = "INSERT INTO assessment (assessment1, assessment2, assessment3) VALUES (:assessment1, :assessment2, :assessment3)";
+
             $stmt = $pdo->prepare($sql);
 
             // ผูกค่ากับคำสั่ง SQL
@@ -38,17 +36,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // รันคำสั่ง SQL
             $stmt->execute();
 
+            // แจ้งเตือนเมื่อบันทึกข้อมูลสำเร็จ
             echo '<script>
-            alert("บันทึกคำตอบเรียบร้อย");
-            window.location.href = "dashboard.html";
-        </script>';
+                alert("บันทึกคำตอบเรียบร้อย");
+                window.location.href = "dashboard.html"; // เปลี่ยนเป็นหน้าที่ต้องการหลังบันทึก
+            </script>';
         } catch (PDOException $e) {
             echo "เกิดข้อผิดพลาด: " . $e->getMessage();
         }
     } else {
+        // ถ้าตอบคำถามไม่ครบ
         echo '<script>
             alert("กรุณาตอบคำถามให้ครบทุกข้อ");
-            window.location.href = "Assessment.html";
+            window.location.href = "Assessment.html"; // กลับไปที่หน้าแบบประเมิน
         </script>';
     }
 } else {
