@@ -1,13 +1,203 @@
-<p style="text-align: center;">ในระยะเวลา 2 สัปดาห์ที่ผ่านมา รวมทั้งวันนี้</p>
-          <div class="choice-container" data-score="0">
-            <p class="choice-text" data-number= 0>ไม่มีเลย</p>
-          </div>
-          <div class="choice-container" data-score="1">
-            <p class="choice-text" data-number= 1>เป็นบางวัน 1-7 วัน</p>
-          </div>
-          <div class="choice-container" data-score="2">
-            <p class="choice-text" data-number= 2>เป็นบ่อยมากกว่า 7 วัน</p>
-          </div>
-          <div class="choice-container" data-score="3">
-            <p class="choice-text" data-number= 3>เป็นทุกวัน</p>
-          </div>
+// คำนวณคะแนนของ S/N
+function calculateScore_SN(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
+    let S_score = 0;
+    let N_score = 0;
+
+    // ข้อที่ 29-32
+    let q29 = document.querySelector('input[name="question29"]:checked');
+    let q30 = document.querySelector('input[name="question30"]:checked');
+    let q31 = document.querySelector('input[name="question31"]:checked');
+    let q32 = document.querySelector('input[name="question32"]:checked');
+
+    // คำนวณคะแนน
+    if (q29) {
+        if (q29.value === "ชอบมาก") S_score += 1;
+        else if (q29.value === "ชอบบางครั้ง") S_score += 1;
+        else if (q29.value === "ไม่ชอบเท่าไหร่") N_score += 1;
+        else if (q29.value === "ไม่สนใจ") N_score += 1;
+    }
+
+    if (q30) {
+        if (q30.value === "ฉันต้องการข้อมูลที่ชัดเจนและเป็นข้อเท็จจริงก่อนตัดสินใจ") S_score += 1;
+        else if (q30.value === "ฉันมักจะใช้ข้อมูลที่มีอยู่ก่อน แต่ก็คิดถึงแนวทางใหม่ ๆ บ้าง") S_score += 1;
+        else if (q30.value === "ฉันมักคิดถึงอนาคตและจินตนาการความเป็นไปได้ต่าง ๆ ก่อนตัดสินใจ") N_score += 1;
+        else if (q30.value === "ฉันให้ความสำคัญกับแนวคิดใหม่ ๆ มากกว่าข้อมูลที่มีอยู่") N_score += 1;
+    }
+
+    if (q31) {
+        if (q31.value === "มองที่ปัจจุบัน") S_score += 1;
+        else if (q31.value === "สนใจสิ่งที่เป็นจริง") S_score += 1;
+        else if (q31.value === "คิดบางครั้ง") N_score += 1;
+        else if (q31.value === "คิดบ่อย") N_score += 1;
+    }
+
+    if (q32) {
+        if (q32.value === "ชอบงานที่มีกระบวนการชัดเจน") S_score += 1;
+        else if (q32.value === "ชอบทำตามที่กำหนดไว้") S_score += 1;
+        else if (q32.value === "ชอบ") N_score += 1;
+        else if (q32.value === "ชอบมาก") N_score += 1;
+    }
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q29 || !q30 || !q31 || !q32) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
+    }
+     // แสดงแจ้งเตือนให้ยืนยัน
+     let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+     if (!confirmSave) {
+         return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+     }
+
+    // เก็บค่าไว้ในตัวแปร
+    localStorage.setItem('S_score', S_score);
+    localStorage.setItem('N_score', N_score);
+
+    // คำนวณและแสดงผลลัพธ์
+    if (S_score >= N_score) {
+        alert("คุณเป็น (S)!");
+    } else {
+        alert("คุณเป็น (N)!");
+    }
+
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    const form = document.getElementById("quizForm");
+    form.submit(); // ส่งฟอร์มไปยังหน้าถัดไป
+}
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+// คำนวณคะแนนของ T/F
+function calculateScore_TF(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
+    let T_score = 0;
+    let F_score = 0;
+
+    // ข้อที่ 33-36
+    let q33 = document.querySelector('input[name="question33"]:checked');
+    let q34 = document.querySelector('input[name="question34"]:checked');
+    let q35 = document.querySelector('input[name="question35"]:checked');
+    let q36 = document.querySelector('input[name="question36"]:checked');
+
+    // คำนวณคะแนน
+    if (q33) {
+        if (q33.value === "ใช่") T_score += 1;
+        else if (q33.value === "ใช้เหตุผล") T_score += 1;
+        else if (q33.value === "ใช้ความรู้สึก") F_score += 1;
+        else if (q33.value === "ใช้ความรู้สึกบางครั้ง") F_score += 1;
+    }
+
+    if (q34) {
+        if (q34.value === "ฉันมองหาทางเลือกที่มีเหตุผลแม้ว่าจะทำให้บางคนไม่พอใจ") T_score += 1;
+        else if (q34.value === "ฉันให้ความสำคัญกับข้อเท็จจริงแต่ก็พยายามคิดถึงความรู้สึกของทุกฝ่าย") T_score += 1;
+        else if (q34.value === "ฉันพยายามหาทางที่ทุกคนพอใจ แม้ว่าอาจไม่ใช่ทางเลือกที่ดีที่สุด") F_score += 1;
+        else if (q34.value === "ฉันมักจะตัดสินใจโดยคำนึงถึงความรู้สึกของทุกคนก่อนเสมอ") F_score += 1;
+    }
+
+    if (q35) {
+        if (q35.value === "ฉันให้ความสำคัญกับข้อเท็จจริงมากที่สุด") T_score += 1;
+        else if (q35.value === "ฉันพิจารณาข้อเท็จจริงก่อน") T_score += 1;
+        else if (q35.value === "ฉันพยายามรักษาความสัมพันธ์ไว้ก่อน") F_score += 1;
+        else if (q35.value === "ฉันให้ความสำคัญกับความรู้สึกของผู้อื่นมากกว่าข้อเท็จจริงเสมอ") F_score += 1;
+    }
+
+    if (q36) {
+        if (q36.value === "ใช้เหตุผล") T_score += 1;
+        else if (q36.value === "ใช้เหตุผลบางครั้ง") T_score += 1;
+        else if (q36.value === "ใช้ความรู้สึก") F_score += 1;
+        else if (q36.value === "ขึ้นอยู่กับสถานการณ์") F_score += 1;
+    }
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q33 || !q34 || !q35 || !q36) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
+    }
+     // แสดงแจ้งเตือนให้ยืนยัน
+     let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+     if (!confirmSave) {
+         return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+     }
+
+    // เก็บค่าไว้ในตัวแปร
+    localStorage.setItem('T_score', T_score);
+    localStorage.setItem('F_score', F_score);
+
+    // คำนวณและแสดงผลลัพธ์
+    if (T_score >= F_score) {
+        alert("คุณเป็น (T)!");
+    } else {
+        alert("คุณเป็น (F)!");
+    }
+
+    // ส่งฟอร์มไปยังหน้าถัดไป
+    const form = document.getElementById("quizForm");
+    form.submit(); // ส่งฟอร์มไปยังหน้าถัดไป
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+// คำนวณคะแนนของ J/P
+function calculateScore_JP(event) {
+    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+
+    let J_score = 0;
+    let P_score = 0;
+
+    // ข้อที่ 37-40
+    let q37 = document.querySelector('input[name="question37"]:checked');
+    let q38 = document.querySelector('input[name="question38"]:checked');
+    let q39 = document.querySelector('input[name="question39"]:checked');
+    let q40 = document.querySelector('input[name="question40"]:checked');
+
+    // คำนวณคะแนน
+    if (q37) {
+        if (q37.value === "ชอบ") J_score += 1;
+        else if (q37.value === "ชอบมาก") J_score += 1;
+        else if (q37.value === "ชอบกฎระเบียบที่ยืดหยุ่น") P_score += 1;
+        else if (q37.value === "ชอบไม่มีกฎระเบียบ") P_score += 1;
+    }
+
+    if (q38) {
+        if (q38.value === "ชอบ") J_score += 1;
+        else if (q38.value === "ชอบมาก") J_score += 1;
+        else if (q38.value === "ชอบงานที่ยืดหยุ่น") P_score += 1;
+        else if (q38.value === "ชอบงานที่ไม่ต้องวางแผน") P_score += 1;
+    }
+
+    if (q39) {
+        if (q39.value === "ใช่") J_score += 1;
+        else if (q39.value === "รู้สึกดีมาก") J_score += 1;
+        else if (q39.value === "ชอบแบบไม่มีแบบแผน") P_score += 1;
+        else if (q39.value === "ไม่ชอบวางแผนเลย") P_score += 1;
+    }
+
+    if (q40) {
+        if (q40.value === "ฉันไม่ค่อยกังวลเรื่องแผนและชอบปรับไปตามสถานการณ์") P_score += 1;
+        else if (q40.value === "ฉันรู้สึกอึดอัดเมื่อถูกจำกัดด้วยแผนที่ตายตัวและต้องการอิสระมากกว่า") P_score += 1;
+        else if (q40.value === "ฉันรู้สึกเครียดและอึดอัดมากเมื่อไม่มีแผนที่แน่นอน") J_score += 1;
+        else if (q40.value === "ฉันชอบมีแผนที่แน่นอนแต่ก็สามารถปรับตัวได้บ้าง") J_score += 1;
+    }
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q37 || !q38 || !q39 || !q40) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่ทำอะไรต่อ
+    }
+    // แสดงแจ้งเตือนให้ยืนยัน
+    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+    if (!confirmSave) {
+        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+    }
+
+    // เก็บค่าไว้ในตัวแปร
+    localStorage.setItem('J_score', J_score);
+    localStorage.setItem('P_score', P_score);
+
+    // คำนวณและแสดงผลลัพธ์
+    if (J_score >= P_score) {
+        alert("คุณเป็น (J)!");
+    } else {
+        alert("คุณเป็น (P)!");
+    }
+
+    // คืนค่า Promise ที่จะ resolve เมื่อเสร็จสิ้น
+    return Promise.resolve();
+}

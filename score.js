@@ -10,6 +10,11 @@ function calculateScore_R(event) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
     }
+    // แสดงแจ้งเตือนให้ยืนยัน
+    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+    if (!confirmSave) {
+        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+    }
 
     let totalScore_R = 0;
 
@@ -35,6 +40,11 @@ function calculateScore_I(event) {
     if (selectedAnswers.length < questions.length) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
+    }
+    // แสดงแจ้งเตือนให้ยืนยัน
+    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+    if (!confirmSave) {
+        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
     }
 
     let totalScore_I = 0;
@@ -63,6 +73,11 @@ function calculateScore_A(event) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
     }
+    // แสดงแจ้งเตือนให้ยืนยัน
+    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+    if (!confirmSave) {
+        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+    }
 
     let totalScore_A = 0;
 
@@ -89,6 +104,11 @@ function calculateScore_S(event) {
     if (selectedAnswers.length < questions.length) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
+    }
+    // แสดงแจ้งเตือนให้ยืนยัน
+    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+    if (!confirmSave) {
+        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
     }
 
     let totalScore_S = 0;
@@ -117,6 +137,11 @@ function calculateScore_E(event) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
     }
+    // แสดงแจ้งเตือนให้ยืนยัน
+    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+    if (!confirmSave) {
+        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+    }
 
     let totalScore_E = 0;
 
@@ -144,6 +169,11 @@ function calculateScore_C(event) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงาน และไม่เปลี่ยนหน้า
     }
+    // แสดงแจ้งเตือนให้ยืนยัน
+    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+    if (!confirmSave) {
+        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+    }
 
     let totalScore_C = 0;
 
@@ -157,7 +187,6 @@ function calculateScore_C(event) {
     // ส่งฟอร์มไปยังหน้าถัดไป
     form.submit();
 }
-
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // คำนวณคะแนนของ E/I
 function calculateScore_EI(event) {
@@ -204,17 +233,15 @@ function calculateScore_EI(event) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงานและไม่เปลี่ยนหน้า
     }
+    // แสดงแจ้งเตือนให้ยืนยัน
+    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+    if (!confirmSave) {
+        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+    }
 
     // เก็บค่าไว้ในตัวแปร
     localStorage.setItem('E_score', E_score);
     localStorage.setItem('I_score', I_score);
-
-    // คำนวณและแสดงผลลัพธ์
-    if (E_score >= I_score) {
-        alert("คุณเป็น Extraversion (E)!");
-    } else {
-        alert("คุณเป็น Introversion (I)!");
-    }
 
     // ส่งฟอร์มไปยังหน้าถัดไป (ถ้าตอบครบ)
     const form = document.getElementById("quizForm");
@@ -233,12 +260,6 @@ function calculateScore_SN(event) {
     let q30 = document.querySelector('input[name="question30"]:checked');
     let q31 = document.querySelector('input[name="question31"]:checked');
     let q32 = document.querySelector('input[name="question32"]:checked');
-
-    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q29 || !q30 || !q31 || !q32) {
-        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
-        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
-    }
 
     // คำนวณคะแนน
     if (q29) {
@@ -268,17 +289,20 @@ function calculateScore_SN(event) {
         else if (q32.value === "ชอบ") N_score += 1;
         else if (q32.value === "ชอบมาก") N_score += 1;
     }
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q29 || !q30 || !q31 || !q32) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
+    }
+     // แสดงแจ้งเตือนให้ยืนยัน
+     let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+     if (!confirmSave) {
+         return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+     }
 
     // เก็บค่าไว้ในตัวแปร
     localStorage.setItem('S_score', S_score);
     localStorage.setItem('N_score', N_score);
-
-    // คำนวณและแสดงผลลัพธ์
-    if (S_score >= N_score) {
-        alert("คุณเป็น (S)!");
-    } else {
-        alert("คุณเป็น (N)!");
-    }
 
     // ส่งฟอร์มไปยังหน้าถัดไป
     const form = document.getElementById("quizForm");
@@ -297,12 +321,6 @@ function calculateScore_TF(event) {
     let q34 = document.querySelector('input[name="question34"]:checked');
     let q35 = document.querySelector('input[name="question35"]:checked');
     let q36 = document.querySelector('input[name="question36"]:checked');
-
-    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q33 || !q34 || !q35 || !q36) {
-        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
-        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
-    }
 
     // คำนวณคะแนน
     if (q33) {
@@ -332,17 +350,20 @@ function calculateScore_TF(event) {
         else if (q36.value === "ใช้ความรู้สึก") F_score += 1;
         else if (q36.value === "ขึ้นอยู่กับสถานการณ์") F_score += 1;
     }
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q33 || !q34 || !q35 || !q36) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
+    }
+     // แสดงแจ้งเตือนให้ยืนยัน
+     let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+     if (!confirmSave) {
+         return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+     }
 
     // เก็บค่าไว้ในตัวแปร
     localStorage.setItem('T_score', T_score);
     localStorage.setItem('F_score', F_score);
-
-    // คำนวณและแสดงผลลัพธ์
-    if (T_score >= F_score) {
-        alert("คุณเป็น (T)!");
-    } else {
-        alert("คุณเป็น (F)!");
-    }
 
     // ส่งฟอร์มไปยังหน้าถัดไป
     const form = document.getElementById("quizForm");
@@ -362,12 +383,6 @@ function calculateScore_JP(event) {
     let q38 = document.querySelector('input[name="question38"]:checked');
     let q39 = document.querySelector('input[name="question39"]:checked');
     let q40 = document.querySelector('input[name="question40"]:checked');
-
-    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q37 || !q38 || !q39 || !q40) {
-        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
-        return; // หยุดการทำงานและไม่ทำอะไรต่อ
-    }
 
     // คำนวณคะแนน
     if (q37) {
@@ -397,22 +412,25 @@ function calculateScore_JP(event) {
         else if (q40.value === "ฉันรู้สึกเครียดและอึดอัดมากเมื่อไม่มีแผนที่แน่นอน") J_score += 1;
         else if (q40.value === "ฉันชอบมีแผนที่แน่นอนแต่ก็สามารถปรับตัวได้บ้าง") J_score += 1;
     }
+    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
+    if (!q37 || !q38 || !q39 || !q40) {
+        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
+        return; // หยุดการทำงานและไม่ทำอะไรต่อ
+    }
+    // แสดงแจ้งเตือนให้ยืนยัน
+    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
+    if (!confirmSave) {
+        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
+    }
 
     // เก็บค่าไว้ในตัวแปร
     localStorage.setItem('J_score', J_score);
     localStorage.setItem('P_score', P_score);
 
-    // คำนวณและแสดงผลลัพธ์
-    if (J_score >= P_score) {
-        alert("คุณเป็น (J)!");
-    } else {
-        alert("คุณเป็น (P)!");
-    }
-
     // คืนค่า Promise ที่จะ resolve เมื่อเสร็จสิ้น
     return Promise.resolve();
 }
-// ---------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function calculateMBTI() {
     // ดึงค่าคะแนนจาก localStorage
     let E_score = parseInt(localStorage.getItem('E_score')) || 0;
@@ -433,13 +451,8 @@ function calculateMBTI() {
 
     // เก็บค่าผลลัพธ์ MBTI ไว้ใน localStorage
     localStorage.setItem('MBTI_result', resultMBTI);
-    
-    // แสดงผลลัพธ์
-    alert("คุณเป็น " + resultMBTI + "!");
 }
-
-
-// -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------
 function recommendFaculty() {
     let riasecScores = {
         R: parseInt(localStorage.getItem('totalScore_R')) || 0,

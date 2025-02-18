@@ -1,23 +1,24 @@
 <?php
-// รับค่าจากฟอร์ม
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-// ตรวจสอบว่ามีการกรอกข้อมูลครบถ้วนหรือไม่
-if (empty($username) || empty($password)) {
-    echo '<script>
-        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-        window.location.href = "login.html";
-    </script>';
-    exit();
-}
+header('Content-Type: application/json'); // กำหนดให้ส่ง JSON กลับไป
+session_start();
 
 // เชื่อมต่อฐานข้อมูล
 $conn = new mysqli('localhost', 'root', '', 'project_db');
 
 // ตรวจสอบการเชื่อมต่อ
 if ($conn->connect_error) {
-    die("Connection Failed: " . $conn->connect_error);
+    echo json_encode(["status" => "error", "message" => "เชื่อมต่อฐานข้อมูลล้มเหลว"]);
+    exit();
+}
+
+// รับค่าจากฟอร์ม (ผ่าน AJAX)
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
+
+// ตรวจสอบว่ามีการกรอกข้อมูลครบถ้วนหรือไม่
+if (empty($username) || empty($password)) {
+    echo json_encode(["status" => "error", "message" => "กรุณากรอกชื่อผู้ใช้และรหัสผ่าน"]);
+    exit();
 }
 
 // ตรวจสอบว่า username มีอยู่ในฐานข้อมูลหรือไม่
@@ -28,25 +29,16 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $data = $result->fetch_assoc();
-    // ตรวจสอบรหัสผ่าน (เก็บแบบ plain text)
+
+    // ตรวจสอบรหัสผ่าน (กรณีเก็บรหัสเป็น plain text)
     if ($password === $data['password']) {
-        echo '<script>
-            alert("เข้าสู่ระบบสำเร็จ");
-            window.location.href = "dashboard.html";
-        </script>';
+        $_SESSION['username'] = $username; // ตั้งค่า session
+        echo json_encode(["status" => "success", "message" => "เข้าสู่ระบบสำเร็จ"]);
     } else {
-        // รหัสผ่านไม่ถูกต้อง
-        echo '<script>
-            alert("รหัสผ่านไม่ถูกต้อง");
-            window.location.href = "login.html";
-        </script>';
+        echo json_encode(["status" => "error", "message" => "รหัสผ่านไม่ถูกต้อง"]);
     }
 } else {
-    // ชื่อผู้ใช้ไม่ถูกต้อง
-    echo '<script>
-        alert("ชื่อผู้ใช้ไม่ถูกต้อง");
-        window.location.href = "login.html";
-    </script>';
+    echo json_encode(["status" => "error", "message" => "ชื่อผู้ใช้ไม่ถูกต้อง"]);
 }
 
 // ปิดการเชื่อมต่อ
