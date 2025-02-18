@@ -437,9 +437,14 @@ label:hover {
     background-color: #0056b3;
 }
 .result-box {
-    text-align: left; /* จัดข้อความให้ชิดซ้าย */
-    margin-top: 20px;
+    text-align: center;
+    margin: 20px auto; /* จัดกึ่งกลางแนวนอน */
+    max-width: 70%; /* กำหนดความกว้างไม่ให้ชิดขอบ */
+    padding: 15px; /* เพิ่มระยะห่างภายใน */
+    background-color: rgba(255, 255, 255, 0.8); /* เพิ่มพื้นหลังให้ดูเด่นขึ้น */
+    border-radius: 10px; /* ปรับขอบให้โค้งมน */
 }
+
 
 .result-box ul {
     padding-left: 0; /* ลบการเยื้องทางซ้าย */
@@ -451,8 +456,4 @@ label:hover {
     margin-bottom: 10px; /* เพิ่มช่องว่างระหว่างรายการ */
 }
 
-.result-box h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+

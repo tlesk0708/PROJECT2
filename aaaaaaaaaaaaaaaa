@@ -1,203 +1,216 @@
-// คำนวณคะแนนของ S/N
-function calculateScore_SN(event) {
-    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luksood GU.</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
-    let S_score = 0;
-    let N_score = 0;
+    <style>
+        /* จัดรูปแบบให้มีพื้นหลังเป็นภาพ */
+        .body1 {
+            background-image: url('dna.png'); /* ใส่ที่อยู่ของภาพ */
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            height: 100vh; /* ให้ขนาดสูงเต็มหน้าจอ */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    // ข้อที่ 29-32
-    let q29 = document.querySelector('input[name="question29"]:checked');
-    let q30 = document.querySelector('input[name="question30"]:checked');
-    let q31 = document.querySelector('input[name="question31"]:checked');
-    let q32 = document.querySelector('input[name="question32"]:checked');
+        .whitebox3 {
+            background: rgba(255, 255, 255, 0.8); /* ให้พื้นหลังเป็นสีขาวโปร่งใส */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
 
-    // คำนวณคะแนน
-    if (q29) {
-        if (q29.value === "ชอบมาก") S_score += 1;
-        else if (q29.value === "ชอบบางครั้ง") S_score += 1;
-        else if (q29.value === "ไม่ชอบเท่าไหร่") N_score += 1;
-        else if (q29.value === "ไม่สนใจ") N_score += 1;
-    }
+        .charts-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
 
-    if (q30) {
-        if (q30.value === "ฉันต้องการข้อมูลที่ชัดเจนและเป็นข้อเท็จจริงก่อนตัดสินใจ") S_score += 1;
-        else if (q30.value === "ฉันมักจะใช้ข้อมูลที่มีอยู่ก่อน แต่ก็คิดถึงแนวทางใหม่ ๆ บ้าง") S_score += 1;
-        else if (q30.value === "ฉันมักคิดถึงอนาคตและจินตนาการความเป็นไปได้ต่าง ๆ ก่อนตัดสินใจ") N_score += 1;
-        else if (q30.value === "ฉันให้ความสำคัญกับแนวคิดใหม่ ๆ มากกว่าข้อมูลที่มีอยู่") N_score += 1;
-    }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
 
-    if (q31) {
-        if (q31.value === "มองที่ปัจจุบัน") S_score += 1;
-        else if (q31.value === "สนใจสิ่งที่เป็นจริง") S_score += 1;
-        else if (q31.value === "คิดบางครั้ง") N_score += 1;
-        else if (q31.value === "คิดบ่อย") N_score += 1;
-    }
+        .btn2 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
 
-    if (q32) {
-        if (q32.value === "ชอบงานที่มีกระบวนการชัดเจน") S_score += 1;
-        else if (q32.value === "ชอบทำตามที่กำหนดไว้") S_score += 1;
-        else if (q32.value === "ชอบ") N_score += 1;
-        else if (q32.value === "ชอบมาก") N_score += 1;
-    }
-    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q29 || !q30 || !q31 || !q32) {
-        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
-        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
-    }
-     // แสดงแจ้งเตือนให้ยืนยัน
-     let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
-     if (!confirmSave) {
-         return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
-     }
+        .btn2:hover {
+            background-color: #45a049;
+        }
 
-    // เก็บค่าไว้ในตัวแปร
-    localStorage.setItem('S_score', S_score);
-    localStorage.setItem('N_score', N_score);
+        .faculty-details {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            display: none; /* ซ่อนรายละเอียดก่อน */
+            text-align: left;
+            text-align: center;
+        }
+    </style>
+</head>
 
-    // คำนวณและแสดงผลลัพธ์
-    if (S_score >= N_score) {
-        alert("คุณเป็น (S)!");
-    } else {
-        alert("คุณเป็น (N)!");
-    }
+<header>
+    <div class="logo">
+        <img src="detective.png" alt="Logo">
+        <span>Luksood GU.</span>
+    </div>
+    <span style="font-size: 30px;">คณะที่แนะนำ</span>
+    <div class="right-text">
+        <span>แนะนำคณะที่ใช่</span>
+    </div>
+</header>
 
-    // ส่งฟอร์มไปยังหน้าถัดไป
-    const form = document.getElementById("quizForm");
-    form.submit(); // ส่งฟอร์มไปยังหน้าถัดไป
-}
-// ----------------------------------------------------------------------------------------------------------------------------------------------------
-// คำนวณคะแนนของ T/F
-function calculateScore_TF(event) {
-    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+<body>
+    <div class="body">
+        <div class="body1">
+            <div class="imegebox3">
+                <div class="whitebox3">
+                    <h1>ผลลัพธ์</h1>
+                    <!-- แสดงผลคณะที่เหมาะสม -->
+                    <div class="result-box">
+                        <h3>คณะที่เหมาะสมกับคุณ:</h3>
+                        <li id="rank1"></li> <!-- แสดงอันดับที่ 1 -->
+                        <li id="rank2"></li> <!-- แสดงอันดับที่ 2 -->
+                        <li id="rank3"></li> <!-- แสดงอันดับที่ 3 -->
+                    </div>
+                    <!-- แสดงกราฟ Pie Chart -->
+                    <div class="charts-container">
+                        <div style="width: 50%; text-align: center;">
+                            <canvas id="chart1"></canvas>
+                        </div>
+                    </div>
 
-    let T_score = 0;
-    let F_score = 0;
+                    <!-- รายละเอียดของคณะที่เลือก -->
+                    <div id="facultyDetails" class="faculty-details"></div>
+                </div>
+            </div>
+        </div>
 
-    // ข้อที่ 33-36
-    let q33 = document.querySelector('input[name="question33"]:checked');
-    let q34 = document.querySelector('input[name="question34"]:checked');
-    let q35 = document.querySelector('input[name="question35"]:checked');
-    let q36 = document.querySelector('input[name="question36"]:checked');
+        <!-- ปุ่ม NEXT -->
+        <div class="botton">
+            <form action="Assessment.html">
+                <p>ทำแบบประเมิน</p>
+                <div class="input-group">
+                    <button type="submit" class="btn2">NEXT</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    // คำนวณคะแนน
-    if (q33) {
-        if (q33.value === "ใช่") T_score += 1;
-        else if (q33.value === "ใช้เหตุผล") T_score += 1;
-        else if (q33.value === "ใช้ความรู้สึก") F_score += 1;
-        else if (q33.value === "ใช้ความรู้สึกบางครั้ง") F_score += 1;
-    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            recommendFaculty();
+        });
 
-    if (q34) {
-        if (q34.value === "ฉันมองหาทางเลือกที่มีเหตุผลแม้ว่าจะทำให้บางคนไม่พอใจ") T_score += 1;
-        else if (q34.value === "ฉันให้ความสำคัญกับข้อเท็จจริงแต่ก็พยายามคิดถึงความรู้สึกของทุกฝ่าย") T_score += 1;
-        else if (q34.value === "ฉันพยายามหาทางที่ทุกคนพอใจ แม้ว่าอาจไม่ใช่ทางเลือกที่ดีที่สุด") F_score += 1;
-        else if (q34.value === "ฉันมักจะตัดสินใจโดยคำนึงถึงความรู้สึกของทุกคนก่อนเสมอ") F_score += 1;
-    }
+        function recommendFaculty() {
+            let riasecScores = {
+                R: parseInt(localStorage.getItem('totalScore_R')) || 0,
+                I: parseInt(localStorage.getItem('totalScore_I')) || 0,
+                A: parseInt(localStorage.getItem('totalScore_A')) || 0,
+                S: parseInt(localStorage.getItem('totalScore_S')) || 0,
+                E: parseInt(localStorage.getItem('totalScore_E')) || 0,
+                C: parseInt(localStorage.getItem('totalScore_C')) || 0
+            };
 
-    if (q35) {
-        if (q35.value === "ฉันให้ความสำคัญกับข้อเท็จจริงมากที่สุด") T_score += 1;
-        else if (q35.value === "ฉันพิจารณาข้อเท็จจริงก่อน") T_score += 1;
-        else if (q35.value === "ฉันพยายามรักษาความสัมพันธ์ไว้ก่อน") F_score += 1;
-        else if (q35.value === "ฉันให้ความสำคัญกับความรู้สึกของผู้อื่นมากกว่าข้อเท็จจริงเสมอ") F_score += 1;
-    }
+            let mbtiResult = localStorage.getItem('MBTI_result') || "";
+            let facultyList = [
+                { name: "คณะเทคโนโลยีการเกษตร", score: (riasecScores.R + riasecScores.I + riasecScores.C), mbti: ["ISTJ", "ISFJ", "ESTP", "ENTJ"], details: "เหมาะกับคนชอบธรรมชาติ สนใจการพัฒนาเกษตรกรรม เทคโนโลยี และการจัดการ" },
+                { name: "คณะเทคโนโลยีคหกรรมศาสตร์", score: (riasecScores.R + riasecScores.A + riasecScores.C), mbti: ["ESFJ", "ISFJ", "ESTJ"], details: "เหมาะกับคนชอบงานบ้าน อาหาร แฟชั่น การออกแบบผลิตภัณฑ์ที่ใช้ในชีวิตประจำวัน" },
+                { name: "คณะเทคโนโลยีสื่อสารมวลชน", score: (riasecScores.A + riasecScores.E + riasecScores.S), mbti: ["ENFP", "ESFP", "INFJ", "ENTJ"], details: "เหมาะกับคนที่ชอบการสื่อสาร การเล่าเรื่อง การผลิตสื่อทั้งแบบดั้งเดิมและดิจิทัล" },
+                { name: "คณะการแพทย์บูรณาการ", score: (riasecScores.I + riasecScores.S + riasecScores.C), mbti: ["INFJ", "ENFJ", "ISFJ", "ISTJ"], details: "เหมาะกับคนที่สนใจศาสตร์ทางการแพทย์ สุขภาพ และต้องการช่วยเหลือผู้อื่น" },
+                { name: "คณะครุศาสตร์อุตสาหกรรม", score: (riasecScores.R + riasecScores.S + riasecScores.E), mbti: ["ESTJ", "ESFJ", "ISTP", "ENTJ"], details: "เหมาะกับคนที่ชอบงานสอน ควบคู่กับการใช้เทคโนโลยีและนวัตกรรมอุตสาหกรรม" },
+                { name: "คณะบริหารธุรกิจ", score: (riasecScores.E + riasecScores.C + riasecScores.S), mbti: ["ENTJ", "ESTP", "ESFP", "ISTJ"], details: "เหมาะกับคนที่ชอบการจัดการ วางแผนธุรกิจ หรือทำงานด้านการตลาด การเงิน" },
+                { name: "คณะพยาบาลศาสตร์", score: (riasecScores.S + riasecScores.C + riasecScores.I), mbti: ["ESFJ", "ISFJ", "INFJ", "ENFJ"], details: "เหมาะกับคนที่มีความเมตตา ต้องการดูแลช่วยเหลือผู้อื่น และทำงานอย่างเป็นระบบ" },
+                { name: "คณะวิทยาศาสตร์และเทคโนโลยี", score: (riasecScores.I + riasecScores.R + riasecScores.C), mbti: ["INTJ", "ISTJ", "INTP", "ISTP"], details: "เหมาะกับคนที่ชอบการวิเคราะห์ ค้นคว้า คิดเชิงตรรกะ และแก้ปัญหาเชิงวิทยาศาสตร์" },
+                { name: "คณะวิศวกรรมศาสตร์", score: (riasecScores.R + riasecScores.I + riasecScores.C), mbti: ["ISTP", "INTJ", "ESTJ", "ENTJ"], details: "เหมาะกับคนที่ชอบงานเทคนิค คำนวณ ระบบเครื่องจักร และการออกแบบโครงสร้าง" },
+                { name: "คณะศิลปกรรมศาสตร์", score: (riasecScores.A + riasecScores.R + riasecScores.E), mbti: ["INFP", "ENFP", "ISFP", "ESFP"], details: "เหมาะกับคนที่มีความคิดสร้างสรรค์ ชอบการออกแบบ ศิลปะ ดนตรี หรือการแสดง" },
+                { name: "คณะศิลปศาสตร์", score: (riasecScores.A + riasecScores.S + riasecScores.I), mbti: ["INFJ", "ENFP", "INFP", "ISFP"], details: "เหมาะกับคนที่สนใจด้านภาษา วรรณกรรม จิตวิทยา หรือปรัชญา" },
+                { name: "คณะสถาปัตยกรรมศาสตร์", score: (riasecScores.A + riasecScores.R + riasecScores.I), mbti: ["INTJ", "INTP", "ISFP", "ENFP"], details: "เหมาะกับคนที่สนใจการออกแบบเชิงสร้างสรรค์ และมีทักษะเชิงเทคนิคด้านโครงสร้าง" }
+            ];
 
-    if (q36) {
-        if (q36.value === "ใช้เหตุผล") T_score += 1;
-        else if (q36.value === "ใช้เหตุผลบางครั้ง") T_score += 1;
-        else if (q36.value === "ใช้ความรู้สึก") F_score += 1;
-        else if (q36.value === "ขึ้นอยู่กับสถานการณ์") F_score += 1;
-    }
-    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q33 || !q34 || !q35 || !q36) {
-        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
-        return; // หยุดการทำงานและไม่เปลี่ยนหน้า
-    }
-     // แสดงแจ้งเตือนให้ยืนยัน
-     let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
-     if (!confirmSave) {
-         return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
-     }
+            let matchedFaculties = facultyList.filter(faculty => faculty.mbti.includes(mbtiResult));
+            matchedFaculties.sort((a, b) => b.score - a.score);
+            let top3 = matchedFaculties.slice(0, 3);
 
-    // เก็บค่าไว้ในตัวแปร
-    localStorage.setItem('T_score', T_score);
-    localStorage.setItem('F_score', F_score);
+            // แสดงอันดับที่ 1, 2, 3
+            if (top3.length > 0) {
+                document.getElementById('rank1').innerText = อันดับที่ 1: ${top3[0].name} (คะแนน: ${top3[0].score});
+                document.getElementById('rank2').innerText = อันดับที่ 2: ${top3[1].name} (คะแนน: ${top3[1].score});
+                document.getElementById('rank3').innerText = อันดับที่ 3: ${top3[2].name} (คะแนน: ${top3[2].score});
 
-    // คำนวณและแสดงผลลัพธ์
-    if (T_score >= F_score) {
-        alert("คุณเป็น (T)!");
-    } else {
-        alert("คุณเป็น (F)!");
-    }
+                // แสดงกราฟ
+                const chartLabels = top3.map(item => item.name);
+                const chartData = top3.map(item => item.score);
+                const chartColors = ['#FF6384', '#36A2EB', '#FFCE56'];
 
-    // ส่งฟอร์มไปยังหน้าถัดไป
-    const form = document.getElementById("quizForm");
-    form.submit(); // ส่งฟอร์มไปยังหน้าถัดไป
-}
+                const ctx1 = document.getElementById('chart1').getContext('2d');
+                const myChart = new Chart(ctx1, {
+                    type: 'pie',
+                    data: {
+                        labels: chartLabels,
+                        datasets: [{
+                            data: chartData,
+                            backgroundColor: chartColors,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        onClick: (e) => {
+                            const activePoints = myChart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+                            if (activePoints.length > 0) {
+                                const idx = activePoints[0].index;
+                                const facultyDetails = top3[idx].details;
+                                document.getElementById('facultyDetails').innerText = facultyDetails;
+                                document.getElementById('facultyDetails').style.display = 'block'; // แสดงรายละเอียด
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 13
+                                    }
+                                }
+                            },
+                            datalabels: {
+                                color: '#000',
+                                font: {
+                                    weight: 'bold',
+                                    size: 13
+                                },
+                                formatter: (value, ctx) => {
+                                    let label = ctx.chart.data.labels[ctx.dataIndex];
+                                    return label + "\n(" + value + " คะแนน)";
+                                }
+                            }
+                        }
+                    },
+                    plugins: [ChartDataLabels]
+                });
+            } else {
+                alert("ไม่พบคณะที่ตรงกับผลลัพธ์ของคุณ");
+            }
+        }
 
-// ----------------------------------------------------------------------------------------------------------------------------------------------------
-// คำนวณคะแนนของ J/P
-function calculateScore_JP(event) {
-    event.preventDefault(); // ป้องกันการส่งฟอร์มอัตโนมัติ
+    </script>
+</body>
 
-    let J_score = 0;
-    let P_score = 0;
-
-    // ข้อที่ 37-40
-    let q37 = document.querySelector('input[name="question37"]:checked');
-    let q38 = document.querySelector('input[name="question38"]:checked');
-    let q39 = document.querySelector('input[name="question39"]:checked');
-    let q40 = document.querySelector('input[name="question40"]:checked');
-
-    // คำนวณคะแนน
-    if (q37) {
-        if (q37.value === "ชอบ") J_score += 1;
-        else if (q37.value === "ชอบมาก") J_score += 1;
-        else if (q37.value === "ชอบกฎระเบียบที่ยืดหยุ่น") P_score += 1;
-        else if (q37.value === "ชอบไม่มีกฎระเบียบ") P_score += 1;
-    }
-
-    if (q38) {
-        if (q38.value === "ชอบ") J_score += 1;
-        else if (q38.value === "ชอบมาก") J_score += 1;
-        else if (q38.value === "ชอบงานที่ยืดหยุ่น") P_score += 1;
-        else if (q38.value === "ชอบงานที่ไม่ต้องวางแผน") P_score += 1;
-    }
-
-    if (q39) {
-        if (q39.value === "ใช่") J_score += 1;
-        else if (q39.value === "รู้สึกดีมาก") J_score += 1;
-        else if (q39.value === "ชอบแบบไม่มีแบบแผน") P_score += 1;
-        else if (q39.value === "ไม่ชอบวางแผนเลย") P_score += 1;
-    }
-
-    if (q40) {
-        if (q40.value === "ฉันไม่ค่อยกังวลเรื่องแผนและชอบปรับไปตามสถานการณ์") P_score += 1;
-        else if (q40.value === "ฉันรู้สึกอึดอัดเมื่อถูกจำกัดด้วยแผนที่ตายตัวและต้องการอิสระมากกว่า") P_score += 1;
-        else if (q40.value === "ฉันรู้สึกเครียดและอึดอัดมากเมื่อไม่มีแผนที่แน่นอน") J_score += 1;
-        else if (q40.value === "ฉันชอบมีแผนที่แน่นอนแต่ก็สามารถปรับตัวได้บ้าง") J_score += 1;
-    }
-    // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q37 || !q38 || !q39 || !q40) {
-        alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
-        return; // หยุดการทำงานและไม่ทำอะไรต่อ
-    }
-    // แสดงแจ้งเตือนให้ยืนยัน
-    let confirmSave = confirm("คุณแน่ใจหรือไม่ว่าจะบันทึกคำตอบ?");
-    if (!confirmSave) {
-        return; // ถ้ากด 'Cancel' ให้อยู่ที่หน้าเดิม
-    }
-
-    // เก็บค่าไว้ในตัวแปร
-    localStorage.setItem('J_score', J_score);
-    localStorage.setItem('P_score', P_score);
-
-    // คำนวณและแสดงผลลัพธ์
-    if (J_score >= P_score) {
-        alert("คุณเป็น (J)!");
-    } else {
-        alert("คุณเป็น (P)!");
-    }
-
-    // คืนค่า Promise ที่จะ resolve เมื่อเสร็จสิ้น
-    return Promise.resolve();
-}
+</html>

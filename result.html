@@ -7,38 +7,39 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
+    
     <style>
-        /* จัดรูปแบบให้มีพื้นหลังเป็นภาพ */
         .body1 {
-            background-image: url('dna.png'); /* ใส่ที่อยู่ของภาพ */
+            background-image: url('dna.png');
             background-size: cover;
             background-position: center;
             padding: 20px;
-            height: 100vh; /* ให้ขนาดสูงเต็มหน้าจอ */
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .whitebox3 {
-            background: rgba(255, 255, 255, 0.8); /* ให้พื้นหลังเป็นสีขาวโปร่งใส */
+            background: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
         }
 
         .charts-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
+    display: flex;
+    justify-content: center; /* จัดแนวกาฟให้อยู่ตรงกลางในแนวนอน */
+    align-items: center; /* จัดกราฟให้อยู่ตรงกลางในแนวตั้ง */
+    width: 100%; /* ใช้ความกว้าง 100% ของพื้นที่ */
+    height: 400px; /* กำหนดความสูงของกราฟ */
+}
 
-        canvas {
-            width: 100% !important;
-            height: 100% !important;
-        }
+canvas {
+    max-width: 100%;
+    max-height: 100%; /* กำหนดความสูงสูงสุด */
+}
+
 
         .btn2 {
             background-color: #4CAF50;
@@ -59,8 +60,7 @@
             padding: 15px;
             background-color: #f0f0f0;
             border-radius: 10px;
-            display: none; /* ซ่อนรายละเอียดก่อน */
-            text-align: left;
+            display: none;
             text-align: center;
         }
     </style>
@@ -83,27 +83,21 @@
             <div class="imegebox3">
                 <div class="whitebox3">
                     <h1>ผลลัพธ์</h1>
-                    <!-- แสดงผลคณะที่เหมาะสม -->
                     <div class="result-box">
-                        <h3>คณะที่เหมาะสมกับคุณ:</h3>
-                        <li id="rank1"></li> <!-- แสดงอันดับที่ 1 -->
-                        <li id="rank2"></li> <!-- แสดงอันดับที่ 2 -->
-                        <li id="rank3"></li> <!-- แสดงอันดับที่ 3 -->
+                        <ul id="facultyList"></ul>
                     </div>
-                    <!-- แสดงกราฟ Pie Chart -->
+                    <h3>เลือกกราฟเพื่อแสดงรายละเอียด</h3>
                     <div class="charts-container">
-                        <div style="width: 50%; text-align: center;">
+                        <div style="width:100%">
                             <canvas id="chart1"></canvas>
                         </div>
                     </div>
-
                     <!-- รายละเอียดของคณะที่เลือก -->
                     <div id="facultyDetails" class="faculty-details"></div>
                 </div>
             </div>
         </div>
 
-        <!-- ปุ่ม NEXT -->
         <div class="botton">
             <form action="Assessment.html">
                 <p>ทำแบบประเมิน</p>
@@ -128,7 +122,7 @@
                 E: parseInt(localStorage.getItem('totalScore_E')) || 0,
                 C: parseInt(localStorage.getItem('totalScore_C')) || 0
             };
-
+            
             let mbtiResult = localStorage.getItem('MBTI_result') || "";
             let facultyList = [
                 { name: "คณะเทคโนโลยีการเกษตร", score: (riasecScores.R + riasecScores.I + riasecScores.C), mbti: ["ISTJ", "ISFJ", "ESTP", "ENTJ"], details: "เหมาะกับคนชอบธรรมชาติ สนใจการพัฒนาเกษตรกรรม เทคโนโลยี และการจัดการ" },
@@ -144,73 +138,82 @@
                 { name: "คณะศิลปศาสตร์", score: (riasecScores.A + riasecScores.S + riasecScores.I), mbti: ["INFJ", "ENFP", "INFP", "ISFP"], details: "เหมาะกับคนที่สนใจด้านภาษา วรรณกรรม จิตวิทยา หรือปรัชญา" },
                 { name: "คณะสถาปัตยกรรมศาสตร์", score: (riasecScores.A + riasecScores.R + riasecScores.I), mbti: ["INTJ", "INTP", "ISFP", "ENFP"], details: "เหมาะกับคนที่สนใจการออกแบบเชิงสร้างสรรค์ และมีทักษะเชิงเทคนิคด้านโครงสร้าง" }
             ];
-
+            
             let matchedFaculties = facultyList.filter(faculty => faculty.mbti.includes(mbtiResult));
             matchedFaculties.sort((a, b) => b.score - a.score);
-            let top3 = matchedFaculties.slice(0, 3);
+            let topFaculties = matchedFaculties.slice(0, Math.min(matchedFaculties.length, 5));
 
-            // แสดงอันดับที่ 1, 2, 3
-            if (top3.length > 0) {
-                document.getElementById('rank1').innerText = `อันดับที่ 1: ${top3[0].name} (คะแนน: ${top3[0].score})`;
-                document.getElementById('rank2').innerText = `อันดับที่ 2: ${top3[1].name} (คะแนน: ${top3[1].score})`;
-                document.getElementById('rank3').innerText = `อันดับที่ 3: ${top3[2].name} (คะแนน: ${top3[2].score})`;
+            let facultyListElement = document.getElementById('facultyList');
+            facultyListElement.innerHTML = "";
+            
+            topFaculties.forEach((faculty, index) => {
+                let li = document.createElement('li');
+                li.innerText = `อันดับที่ ${index + 1}: ${faculty.name} (คะแนน: ${faculty.score})`;
+                facultyListElement.appendChild(li);
+            });
+            
+            if (topFaculties.length > 0) {
+    const chartLabels = topFaculties.map(item => item.name);
+    const chartData = topFaculties.map(item => item.score);
+    const chartColors = ['#FF6384', '#36A2EB', '#FFCE56', '#8A2BE2', '#3CB371']
+        .slice(0, topFaculties.length);
 
-                // แสดงกราฟ
-                const chartLabels = top3.map(item => item.name);
-                const chartData = top3.map(item => item.score);
-                const chartColors = ['#FF6384', '#36A2EB', '#FFCE56'];
-
-                const ctx1 = document.getElementById('chart1').getContext('2d');
-                const myChart = new Chart(ctx1, {
-                    type: 'pie',
-                    data: {
-                        labels: chartLabels,
-                        datasets: [{
-                            data: chartData,
-                            backgroundColor: chartColors,
-                        }]
+    const ctx1 = document.getElementById('chart1').getContext('2d');
+    const myChart = new Chart(ctx1, {
+        type: 'pie',
+        data: {
+            labels: chartLabels,
+            datasets: [{
+                data: chartData,
+                backgroundColor: chartColors,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                datalabels: {
+                    color: '#000',
+                    font: {
+                        weight: 'bold',
+                        size: 12
                     },
-                    options: {
-                        responsive: true,
-                        onClick: (e) => {
-                            const activePoints = myChart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
-                            if (activePoints.length > 0) {
-                                const idx = activePoints[0].index;
-                                const facultyDetails = top3[idx].details;
-                                document.getElementById('facultyDetails').innerText = facultyDetails;
-                                document.getElementById('facultyDetails').style.display = 'block'; // แสดงรายละเอียด
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                                labels: {
-                                    font: {
-                                        size: 13
-                                    }
-                                }
-                            },
-                            datalabels: {
-                                color: '#000',
-                                font: {
-                                    weight: 'bold',
-                                    size: 13
-                                },
-                                formatter: (value, ctx) => {
-                                    let label = ctx.chart.data.labels[ctx.dataIndex];
-                                    return label + "\n(" + value + " คะแนน)";
-                                }
-                            }
-                        }
-                    },
-                    plugins: [ChartDataLabels]
-                });
+                    formatter: (value, ctx) => {
+                        let label = ctx.chart.data.labels[ctx.dataIndex];
+                        return `${label} (${value} คะแนน)`;
+                    }
+                }
+            },
+            onClick: (e, elements) => {
+                if (elements.length > 0) {
+                    const idx = elements[0].index;
+                    const facultyDetails = topFaculties[idx].details;
+                    document.getElementById('facultyDetails').innerText = facultyDetails;
+                    document.getElementById('facultyDetails').style.display = 'block';
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+
+    // สร้าง Legend แยกต่างหาก
+    const legendContainer = document.getElementById('customLegend');
+    legendContainer.innerHTML = ''; // เคลียร์ของเก่าออกก่อน
+
+    chartLabels.forEach((label, index) => {
+        const legendItem = document.createElement('div');
+        legendItem.classList.add('legend-item');
+        legendItem.innerHTML = `
+            <span class="legend-color" style="background-color: ${chartColors[index]};"></span>
+            <span class="legend-text">${label}</span>
+        `;
+        legendContainer.appendChild(legendItem);
+    });
+
             } else {
                 alert("ไม่พบคณะที่ตรงกับผลลัพธ์ของคุณ");
             }
         }
-
     </script>
 </body>
-
 </html>
