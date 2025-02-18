@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luksood GU.</title>
+    <title>แบบประเมินความพึงพอใจ</title>
 
-    <link rel="stylesheet" href="style.css";>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
 </head>
 <body>
 <header>
@@ -13,7 +14,7 @@
         <img src="detective.png" alt="Logo">
         <span>Luksood GU.</span>
     </div>
-        <span style="font-size: 30px;">แบบประเมินความพึงพอใจ</span>
+    <span style="font-size: 30px;">แบบประเมินความพึงพอใจ</span>
     <div class="right-text">
         <span>แนะนำคณะที่ใช่</span>
     </div>
@@ -71,20 +72,69 @@
             </div>
         </div>
     </div>   
-    
-        <div class="botton">
-            <div class="input-group"><p1>บันทึกคำตอบ</p1>
-                <button type="submit" class="btn">Save</button>
-            </div>
+    <div class="botton">
+        <div class="input-group">
+            <p1>บันทึกคำตอบ</p1>
+            <button type="submit" class="btn">Save</button>
         </div>
+    </div>
     </form>
+</div>
+<script>
+    document.getElementById("quizForm").addEventListener("submit", function(event) {
+    event.preventDefault();  // ป้องกันการส่งฟอร์ม
 
-    <script>
-        function showWelcomeAlert() {
-            alert("บันทึกคำตอบสำเร็จ");
+    let assessment1 = document.querySelector('input[name="assessment1"]:checked');
+    let assessment2 = document.querySelector('input[name="assessment2"]:checked');
+    let assessment3 = document.querySelector('input[name="assessment3"]:checked');
+
+    // แจ้งเตือนเมื่อกรุณาตอบคำถามให้ครบทุกข้อ
+if (!assessment1 || !assessment2 || !assessment3) {
+    Swal.fire({
+        title: "กรุณาตอบคำถามให้ครบทุกข้อ",
+        icon: "warning",
+        showConfirmButton: true, // เพิ่มปุ่มตกลง
+        confirmButtonText: "ตกลง" // เปลี่ยนข้อความในปุ่ม
+    });
+    return;  // หยุดการทำงานของฟังก์ชันถ้าผู้ใช้ไม่ตอบครบ
+}
+
+    // ถ้าตอบครบแล้ว, ส่งข้อมูลไปยัง server
+    let formData = new FormData(document.getElementById("quizForm"));
+    
+    fetch("Assessment.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === "success") {
+            Swal.fire({
+                title: "บันทึกคำตอบสำเร็จ",
+                icon: "success",
+                timer: 2000,
+                showConfirmButton: false
+            }).then(function() {
+                window.location.href = "dashboard.html"; // ไปยังหน้าหลัก
+            });
+        } else {
+            Swal.fire({
+                title: "เกิดข้อผิดพลาด",
+                text: data.message,
+                icon: "error"
+            });
         }
-    </script>
-     
+    })
+    .catch(error => {
+        Swal.fire({
+            title: "เกิดข้อผิดพลาด",
+            text: error,
+            icon: "error"
+        });
+    });
+});
+
+</script>
 
 </body>
 </html>

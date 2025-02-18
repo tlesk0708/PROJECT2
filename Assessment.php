@@ -1,57 +1,51 @@
 <?php
-// ตั้งค่าการเชื่อมต่อฐานข้อมูล
-$host = 'localhost';
-$db = 'project_db'; // ชื่อฐานข้อมูล
-$user = 'root'; // ชื่อผู้ใช้ฐานข้อมูล
-$pass = ''; // รหัสผ่านฐานข้อมูล (กรณี XAMPP ว่างไว้)
+header('Content-Type: application/json'); // กำหนดให้ส่ง JSON กลับไป
+session_start();
 
 // เชื่อมต่อฐานข้อมูล
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("ไม่สามารถเชื่อมต่อกับฐานข้อมูล: " . $e->getMessage());
+$conn = new mysqli('localhost', 'root', '', 'project_db');
+
+// ตรวจสอบการเชื่อมต่อ
+if ($conn->connect_error) {
+    echo json_encode(["status" => "error", "message" => "เชื่อมต่อฐานข้อมูลล้มเหลว"]);
+    exit();
 }
 
-// ตรวจสอบการส่งข้อมูลจากฟอร์ม
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // รับค่าจากฟอร์ม
-    $assessment1 = $_POST['assessment1'] ?? null;
-    $assessment2 = $_POST['assessment2'] ?? null;
-    $assessment3 = $_POST['assessment3'] ?? null;
+// รับค่าจากฟอร์ม (ผ่าน POST)
+$assessment1 = $_POST['assessment1'] ?? null;
+$assessment2 = $_POST['assessment2'] ?? null;
+$assessment3 = $_POST['assessment3'] ?? null;
 
-    // ตรวจสอบว่าไม่มีคำถามไหนถูกปล่อยว่าง
-    if ($assessment1 && $assessment2 && $assessment3) {
-        try {
-            // เตรียมคำสั่ง SQL เพื่อเพิ่มข้อมูล
-            $sql = "INSERT INTO assessment (assessment1, assessment2, assessment3) VALUES (:assessment1, :assessment2, :assessment3)";
+// ตรวจสอบว่าไม่มีคำถามไหนถูกปล่อยว่าง
+if ($assessment1 && $assessment2 && $assessment3) {
+    try {
+        // เตรียมคำสั่ง SQL เพื่อเพิ่มข้อมูล
+        $sql = "INSERT INTO assessment (assessment1, assessment2, assessment3) VALUES (?, ?, ?)";
 
-            $stmt = $pdo->prepare($sql);
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $assessment1, $assessment2, $assessment3);
+        $stmt->execute();
 
-            // ผูกค่ากับคำสั่ง SQL
-            $stmt->bindParam(':assessment1', $assessment1);
-            $stmt->bindParam(':assessment2', $assessment2);
-            $stmt->bindParam(':assessment3', $assessment3);
-
-            // รันคำสั่ง SQL
-            $stmt->execute();
-
-            // แจ้งเตือนเมื่อบันทึกข้อมูลสำเร็จ
-            echo '<script>
-                alert("บันทึกคำตอบเรียบร้อย");
-                window.location.href = "dashboard.html"; // เปลี่ยนเป็นหน้าที่ต้องการหลังบันทึก
-            </script>';
-        } catch (PDOException $e) {
-            echo "เกิดข้อผิดพลาด: " . $e->getMessage();
-        }
-    } else {
-        // ถ้าตอบคำถามไม่ครบ
-        echo '<script>
-            alert("กรุณาตอบคำถามให้ครบทุกข้อ");
-            window.location.href = "Assessment.html"; // กลับไปที่หน้าแบบประเมิน
-        </script>';
+        // ส่งข้อมูลกลับไปแสดงแจ้งเตือนใน SweetAlert2
+        echo json_encode([
+            "status" => "success",
+            "message" => "บันทึกคำตอบสำเร็จ"
+        ]);
+    } catch (Exception $e) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "เกิดข้อผิดพลาด: " . $e->getMessage()
+        ]);
     }
 } else {
-    echo "ไม่ได้รับข้อมูลจากฟอร์ม!";
+    // ถ้าตอบคำถามไม่ครบ
+    echo json_encode([
+        "status" => "error",
+        "message" => "กรุณาตอบคำถามให้ครบทุกข้อ"
+    ]);
 }
+
+// ปิดการเชื่อมต่อ
+$stmt->close();
+$conn->close();
 ?>
