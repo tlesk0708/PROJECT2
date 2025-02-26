@@ -1,7 +1,7 @@
 let facultyList = [
     { name: "คณะเทคโนโลยีการเกษตร", score: (riasecScores.R + riasecScores.I + riasecScores.S), mbti: ["ENFP","ISTP"], details: "เหมาะกับคนชอบธรรมชาติ สนใจการพัฒนาเกษตรกรรม การจัดการและส่งเสริมทางการเกษตร" },
     { name: "คณะเทคโนโลยีคหกรรมศาสตร์", score: (riasecScores.R + riasecScores.S + riasecScores.A), mbti: ["INFP", "ISFJ"], details: "เหมาะกับคนชอบงานบ้าน อาหาร แฟชั่นเครื่องแต่งกาย และนักโภชนาการและนวัตกรรมด้านอาหาร" },
-    { name: "คณะเทคโนโลยีสื่อสารมวลชน", score: (riasecScores.A + riasecScores.I + riasecScores.R), mbti: ["ISFP", "ENFP", "ESFP"], details: "เหมาะกับคนที่ชอบการสื่อสาร การเล่าเรื่อง การผลิตสื่อทั้งแบบดั้งเดิมและดิจิทัล" },
+    { name: "คณะเทคโนโลยีสื่อสารมวลชน", score: (riasecScores.A + riasecScores.S + riasecScores.E), mbti: ["ISFP", "ENFP", "ESFP"], details: "เหมาะกับคนที่ชอบการสื่อสาร การเล่าเรื่อง การผลิตสื่อทั้งแบบดั้งเดิมและดิจิทัล" },
     { name: "คณะการแพทย์บูรณาการ", score: (riasecScores.I + riasecScores.S + riasecScores.E), mbti: ["ISFJ", "INFJ","ISTJ"], details: "เหมาะกับคนที่สนใจศาสตร์ทางการแพทย์ สุขภาพ และการแพทย์ประยุกต์" },
     { name: "คณะครุศาสตร์อุตสาหกรรม", score: (riasecScores.R + riasecScores.S + riasecScores.E), mbti: ["ISFJ", "ENFJ", "ESTJ"], details: "เหมาะกับคนที่ชอบงานสอน ควบคู่กับนักวิชาการในด้านเทคโนโลยีและนวัตกรรมอุตสาหกรรมต่างๆ" },
     { name: "คณะบริหารธุรกิจ", score: (riasecScores.E + riasecScores.C + riasecScores.I), mbti: ["ENTJ", "ENTP", "ENFP", "ESTJ","ESTP","INTJ","INFJ","ISTJ"], details: "เหมาะกับคนที่ชอบการจัดการ วางแผนธุรกิจ หรือทำงานด้านการตลาด การเงิน" },
