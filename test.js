@@ -9,6 +9,6 @@ let facultyList = [
     { name: "คณะวิทยาศาสตร์และเทคโนโลยี", score: (riasecScores.R + riasecScores.I + riasecScores.C), mbti: ["INTP", "ISTP"], details: "เหมาะกับคนที่ชอบการวิเคราะห์ ค้นคว้า คิดเชิงตรรกะ และแก้ปัญหาเชิงวิทยาศาสตร์" },
     { name: "คณะวิศวกรรมศาสตร์", score: (riasecScores.R + riasecScores.I + riasecScores.E), mbti: ["ENTP", "INTJ", "ISTP"], details: "เหมาะกับคนที่ชอบงานเทคนิค คำนวณ ระบบเครื่องจักร และการออกแบบโครงสร้าง" },
     { name: "คณะศิลปกรรมศาสตร์", score: (riasecScores.A + riasecScores.R + riasecScores.E), mbti: ["ESTP", "ESFP", "INFP", "ISFP"], details: "เหมาะกับคนที่มีความคิดสร้างสรรค์ ชอบการออกแบบ ศิลปะ ดนตรี หรือการแสดง" },
-    { name: "คณะศิลปศาสตร์", score: (riasecScores.A + riasecScores.S + riasecScores.E), mbti: ["ESFJ", "ENTJ", "ENFJ"], details: "เหมาะกับคนที่สนใจด้านภาษา วรรณกรรม จิตวิทยา หรือปรัชญา" },
+    { name: "คณะศิลปศาสตร์", score: (riasecScores.A + riasecScores.S + riasecScores.R), mbti: ["ESFJ", "ENTJ", "ENFJ"], details: "เหมาะกับคนที่สนใจด้านภาษา วรรณกรรม จิตวิทยา หรือปรัชญา" },
     { name: "คณะสถาปัตยกรรมศาสตร์", score: (riasecScores.A + riasecScores.R + riasecScores.E), mbti: ["INTP", "INFP"], details: "เหมาะกับคนที่สนใจการออกแบบเชิงสร้างสรรค์ และมีทักษะเชิงเทคนิคด้านโครงสร้าง" }
 ];

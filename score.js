@@ -669,7 +669,7 @@ function recommendFaculty() {
         { name: "คณะวิทยาศาสตร์และเทคโนโลยี", score: (riasecScores.R + riasecScores.I + riasecScores.C), mbti: ["INTP", "ISTP"] },
         { name: "คณะวิศวกรรมศาสตร์", score: (riasecScores.R + riasecScores.I + riasecScores.E), mbti: ["ENTP", "INTJ", "ISTP"] },
         { name: "คณะศิลปกรรมศาสตร์", score: (riasecScores.A + riasecScores.R + riasecScores.E), mbti: ["ESTP", "ESFP", "INFP", "ISFP"] },
-        { name: "คณะศิลปศาสตร์", score: (riasecScores.A + riasecScores.S + riasecScores.E), mbti: ["ESFJ", "ENTJ", "ENFJ"] },
+        { name: "คณะศิลปศาสตร์", score: (riasecScores.A + riasecScores.S + riasecScores.R), mbti: ["ESFJ", "ENTJ", "ENFJ"] },
         { name: "คณะสถาปัตยกรรมศาสตร์", score: (riasecScores.A + riasecScores.R + riasecScores.E), mbti: ["INTP", "INFP"] }
     ];
     
