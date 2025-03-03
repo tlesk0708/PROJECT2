@@ -30,7 +30,7 @@
                 <label for="q1_1">ไม่ชอบเลย</label>
     
                 <input type="radio" id="q1_2" name="assessment1" value="ไม่ชอบ">
-                <label for="q1_2">ไม่ชอบ/label>
+                <label for="q1_2">ไม่ชอบ</label>
     
                 <input type="radio" id="q1_3" name="assessment1" value="ชอบ">
                 <label for="q1_3">ชอบ</label>
@@ -89,19 +89,37 @@
     let assessment3 = document.querySelector('input[name="assessment3"]:checked');
 
     // แจ้งเตือนเมื่อกรุณาตอบคำถามให้ครบทุกข้อ
-if (!assessment1 || !assessment2 || !assessment3) {
-    Swal.fire({
-        title: "กรุณาตอบคำถามให้ครบทุกข้อ",
-        icon: "warning",
-        showConfirmButton: true, // เพิ่มปุ่มตกลง
-        confirmButtonText: "ตกลง" // เปลี่ยนข้อความในปุ่ม
-    });
-    return;  // หยุดการทำงานของฟังก์ชันถ้าผู้ใช้ไม่ตอบครบ
-}
+    if (!assessment1 || !assessment2 || !assessment3) {
+        Swal.fire({
+            title: "กรุณาตอบคำถามให้ครบทุกข้อ",
+            icon: "warning",
+            showConfirmButton: true,
+            confirmButtonText: "ตกลง"
+        });
+        return;
+    }
+
+    // ดึงค่า username จาก localStorage
+    let username = localStorage.getItem('username');
+    
+    // ตรวจสอบว่า username มีค่าหรือไม่
+    if (!username) {
+        Swal.fire({
+            title: "คุณยังไม่ได้ล็อกอิน",
+            icon: "error"
+        });
+        return;
+    }
+
+    // ตรวจสอบค่า username
+    console.log("Username: ", username);
 
     // ถ้าตอบครบแล้ว, ส่งข้อมูลไปยัง server
     let formData = new FormData(document.getElementById("quizForm"));
-    
+
+    // เพิ่ม username เข้าไปใน formData
+    formData.append("username", username);
+
     fetch("Assessment.php", {
         method: "POST",
         body: formData
@@ -118,10 +136,12 @@ if (!assessment1 || !assessment2 || !assessment3) {
                 window.location.href = "dashboard.html"; // ไปยังหน้าหลัก
             });
         } else {
+            // ถ้าผู้ใช้ทำแบบประเมินนี้ไปแล้ว
             Swal.fire({
-                title: "เกิดข้อผิดพลาด",
-                text: data.message,
+                title: "คุณทำแบบประเมินนี้ไปแล้ว",
                 icon: "error"
+            }).then(function() {
+                window.location.href = "dashboard.html"; // ไปยังหน้าหลักเมื่อกด OK
             });
         }
     })
@@ -133,7 +153,6 @@ if (!assessment1 || !assessment2 || !assessment3) {
         });
     });
 });
-
 </script>
 
 </body>

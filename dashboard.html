@@ -61,7 +61,23 @@
         </div>
     </form>
 </div>
+<div class="botton" >
+    <p>ออกจากระบบ</p>
+    <div class="input-group" style="display: inline;">
+        <button type="submit" class="btn" onclick="logout()" style="background-color: red; color: white; border: none; padding: 10px 20px; cursor: pointer; display: inline;">
+            logout
+        </button>
+    </div>
 </div>
+</div>
+<script>
+    // ฟังก์ชันออกจากระบบ
+    function logout() {
+        // ตัวอย่างการล้างข้อมูลจาก localStorage
+        localStorage.clear(); // หรือ sessionStorage.clear(); หากใช้ sessionStorage
+        window.location.href = "login.html"; // เปลี่ยนไปหน้า login.html หรือหน้าออกจากระบบ
+    }
+    </script>
 </body>
 </html>
 

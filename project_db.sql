@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2025 at 07:23 PM
+-- Generation Time: Mar 03, 2025 at 06:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `assessment` (
   `assessment_id` int(100) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `assessment1` varchar(255) NOT NULL,
   `assessment2` varchar(255) NOT NULL,
   `assessment3` varchar(255) NOT NULL
@@ -38,8 +39,8 @@ CREATE TABLE `assessment` (
 -- Dumping data for table `assessment`
 --
 
-INSERT INTO `assessment` (`assessment_id`, `assessment1`, `assessment2`, `assessment3`) VALUES
-(1, 'เห็นด้วยที่สุด', 'เห็นด้วยที่สุด', 'ชอบมาก');
+INSERT INTO `assessment` (`assessment_id`, `username`, `assessment1`, `assessment2`, `assessment3`) VALUES
+(1, 'tlesk', 'ชอบมาก', 'เห็นด้วยที่สุด', 'รู้สึกพอใจมาก');
 
 -- --------------------------------------------------------
 
@@ -57,6 +58,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `user_id`, `password`, `firstname`, `lastname`, `age`) VALUES
+('tlesk', 1, 'tlesk0708', 'peerapon', 'sukikul', 22);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -64,7 +72,8 @@ CREATE TABLE `user` (
 -- Indexes for table `assessment`
 --
 ALTER TABLE `assessment`
-  ADD PRIMARY KEY (`assessment_id`);
+  ADD PRIMARY KEY (`assessment_id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `user`
@@ -80,13 +89,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `assessment`
 --
 ALTER TABLE `assessment`
-  MODIFY `assessment_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `assessment_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
