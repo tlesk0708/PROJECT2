@@ -684,7 +684,7 @@ function recommendFaculty() {
     if (matchingFaculties.length > 0) {
         let result = "คณะที่เหมาะสมกับคุณคือ: ";
         result += matchingFaculties.map((faculty, index) => `${index + 1}. ${faculty.name}`).join("\n");
-        alert(result);
+        
     } else {
         alert("ไม่พบคณะที่ตรงกับผลลัพธ์ของคุณ");
     }
