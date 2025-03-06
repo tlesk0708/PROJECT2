@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luksood GU.</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Include SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <!-- Include SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="detective.png" alt="Logo">
+            <span>Luksood GU.</span>
+        </div>
+        <span style="font-size: 30px;">แบบทดสอบ MBTI(JP)</span>
+        <div class="right-text">
+            <span>แนะนำคณะที่ใช่</span>
+        </div>
+    </header>
+    <div class="body1">
+        <div class="boxbodywhite">
+            <form id="quizForm" action="result.html" method="POST">
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>1.พื้นที่อยู่อาศัยและทำงานของคุณมีความสะอาดและเป็นระเบียบ?</h4><br>
+                        <input type="radio" id="q79_1" name="question79" value="สะอาดมาก">
+                        <label for="q79_1" >สะอาดมาก</label>
+    
+                        <input type="radio" id="q79_2" name="question79" value="ค่อนข้างสะอาด">
+                        <label for="q79_2" >ค่อนข้างสะอาด</label>
+    
+                        <input type="radio" id="q79_3" name="question79" value="ค่อนข้างไม่สะอาด">
+                        <label for="q79_3" >ค่อนข้างไม่สะอาด</label>
+    
+                        <input type="radio" id="q79_4" name="question79" value="ไม่สะอาดเลย">
+                        <label for="q79_4" >ไม่สะอาดเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>2.คุณให้ความสำคัญและวางแผนงานอย่างมีประสิทธิภาพ โดยมักจะทำให้เสร็จก่อนกำหนดเวลา?</h4><br>
+                        <input type="radio" id="q80_1" name="question80" value="จริงมาก">
+                        <label for="q80_1" >จริงมาก</label>
+    
+                        <input type="radio" id="q80_2" name="question80" value="ค่อนข้างจริง">
+                        <label for="q80_2" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q80_3" name="question80" value="ค่อนข้างไม่จริง">
+                        <label for="q80_3" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q80_4" name="question80" value="ไม่จริงเลย">
+                        <label for="q80_4" >ไม่จริงเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>3.คุณชอบใช้เครื่องมือจัดระเบียบ เช่น ตารางเวลาและรายการ?</h4><br>
+                        <input type="radio" id="q81_1" name="question81" value="ชอบใช้มาก">
+                        <label for="q81_1" >ชอบใช้มาก</label>
+    
+                        <input type="radio" id="q81_2" name="question81" value="ใช้พอสมควร">
+                        <label for="q81_2" >ใช้พอสมควร</label>
+    
+                        <input type="radio" id="q81_3" name="question81" value="ใช้เล็กน้อย">
+                        <label for="q81_3" >ใช้เล็กน้อย</label>
+    
+                        <input type="radio" id="q81_4" name="question81" value="ไม่ใช้เลย">
+                        <label for="q81_4" >ไม่ใช้เลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>4.คุณมักจะปล่อยให้วันนั้นผ่านไปโดยไม่มีกำหนดการใด ๆ เลย?</h4><br>
+                        <input type="radio" id="q82_1" name="question82" value="ไม่จริงเลย">
+                        <label for="q82_1" >ไม่จริงเลย</label>
+    
+                        <input type="radio" id="q82_2" name="question82" value="ค่อนข้างไม่จริง">
+                        <label for="q82_2" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q82_3" name="question82" value="ค่อนข้างจริง">
+                        <label for="q82_3" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q82_4" name="question82" value="จริงมาก">
+                        <label for="q82_4" >จริงมาก ๆ</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>5.คุณชอบทำงานให้เสร็จก่อนที่จะปล่อยให้ตัวเองได้ผ่อนคลาย?</h4><br>
+                        <input type="radio" id="q83_1" name="question83" value="จริงมาก">
+                        <label for="q83_1" >จริงมาก</label>
+    
+                        <input type="radio" id="q83_2" name="question83" value="ค่อนข้างจริง">
+                        <label for="q83_2" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q83_3" name="question83" value="ค่อนข้างไม่จริง">
+                        <label for="q83_3" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q83_4" name="question83" value="ไม่จริงเลย">
+                        <label for="q83_4" >ไม่จริงเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>6.คุณมักทำสิ่งต่าง ๆ ในนาทีสุดท้ายเสมอ?</h4><br>
+                        <input type="radio" id="q84_1" name="question84" value="ไม่จริงเลย">
+                        <label for="q84_1" >ไม่จริงเลย</label>
+    
+                        <input type="radio" id="q84_2" name="question84" value="ค่อนข้างไม่จริง">
+                        <label for="q84_2" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q84_3" name="question84" value="ค่อนข้างจริง">
+                        <label for="q84_3" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q84_4" name="question84" value="จริงมาก">
+                        <label for="q84_4" >จริงมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>7.คุณพบว่าการจะทำตามตารางงานหรือตารางเรียนได้อย่างสม่ำเสมอเป็นเรื่องท้าทาย?</h4><br>
+                        <input type="radio" id="q85_1" name="question85" value="ไม่จริงเลย">
+                        <label for="q85_1" >ไม่จริงเลย</label>
+    
+                        <input type="radio" id="q85_2" name="question85" value="ค่อนข้างไม่จริง">
+                        <label for="q85_2" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q85_3" name="question85" value="ค่อนข้างจริง">
+                        <label for="q85_3" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q85_4" name="question85" value="จริงมาก">
+                        <label for="q85_4" >จริงมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>8.คุณชอบมีรายการที่ต้องทำสำหรับแต่ละวัน?</h4><br>
+                        <input type="radio" id="q86_1" name="question86" value="ชอบมาก">
+                        <label for="q86_1" >ชอบมาก</label>
+    
+                        <input type="radio" id="q86_2" name="question86" value="ค่อนข้างชอบ">
+                        <label for="q86_2" >ค่อนข้างชอบ</label>
+    
+                        <input type="radio" id="q86_3" name="question86" value="ค่อนข้างไม่ชอบ">
+                        <label for="q86_3" >ค่อนข้างไม่ชอบ</label>
+    
+                        <input type="radio" id="q86_4" name="question86" value="ไม่ชอบเลย">
+                        <label for="q86_4" >ไม่ชอบเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>9.หากแผนที่คุณวางไว้ถูกขัดจังหวะ สิ่งสำคัญที่สุดสำหรับคุณคือ การกลับไปทำตามแผนโดยเร็วที่สุด?</h4><br>
+                        <input type="radio" id="q87_1" name="question87" value="จริงมาก">
+                        <label for="q87_1" >จริงมาก</label>
+    
+                        <input type="radio" id="q87_2" name="question87" value="ค่อนข้างจริง">
+                        <label for="q87_2" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q87_3" name="question87" value="ค่อนข้างไม่จริง">
+                        <label for="q87_3" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q87_4" name="question87" value="ไม่จริงเลย">
+                        <label for="q87_4" >ไม่จริงเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>10.คุณทำสิ่งต่าง ๆ ตามลำดับวิธีโดยไม่ข้ามขั้นตอน?</h4><br>
+                        <input type="radio" id="q88_1" name="question88" value="จริงมาก">
+                        <label for="q88_1" >จริงมาก</label>
+    
+                        <input type="radio" id="q88_2" name="question88" value="ค่อนข้างจริง">
+                        <label for="q88_2" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q88_3" name="question88" value="ค่อนข้างไม่จริง">
+                        <label for="q88_3" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q88_4" name="question88" value="ไม่จริงเลย">
+                        <label for="q88_4" >ไม่จริงเลย</label>
+                    </div>
+                </div>
+
+        </div>
+    <div class="botton">
+        <p1>บันทึกคำตอบ</p1><br>
+        <button type="submit" class="btn" onclick="saveResults(event)">Save</button>
+    </div>
+    </form>
+
+</div>
+</div>
+<script src="script.js"></script>
+<script src="score.js"></script>
+</body>
+
+</html>

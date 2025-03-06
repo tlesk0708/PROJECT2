@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luksood GU.</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Include SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <!-- Include SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="detective.png" alt="Logo">
+            <span>Luksood GU.</span>
+        </div>
+        <span style="font-size: 30px;">แบบทดสอบ MBTI(TF)</span>
+        <div class="right-text">
+            <span>แนะนำคณะที่ใช่</span>
+        </div>
+    </header>
+    <div class="body1">
+        <div class="boxbodywhite">
+            <form id="quizForm" action="examMBTI4_JP.html" method="POST">
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>1.สิ่งที่สะท้อนอารมณ์ความรู้สึกของคุณมักจะโน้มน้าวคุณได้มากกว่าการถกเถียงตามข้อเท็จจริง?</h4><br>
+                        <input type="radio" id="q69_1" name="question69" value="ไม่จริงเลย">
+                        <label for="q69_1" >ไม่จริงเลย</label>
+    
+                        <input type="radio" id="q69_2" name="question69" value="ค่อนข้างไม่จริง">
+                        <label for="q69_2" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q69_3" name="question69" value="ค่อนข้างจริง">
+                        <label for="q69_3" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q69_4" name="question69" value="จริงมาก">
+                        <label for="q69_4" >จริงมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>2.เรื่องราวและอารมณ์ของผู้คนมีน้ำหนักกับคุณมากกว่าตัวเลขหรือข้อมูล?</h4><br>
+                        <input type="radio" id="q70_1" name="question70" value="ไม่สำคัญเลย">
+                        <label for="q70_1" >ไม่สำคัญเลย</label>
+    
+                        <input type="radio" id="q70_2" name="question70" value="ค่อนข้างไม่สำคัญ">
+                        <label for="q70_2" >ค่อนข้างไม่สำคัญ</label>
+    
+                        <input type="radio" id="q70_3" name="question70" value="ค่อนข้างสำคัญ">
+                        <label for="q70_3" >ค่อนข้างสำคัญ</label>
+    
+                        <input type="radio" id="q70_4" name="question70" value="สำคัญมาก">
+                        <label for="q70_4" >สำคัญมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>3.เมื่อกำหนดแนวทางปฏิบัติ คุณให้ความสำคัญกับข้อเท็จจริงมากกว่าความรู้สึกของผู้อื่น?</h4><br>
+                        <input type="radio" id="q71_1" name="question71" value="จริงมาก">
+                        <label for="q71_1" >จริงมาก</label>
+    
+                        <input type="radio" id="q71_2" name="question71" value="ค่อนข้างจริง">
+                        <label for="q71_2" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q71_3" name="question71" value="ค่อนข้างไม่จริง">
+                        <label for="q71_3" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q71_4" name="question71" value="ไม่จริงเลย">
+                        <label for="q71_4" >ไม่จริงเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>4.คุณให้ความสำคัญกับความอ่อนโยนมากกว่าการพูดอย่างตรงไปตรงมา?</h4><br>
+                        <input type="radio" id="q72_1" name="question72" value="ไม่จริงเลย">
+                        <label for="q72_1" >ไม่จริงเลย</label>
+    
+                        <input type="radio" id="q72_2" name="question72" value="ค่อนข้างไม่จริง">
+                        <label for="q72_2" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q72_3" name="question72" value="ค่อนข้างจริง">
+                        <label for="q72_3" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q72_4" name="question72" value="จริงมาก">
+                        <label for="q72_4" >จริงมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>5.คุณชอบประสิทธิภาพในการตัดสินใจ แม้ว่าจะหมายถึงการไม่คำนึงถึงแง่มุมด้านอารมณ์บางประการก็ตาม?</h4><br>
+                        <input type="radio" id="q73_1" name="question73" value="จริงมาก">
+                        <label for="q73_1" >จริงมาก</label>
+    
+                        <input type="radio" id="q73_2" name="question73" value="ค่อนข้างจริง">
+                        <label for="q73_2" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q73_3" name="question73" value="ค่อนข้างไม่จริง">
+                        <label for="q73_3" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q73_4" name="question73" value="ไม่จริงเลย">
+                        <label for="q73_4" >ไม่จริงเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>6.เมื่อมีความเห็นต่าง คุณให้ความสำคัญของการพิสูจน์ประเด็นของคุณมากกว่าการรักษาความรู้สึกของผู้อื่น?</h4><br>
+                        <input type="radio" id="q74_1" name="question74" value="จริงมาก">
+                        <label for="q74_1" >จริงมาก</label>
+    
+                        <input type="radio" id="q74_2" name="question74" value="ค่อนข้างจริง">
+                        <label for="q74_2" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q74_3" name="question74" value="ค่อนข้างไม่จริง">
+                        <label for="q74_3" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q74_4" name="question74" value="ไม่จริงเลย">
+                        <label for="q74_4" >ไม่จริงเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>7.คุณสนุกกับการถกเถียงในประเด็นความขัดแย้งทางจริยธรรม?</h4><br>
+                        <input type="radio" id="q75_1" name="question75" value="จริงมาก">
+                        <label for="q75_1" >จริงมาก</label>
+    
+                        <input type="radio" id="q75_2" name="question75" value="ค่อนข้างจริง">
+                        <label for="q75_2" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q75_3" name="question75" value="ค่อนข้างไม่จริง">
+                        <label for="q75_3" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q75_4" name="question75" value="ไม่จริงเลย">
+                        <label for="q75_4" >ไม่จริงเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>8.เมื่อข้อเท็จจริงและความรู้สึกขัดแย้งกัน คุณมักจะพบว่าตัวเองทำตามที่หัวใจเรียกร้อง?</h4><br>
+                        <input type="radio" id="q76_1" name="question76" value="ไม่จริงเลย">
+                        <label for="q76_1" >ไม่จริงเลย</label>
+    
+                        <input type="radio" id="q76_2" name="question76" value="ค่อนข้างไม่จริง">
+                        <label for="q76_2" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q76_3" name="question76" value="ค่อนข้างจริง">
+                        <label for="q76_3" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q76_4" name="question76" value="จริงมาก">
+                        <label for="q76_4" >จริงมาก</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>9.คุณมักจะเลือกตามข้อเท็จจริงที่เป็นกลางมากกว่าความประทับใจทางอารมณ์?</h4><br>
+                        <input type="radio" id="q77_1" name="question77" value="จริงมาก">
+                        <label for="q77_1" >จริงมาก</label>
+    
+                        <input type="radio" id="q77_2" name="question77" value="ค่อนข้างจริง">
+                        <label for="q77_2" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q77_3" name="question77" value="ค่อนข้างไม่จริง">
+                        <label for="q77_3" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q77_4" name="question77" value="ไม่จริงเลย">
+                        <label for="q77_4" >ไม่จริงเลย</label>
+                    </div>
+                </div>
+
+                <div class="whitebox">
+                    <div style="padding: 15px;">
+                        <h4>10.เมื่อตัดสินใจ คุณจะให้ความสำคัญกับความรู้สึกของผู้ได้รับผลกระทบมากกว่าสิ่งที่เป็นตรรกะหรือความมีประสิทธิภาพ?</h4><br>
+                        <input type="radio" id="q78_1" name="question78" value="ไม่จริงเลย">
+                        <label for="q78_1" >ไม่จริงเลย</label>
+    
+                        <input type="radio" id="q78_2" name="question78" value="ค่อนข้างไม่จริง">
+                        <label for="q78_2" >ค่อนข้างไม่จริง</label>
+    
+                        <input type="radio" id="q78_3" name="question78" value="ค่อนข้างจริง">
+                        <label for="q78_3" >ค่อนข้างจริง</label>
+    
+                        <input type="radio" id="q78_4" name="question78" value="จริงมาก">
+                        <label for="q78_4" >จริงมาก</label>
+                    </div>
+                </div>
+        </div>
+    <div class="botton">
+        <p1>บันทึกคำตอบ</p1><br>
+        <button type="submit" class="btn" onclick="calculateScore_TF(event)">Save</button>
+    </div>
+    </form>
+
+</div>
+</div>
+<script src="script.js"></script>
+<script src="score.js"></script>
+</body>
+
+</html>
