@@ -195,89 +195,89 @@ function calculateScore_EI(event) {
     let E_score = 0;
     let I_score = 0;
 
-    // ข้อที่ 61-70
-    let q61 = document.querySelector('input[name="question61"]:checked');
-    if (q61) {
-        if (q61.value === "ชอบ") E_score += 1;
-        else if (q61.value === "ชอบบางครั้ง") E_score += 1;
-        else if (q61.value === "ชอบอยู่คนเดียว") I_score += 1;
-        else if (q61.value === "ชอบเงียบ") I_score += 1;
+    // ข้อที่ 49-58
+    let q49 = document.querySelector('input[name="question49"]:checked');
+    if (q49) {
+        if (q49.value === "เป็นประจำ") E_score += 1;
+        else if (q49.value === "บ่อยครั้ง") E_score += 1;
+        else if (q49.value === "บางครั้ง") I_score += 1;
+        else if (q49.value === "แทบไม่เคย") I_score += 1;
     }
 
-    let q62 = document.querySelector('input[name="question62"]:checked');
-    if (q62) {
-        if (q62.value === "รู้สึกพลังเต็มที่") E_score += 1;
-        else if (q62.value === "รู้สึกดี") E_score += 1;
-        else if (q62.value === "รู้สึกดีกว่าเมื่ออยู่คนเดียว") I_score += 1;
-        else if (q62.value === "รู้สึกเหนื่อย") I_score += 1;
+    let q50 = document.querySelector('input[name="question50"]:checked');
+    if (q50) {
+        if (q50.value === "ไม่กังวลเลย") E_score += 1;
+        else if (q50.value === "กังวลเล็กน้อย") E_score += 1;
+        else if (q50.value === "กังวลพอสมควร") I_score += 1;
+        else if (q50.value === "กังวลเป็นอย่างมาก") I_score += 1;
     }
 
-    let q63 = document.querySelector('input[name="question63"]:checked');
-    if (q63) {
-        if (q63.value === "รู้สึกตื่นเต้นมากและชอบพบปะคนใหม่ๆเสมอ") E_score += 1;
-        else if (q63.value === "ชอบพบปะคนใหม่ๆแต่ต้องใช้เวลาปรับตัว") E_score += 1;
-        else if (q63.value === "รู้สึกโอเคแต่ไม่ค่อยชอบเริ่มบทสนทนา") I_score += 1;
-        else if (q63.value === "รู้สึกอึดอัดและชอบอยู่กับคนที่คุ้นเคย") I_score += 1;
+    let q51 = document.querySelector('input[name="question51"]:checked');
+    if (q51) {
+        if (q51.value === "รู้สึกสบายใจมาก") E_score += 1;
+        else if (q51.value === "รู้สึกค่อนข้างสบายใจ") E_score += 1;
+        else if (q51.value === "รู้สึกไม่ค่อยสบายใจ") I_score += 1;
+        else if (q51.value === "รู้สึกไม่สบายใจเลย") I_score += 1;
     }
 
-    let q64 = document.querySelector('input[name="question64"]:checked');
-    if (q64) {
-        if (q64.value === "ไม่ค่อยสบายใจ") E_score += 1;
-        else if (q64.value === "สบายใจบางครั้ง") E_score += 1;
-        else if (q64.value === "สบายใจมาก") I_score += 1;
-        else if (q64.value === "สบายใจที่สุด") I_score += 1;
+    let q52 = document.querySelector('input[name="question52"]:checked');
+    if (q52) {
+        if (q52.value === "สนุกมาก") E_score += 1;
+        else if (q52.value === "สนุกพอสมควร") E_score += 1;
+        else if (q52.value === "สนุกเล็กน้อย") I_score += 1;
+        else if (q52.value === "ไม่สนุกเลย") I_score += 1;
     }
 
-    let q65 = document.querySelector('input[name="question65"]:checked');
-    if (q65) {
-        if (q65.value === "ชอบ") E_score += 1;
-        else if (q65.value === "ชอบบางครั้ง") E_score += 1;
-        else if (q65.value === "ไม่ชอบ") I_score += 1;
-        else if (q65.value === "ไม่ชอบเลย") I_score += 1;
+    let q53 = document.querySelector('input[name="question53"]:checked');
+    if (q53) {
+        if (q53.value === "ไม่จริงเลย") E_score += 1;
+        else if (q53.value === "ค่อนข้างไม่จริง") E_score += 1;
+        else if (q53.value === "ค่อนข้างจริง") I_score += 1;
+        else if (q53.value === "จริงมาก") I_score += 1;
     }
 
-    let q66 = document.querySelector('input[name="question66"]:checked');
-    if (q66) {
-        if (q66.value === "มักขอคำแนะนำจากคนอื่น") E_score += 1;
-        else if (q66.value === "บางครั้งก็ขอคำแนะนำ") E_score += 1;
-        else if (q66.value === "ฉันชอบคิดเองก่อน") I_score += 1;
-        else if (q66.value === "ฉันจะคิดและตัดสินใจเอง") I_score += 1;
+    let q54 = document.querySelector('input[name="question54"]:checked');
+    if (q54) {
+        if (q54.value === "ฉันแนะนำตัวก่อนเสมอ") E_score += 1;
+        else if (q54.value === "บางครังฉันก็แนะนำตัวก่อน") E_score += 1;
+        else if (q54.value === "ฉันจะรอให้คนอื่นแนะนำตัว") I_score += 1;
+        else if (q54.value === "ฉันไม่แนะนำตัวกับคนอื่น") I_score += 1;
     }
 
-    let q67 = document.querySelector('input[name="question67"]:checked');
-    if (q67) {
-        if (q67.value === "ชอบมาก") E_score += 1;
-        else if (q67.value === "ชอบบางครั้ง") E_score += 1;
-        else if (q67.value === "ชอบอยู่คนเดียว") I_score += 1;
-        else if (q67.value === "ไม่ชอบตั้งกลุ่มเลย") I_score += 1;
+    let q55 = document.querySelector('input[name="question55"]:checked');
+    if (q55) {
+        if (q55.value === "จริงมาก") E_score += 1;
+        else if (q55.value === "ค่อนข้างจริง") E_score += 1;
+        else if (q55.value === "ค่อนข้างไม่จริง") I_score += 1;
+        else if (q55.value === "ไม่จริงเลย") I_score += 1;
     }
 
-    let q68 = document.querySelector('input[name="question68"]:checked');
-    if (q68) {
-        if (q68.value === "ทำกิจกรรมกลุ่ม") E_score += 1;
-        else if (q68.value === "ชอบทำบางกิจกรรมแบบกลุ่ม") E_score += 1;
-        else if (q68.value === "ทำกิจกรรมแบบเงียบๆ") I_score += 1;
-        else if (q68.value === "ทำกิจกรรมคนเดียว") I_score += 1;
+    let q56 = document.querySelector('input[name="question56"]:checked');
+    if (q56) {
+        if (q56.value === "จริงมาก") E_score += 1;
+        else if (q56.value === "ค่อนข้างจริง") E_score += 1;
+        else if (q56.value === "ค่อนข้างไม่จริง") I_score += 1;
+        else if (q56.value === "ไม่จริงเลย") I_score += 1;
     }
 
-    let q69 = document.querySelector('input[name="question69"]:checked');
-    if (q69) {
-        if (q69.value === "รู้สึกกระปรี้กระเปร่ามาก") E_score += 1;
-        else if (q69.value === "รู้สึกดี") E_score += 1;
-        else if (q69.value === "ผ่อนคลายมากเมื่ออยู่คนเดียว") I_score += 1;
-        else if (q69.value === "รู้สึกต้องการความสงบ") I_score += 1;
+    let q57 = document.querySelector('input[name="question57"]:checked');
+    if (q57) {
+        if (q57.value === "ทำได้ง่ายมาก") E_score += 1;
+        else if (q57.value === "ค่อนข้างเข้ากับคนอื่นได้") E_score += 1;
+        else if (q57.value === "ไม่คิดว่าจะทำได้") I_score += 1;
+        else if (q57.value === "ทำไม่ได้เลย") I_score += 1;
     }
 
-    let q70 = document.querySelector('input[name="question70"]:checked');
-    if (q70) {
-        if (q70.value === "ชอบทำงานกับคนอื่นมาก") E_score += 1;
-        else if (q70.value === "ชอบทำงานเป็นทีมบางครั้ง") E_score += 1;
-        else if (q70.value === "ทำงานคนเดียว") I_score += 1;
-        else if (q70.value === "ชอบทำคนเดียวเท่านั้น") I_score += 1;
+    let q58 = document.querySelector('input[name="question58"]:checked');
+    if (q58) {
+        if (q58.value === "จริงมาก") E_score += 1;
+        else if (q58.value === "ค่อนข้างจริง") E_score += 1;
+        else if (q58.value === "ค่อนข้างไม่จริง") I_score += 1;
+        else if (q58.value === "ไม่จริงเลย") I_score += 1;
     }
 
     // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q61 || !q62 || !q63 || !q64 || !q65 || !q66 || !q67 || !q68 || !q69 || !q70) {
+    if (!q49 || !q50 || !q51 || !q52 || !q53 || !q54 || !q55 || !q56 || !q57 || !q58) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงานและไม่เปลี่ยนหน้า
     }
@@ -303,90 +303,90 @@ function calculateScore_SN(event) {
     let S_score = 0;
     let N_score = 0;
 
-    // ข้อที่ 71-80
-    let q71 = document.querySelector('input[name="question71"]:checked');
-    let q72 = document.querySelector('input[name="question72"]:checked');
-    let q73 = document.querySelector('input[name="question73"]:checked');
-    let q74 = document.querySelector('input[name="question74"]:checked');
-    let q75 = document.querySelector('input[name="question75"]:checked');
-    let q76 = document.querySelector('input[name="question76"]:checked');
-    let q77 = document.querySelector('input[name="question77"]:checked');
-    let q78 = document.querySelector('input[name="question78"]:checked');
-    let q79 = document.querySelector('input[name="question79"]:checked');
-    let q80 = document.querySelector('input[name="question80"]:checked');
+    // ข้อที่ 59-68
+    let q59 = document.querySelector('input[name="question59"]:checked');
+    let q60 = document.querySelector('input[name="question60"]:checked');
+    let q61 = document.querySelector('input[name="question61"]:checked');
+    let q62 = document.querySelector('input[name="question62"]:checked');
+    let q63 = document.querySelector('input[name="question63"]:checked');
+    let q64 = document.querySelector('input[name="question64"]:checked');
+    let q65 = document.querySelector('input[name="question65"]:checked');
+    let q66 = document.querySelector('input[name="question66"]:checked');
+    let q67 = document.querySelector('input[name="question67"]:checked');
+    let q68 = document.querySelector('input[name="question68"]:checked');
     
     // คำนวณคะแนน
-    if (q71) {
-        if (q71.value === "ชอบมาก") S_score += 1;
-        else if (q71.value === "ชอบบางครั้ง") S_score += 1;
-        else if (q71.value === "ไม่ชอบเท่าไหร่") N_score += 1;
-        else if (q71.value === "ไม่ชอบเลย") N_score += 1;
+    if (q59) {
+        if (q59.value === "ไม่ตื่นเต้นเลย") S_score += 1;
+        else if (q59.value === "ตื่นเต้นเล็กน้อย") S_score += 1;
+        else if (q59.value === "ตื่นเต้นพอสมควร") N_score += 1;
+        else if (q59.value === "ตื่นเต้นมาก") N_score += 1;
     }
 
-    if (q72) {
-        if (q72.value === "ฉันต้องการข้อมูลที่ชัดเจนเป็นข้อเท็จจริงก่อนตัดสินใจ") S_score += 1;
-        else if (q72.value === "ฉันมักจะใช้ข้อมูลที่มีอยู่ก่อน แต่ก็คิดถึงแนวทางใหม่ ๆ") S_score += 1;
-        else if (q72.value === "ฉันมักคิดถึงอนาคตและจินตนาการความเป็นไปได้ต่าง ๆ") N_score += 1;
-        else if (q72.value === "ฉันให้ความสำคัญกับแนวคิดใหม่ ๆ มากกว่าข้อมูลที่มีอยู่") N_score += 1;
+    if (q60) {
+        if (q60.value === "จริงมาก") S_score += 1;
+        else if (q60.value === "ค่อนข้างจริง") S_score += 1;
+        else if (q60.value === "ค่อนข้างไม่จริง") N_score += 1;
+        else if (q60.value === "ไม่จริงเลย") N_score += 1;
     }
 
-    if (q73) {
-        if (q73.value === "มองที่ปัจจุบัน") S_score += 1;
-        else if (q73.value === "สนใจสิ่งที่เป็นจริง") S_score += 1;
-        else if (q73.value === "คิดถึงอนาคตอยู่บ่อยๆ") N_score += 1;
-        else if (q73.value === "คิดถึงอนาคตบางครั้ง") N_score += 1;
+    if (q61) {
+        if (q61.value === "ไม่สนุกเลย") S_score += 1;
+        else if (q61.value === "สนุกเล็กน้อย") S_score += 1;
+        else if (q61.value === "สนุกพอสมควร") N_score += 1;
+        else if (q61.value === "สนุกมาก") N_score += 1;
     }
 
-    if (q74) {
-        if (q74.value === "ชอบงานที่มีกระบวนการชัดเจน") S_score += 1;
-        else if (q74.value === "ชอบทำตามที่กำหนดไว้") S_score += 1;
-        else if (q74.value === "ชอบงานที่สร้างสรรค์") N_score += 1;
-        else if (q74.value === "ชอบงานที่สร้างสรรค์มาก") N_score += 1;
+    if (q62) {
+        if (q62.value === "ไม่จริงเลย") S_score += 1;
+        else if (q62.value === "ค่อนข้างไม่จริง") S_score += 1;
+        else if (q62.value === "ค่อนข้างจริง") N_score += 1;
+        else if (q62.value === "จริงมาก") N_score += 1;
     }
 
-    if (q75) {
-        if (q75.value === "ชอบมาก") S_score += 1;
-        else if (q75.value === "ชอบบางครั้ง") S_score += 1;
-        else if (q75.value === "ชอบทำงานที่ไม่จำกัดกรอบ") N_score += 1;
-        else if (q75.value === "ไม่สนใจผลลัพธ์ที่ชัดเจน") N_score += 1;
+    if (q63) {
+        if (q63.value === "จริงมาก") S_score += 1;
+        else if (q63.value === "ค่อนข้างจริง") S_score += 1;
+        else if (q63.value === "ค่อนข้างไม่จริง") N_score += 1;
+        else if (q63.value === "ไม่จริงเลย") N_score += 1;
     }
 
-    if (q76) {
-        if (q76.value === "ชอบ") S_score += 1;
-        else if (q76.value === "ชอบมาก") S_score += 1;
-        else if (q76.value === "ไม่ชอบ") N_score += 1;
-        else if (q76.value === "ชอบความยืดหยุ่น") N_score += 1;
+    if (q64) {
+        if (q64.value === "จริงมาก") S_score += 1;
+        else if (q64.value === "ค่อนข้างจริง") S_score += 1;
+        else if (q64.value === "ค่อนข้างไม่จริง") N_score += 1;
+        else if (q64.value === "ไม่จริงเลย") N_score += 1;
     }
 
-    if (q77) {
-        if (q77.value === "สนใจปัจจุบันมากกว่า") S_score += 1;
-        else if (q77.value === "สนใจปัจจุบันบางครั้ง") S_score += 1;
-        else if (q77.value === "สนใจอนาคตบางครั้ง") N_score += 1;
-        else if (q77.value === "ชอบจินตนาการอนาคต") N_score += 1;
+    if (q65) {
+        if (q65.value === "ไม่สนใจเลย") S_score += 1;
+        else if (q65.value === "สนใจเล็กน้อย") S_score += 1;
+        else if (q65.value === "สนใจพอสมควร") N_score += 1;
+        else if (q65.value === "สนใจมาก") N_score += 1;
     }
 
-    if (q78) {
-        if (q78.value === "มองหาวิธีที่ใช้งานได้ทันที") S_score += 1;
-        else if (q78.value === "มองหาวิธีการที่ใช้ได้") S_score += 1;
-        else if (q78.value === "มองหาแนวทางใหม่ๆ") N_score += 1;
-        else if (q78.value === "คิดถึงสิ่งที่เป็นไปได้ในอนาคต") N_score += 1;
+    if (q66) {
+        if (q66.value === "ไม่สนุกเลย") S_score += 1;
+        else if (q66.value === "สนุกเล็กน้อย") S_score += 1;
+        else if (q66.value === "สนุกพอสมควร") N_score += 1;
+        else if (q66.value === "สนุกมาก") N_score += 1;
     }
 
-    if (q79) {
-        if (q79.value === "ชอบงานที่มีระเบียบ") S_score += 1;
-        else if (q79.value === "ชอบงานที่มีขั้นตอนชัดเจน") S_score += 1;
-        else if (q79.value === "ชอบงานที่ค่อนข้างใหม่") N_score += 1;
-        else if (q79.value === "ชอบงานที่มีความสร้างสรรค์") N_score += 1;
+    if (q67) {
+        if (q67.value === "จริงมาก") S_score += 1;
+        else if (q67.value === "ค่อนข้างจริง") S_score += 1;
+        else if (q67.value === "ค่อนข้างไม่จริง") N_score += 1;
+        else if (q67.value === "ไม่จริงเลย") N_score += 1;
     }
 
-    if (q80) {
-        if (q80.value === "ใช่ ประสบการณ์ที่ผ่านมามีความสำคัญในการตัดสินใจ") S_score += 1;
-        else if (q80.value === "ใช่ แต่ก็คิดถึงทางเลือกใหม่ ที่อาจเกิดขึ้นด้วย") S_score += 1;
-        else if (q80.value === "ฉันคิดถึงอนาคตและมองหาทางเลือกใหม่ๆ") N_score += 1;
-        else if (q80.value === "ฉันมักจะไม่พึ่งพาประสบการณ์ที่ผ่านมา") N_score += 1;
+    if (q68) {
+        if (q68.value === "จริงมาก") S_score += 1;
+        else if (q68.value === "ค่อนข้างจริง") S_score += 1;
+        else if (q68.value === "ค่อนข้างไม่จริง") N_score += 1;
+        else if (q68.value === "ไม่จริงเลย") N_score += 1;
     }
     // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q71 || !q72 || !q73 || !q74 || !q75 || !q76 || !q77 || !q78 || !q79 || !q80) {
+    if (!q59 || !q60 || !q61 || !q62 || !q63 || !q64 || !q65 || !q66 || !q67 || !q68) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงานและไม่เปลี่ยนหน้า
     }
@@ -412,91 +412,91 @@ function calculateScore_TF(event) {
     let T_score = 0;
     let F_score = 0;
 
-    // ข้อที่ 81-90
-    let q81 = document.querySelector('input[name="question81"]:checked');
-    let q82 = document.querySelector('input[name="question82"]:checked');
-    let q83 = document.querySelector('input[name="question83"]:checked');
-    let q84 = document.querySelector('input[name="question84"]:checked');
-    let q85 = document.querySelector('input[name="question85"]:checked');
-    let q86 = document.querySelector('input[name="question86"]:checked');
-    let q87 = document.querySelector('input[name="question87"]:checked');
-    let q88 = document.querySelector('input[name="question88"]:checked');
-    let q89 = document.querySelector('input[name="question89"]:checked');
-    let q90 = document.querySelector('input[name="question90"]:checked');
+    // ข้อที่ 69-78
+    let q69 = document.querySelector('input[name="question69"]:checked');
+    let q70 = document.querySelector('input[name="question70"]:checked');
+    let q71 = document.querySelector('input[name="question71"]:checked');
+    let q72 = document.querySelector('input[name="question72"]:checked');
+    let q73 = document.querySelector('input[name="question73"]:checked');
+    let q74 = document.querySelector('input[name="question74"]:checked');
+    let q75 = document.querySelector('input[name="question75"]:checked');
+    let q76 = document.querySelector('input[name="question76"]:checked');
+    let q77 = document.querySelector('input[name="question77"]:checked');
+    let q78 = document.querySelector('input[name="question78"]:checked');
     
 
     // คำนวณคะแนน
-    if (q81) {
-        if (q81.value === "ให้ความสำคัญกับข้อเท็จจริงที่ชัดเจน") T_score += 1;
-        else if (q81.value === "ให้ความสำคัญกับข้อเท็จจริง แต่คำนึงถึงความรู้สึกส่วนตัวด้วย") T_score += 1;
-        else if (q81.value === "ตัดสินใจจากความรู้สึกและค่านิยมส่วนตัว") F_score += 1;
-        else if (q81.value === "ตัดสินใจโดยคำนึงถึงความรู้สึกของผู้อื่น") F_score += 1;
+    if (q69) {
+        if (q69.value === "ไม่จริงเลย") T_score += 1;
+        else if (q69.value === "ค่อนข้างไม่จริง") T_score += 1;
+        else if (q69.value === "ค่อนข้างจริง") F_score += 1;
+        else if (q69.value === "จริงมาก") F_score += 1;
     }
 
-    if (q82) {
-        if (q82.value === "ฉันมองหาทางออกที่มีเหตุผลและเป็นธรรมที่สุด แม้ว่าจะทำให้บางคนไม่พอใจ") T_score += 1;
-        else if (q82.value === "คำนึงถึงเหตุผลหลัก ๆ แต่จะพยายามหาทางที่ดีที่สุดสำหรับทุกฝ่าย") T_score += 1;
-        else if (q82.value === "พยายามหาทางออกที่ทำให้ทุกคนพอใจ แม้ว่าจะไม่เป็นทางเลือกที่ดีที่สุดในแง่เหตุผล") F_score += 1;
-        else if (q82.value === "พยายามทำให้ทุกฝ่ายรู้สึกดีแม้ว่าจะต้องเสียผลประโยชน์บางอย่าง") F_score += 1;
+    if (q70) {
+        if (q70.value === "ไม่สำคัญเลย") T_score += 1;
+        else if (q70.value === "ค่อนข้างไม่สำคัญ") T_score += 1;
+        else if (q70.value === "ค่อนข้างสำคัญ") F_score += 1;
+        else if (q70.value === "สำคัญมาก") F_score += 1;
     }
 
-    if (q83) {
-        if (q83.value === "ใช่ ข้อเท็จจริงเป็นสิ่งที่สำคัญที่สุดในการตัดสินใจ") T_score += 1;
-        else if (q83.value === "ใช่ ข้อเท็จจริงสำคัญ แต่ก็ต้องคำนึงถึงความรู้สึกของผู้อื่นด้วย") T_score += 1;
-        else if (q83.value === "ฉันให้ความสำคัญกับความรู้สึกของผู้อื่นมากกว่าข้อเท็จจริง") F_score += 1;
-        else if (q83.value === "ฉันมักจะคำนึงถึงความรู้สึกของผู้อื่นมากที่สุด") F_score += 1;
+    if (q71) {
+        if (q71.value === "จริงมาก") T_score += 1;
+        else if (q71.value === "ค่อนข้างจริง") T_score += 1;
+        else if (q71.value === "ค่อนข้างไม่จริง") F_score += 1;
+        else if (q71.value === "ไม่จริงเลย") F_score += 1;
     }
 
-    if (q84) {
-        if (q84.value === "ตัดสินใจจากเหตุผลและหลักฐานที่ชัดเจน") T_score += 1;
-        else if (q84.value === "ตัดสินใจจากเหตุผลโดยไม่ทิ้งการคำนึงถึงความรู้สึก") T_score += 1;
-        else if (q84.value === "ตัดสินใจจากความรู้สึกและคำนึงถึงความสัมพันธ์กับผู้อื่น") F_score += 1;
-        else if (q84.value === "ตัดสินใจจากความรู้สึกโดยคำนึงถึงความสัมพันธ์ที่ดีที่สุด") F_score += 1;
+    if (q72) {
+        if (q72.value === "ไม่จริงเลย") T_score += 1;
+        else if (q72.value === "ค่อนข้างไม่จริง") T_score += 1;
+        else if (q72.value === "ค่อนข้างจริง") F_score += 1;
+        else if (q72.value === "จริงมาก") F_score += 1;
     }
 
-    if (q85) {
-        if (q85.value === "เลือกวิธีที่สามารถแก้ปัญหาได้อย่างรวดเร็วและมีประสิทธิภาพ") T_score += 1;
-        else if (q85.value === "เลือกวิธีที่สามารถแก้ปัญหาได้อย่างรวดเร็ว แต่ก็พิจารณาในรายละเอียดบ้าง") T_score += 1;
-        else if (q85.value === "เลือกวิธีที่ใช้เวลาในการพิจารณาและให้ความสำคัญกับรายละเอียด") F_score += 1;
-        else if (q85.value === "เลือกวิธีที่ใช้เวลาในการพิจารณา แต่เน้นให้ทุกคนรู้สึกดีและพอใจ") F_score += 1;
+    if (q73) {
+        if (q73.value === "จริงมาก") T_score += 1;
+        else if (q73.value === "ค่อนข้างจริง") T_score += 1;
+        else if (q73.value === "ค่อนข้างไม่จริง") F_score += 1;
+        else if (q73.value === "ไม่จริงเลย") F_score += 1;
     }
 
-    if (q86) {
-        if (q86.value === "ชอบทำงานที่เน้นการวิเคราะห์และการแก้ปัญหา") T_score += 1;
-        else if (q86.value === "ชอบทำงานที่ใช้เหตุผลและการวิเคราะห์ แต่ก็ให้ความสำคัญกับผู้อื่น") T_score += 1;
-        else if (q86.value === "ชอบทำงานที่ช่วยให้ผู้อื่นรู้สึกดีและเข้าใจ") F_score += 1;
-        else if (q86.value === "ชอบทำงานที่สามารถช่วยเหลือผู้อื่นและทำให้พวกเขารู้สึกดี") F_score += 1;
+    if (q74) {
+        if (q74.value === "จริงมาก") T_score += 1;
+        else if (q74.value === "ค่อนข้างจริง") T_score += 1;
+        else if (q74.value === "ค่อนข้างไม่จริง") F_score += 1;
+        else if (q74.value === "ไม่จริงเลย") F_score += 1;
     }
 
-    if (q87) {
-        if (q87.value === "ฉันให้ความสำคัญกับข้อเท็จจริงและเหตุผลที่ชัดเจน") T_score += 1;
-        else if (q87.value === "ฉันพิจารณาข้อเท็จจริงและการวิเคราะห์ก่อน แต่ไม่ทิ้งการคำนึงถึงผลกระทบ") T_score += 1;
-        else if (q87.value === "ฉันให้ความสำคัญกับผลกระทบที่อาจเกิดขึ้นกับคนอื่นก่อน") F_score += 1;
-        else if (q87.value === "ฉันให้ความสำคัญกับความรู้สึกของผู้อื่นมากกว่าข้อเท็จจริง") F_score += 1;
+    if (q75) {
+        if (q75.value === "จริงมาก") T_score += 1;
+        else if (q75.value === "ค่อนข้างจริง") T_score += 1;
+        else if (q75.value === "ค่อนข้างไม่จริง") F_score += 1;
+        else if (q75.value === "ไม่จริงเลย") F_score += 1;
     }
 
-    if (q88) {
-        if (q88.value === "ฉันเชื่อว่าเลือกจากข้อเท็จจริงและการตรวจสอบ") T_score += 1;
-        else if (q88.value === "ฉันเลือกจากข้อเท็จจริง แต่ก็ให้ความสำคัญกับความรู้สึกของทุกคน") T_score += 1;
-        else if (q88.value === "ฉันเลือกจากการเห็นอกเห็นใจและคำนึงถึงผลกระทบต่อทุกคน") F_score += 1;
-        else if (q88.value === "ฉันเลือกจากความรู้สึกและการคำนึงถึงทุกฝ่าย") F_score += 1;
+    if (q76) {
+        if (q76.value === "ไม่จริงเลย") T_score += 1;
+        else if (q76.value === "ค่อนข้างไม่จริง") T_score += 1;
+        else if (q76.value === "ค่อนข้างจริง") F_score += 1;
+        else if (q76.value === "จริงมาก") F_score += 1;
     }
 
-    if (q89) {
-        if (q89.value === "เลือกทางเลือกที่มีประสิทธิภาพสูงสุด") T_score += 1;
-        else if (q89.value === "เลือกทางเลือกที่มีประสิทธิภาพสูงสุด แต่ก็ให้ความสำคัญกับความพึงพอใจของผู้อื่น") T_score += 1;
-        else if (q89.value === "เลือกทางเลือกที่ทำให้ทุกคนพึงพอใจ แม้ว่าจะไม่ดีที่สุด") F_score += 1;
-        else if (q89.value === "เลือกทางเลือกที่ทำให้ทุกคนพอใจที่สุด") F_score += 1;
+    if (q77) {
+        if (q77.value === "จริงมาก") T_score += 1;
+        else if (q77.value === "ค่อนข้างจริง") T_score += 1;
+        else if (q77.value === "ค่อนข้างไม่จริง") F_score += 1;
+        else if (q77.value === "ไม่จริงเลย") F_score += 1;
     }
 
-    if (q90) {
-        if (q90.value === "เน้นการตัดสินใจที่มีเหตุผลและหลักฐาน") T_score += 1;
-        else if (q90.value === "เน้นการตัดสินใจที่มีเหตุผลแต่ให้ความสำคัญกับความสัมพันธ์") T_score += 1;
-        else if (q90.value === "ให้ความสำคัญกับความเข้าใจและความสัมพันธ์มากกว่าการตัดสินใจ") F_score += 1;
-        else if (q90.value === "ให้ความสำคัญกับความสัมพันธ์และความเข้าใจผู้อื่นเป็นหลัก") F_score += 1;
+    if (q78) {
+        if (q78.value === "ไม่จริงเลย") T_score += 1;
+        else if (q78.value === "ค่อนข้างไม่จริง") T_score += 1;
+        else if (q78.value === "ค่อนข้างจริง") F_score += 1;
+        else if (q78.value === "จริงมาก") F_score += 1;
     }
     // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q81 || !q82 || !q83 || !q84 || !q85 || !q86 || !q87 || !q88 || !q89 || !q90) {
+    if (!q69 || !q70 || !q71 || !q72 || !q73 || !q74 || !q75 || !q76 || !q77 || !q78) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงานและไม่เปลี่ยนหน้า
     }
@@ -523,90 +523,90 @@ function calculateScore_JP(event) {
     let J_score = 0;
     let P_score = 0;
 
-    // ข้อที่ 91-100
-    let q91 = document.querySelector('input[name="question91"]:checked');
-    let q92 = document.querySelector('input[name="question92"]:checked');
-    let q93 = document.querySelector('input[name="question93"]:checked');
-    let q94 = document.querySelector('input[name="question94"]:checked');
-    let q95 = document.querySelector('input[name="question95"]:checked');
-    let q96 = document.querySelector('input[name="question96"]:checked');
-    let q97 = document.querySelector('input[name="question97"]:checked');
-    let q98 = document.querySelector('input[name="question98"]:checked');
-    let q99 = document.querySelector('input[name="question99"]:checked');
-    let q100 = document.querySelector('input[name="question100"]:checked');
+    // ข้อที่ 79-88
+    let q79 = document.querySelector('input[name="question79"]:checked');
+    let q80 = document.querySelector('input[name="question80"]:checked');
+    let q81 = document.querySelector('input[name="question81"]:checked');
+    let q82 = document.querySelector('input[name="question82"]:checked');
+    let q83 = document.querySelector('input[name="question83"]:checked');
+    let q84 = document.querySelector('input[name="question84"]:checked');
+    let q85 = document.querySelector('input[name="question85"]:checked');
+    let q86 = document.querySelector('input[name="question86"]:checked');
+    let q87 = document.querySelector('input[name="question87"]:checked');
+    let q88 = document.querySelector('input[name="question88"]:checked');
 
     // คำนวณคะแนน
-    if (q91) {
-        if (q91.value === "วางแผนล่วงหน้าอย่างละเอียด") J_score += 1;
-        else if (q91.value === "วางแผนบางอย่าง แต่ยังยืดหยุ่นได้") J_score += 1;
-        else if (q91.value === "จัดการงานในระหว่างทำตามสถานการณ์") P_score += 1;
-        else if (q91.value === "ไม่ต้องวางแผนอะไรเลยและทำตามที่มา") P_score += 1;
+    if (q79) {
+        if (q79.value === "สะอาดมาก") J_score += 1;
+        else if (q79.value === "ค่อนข้างสะอาด") J_score += 1;
+        else if (q79.value === "ค่อนข้างไม่สะอาด") P_score += 1;
+        else if (q79.value === "ไม่สะอาดเลย") P_score += 1;
     }
 
-    if (q92) {
-        if (q92.value === "รู้สึกไม่ค่อยสบายใจและต้องการแผนที่ชัดเจน") J_score += 1;
-        else if (q92.value === "รู้สึกไม่ค่อยสะดวกสบาย แต่ยอมรับได้หากมีเหตุผล") J_score += 1;
-        else if (q92.value === "รู้สึกท้าทายและตื่นเต้นกับการเปลี่ยนแปลง") P_score += 1;
-        else if (q92.value === "รู้สึกโอเคและปรับตัวได้ง่าย") P_score += 1;
+    if (q80) {
+        if (q80.value === "จริงมาก") J_score += 1;
+        else if (q80.value === "ค่อนข้างจริง") J_score += 1;
+        else if (q80.value === "ค่อนข้างไม่จริง") P_score += 1;
+        else if (q80.value === "ไม่จริงเลย") P_score += 1;
     }
 
-    if (q93) {
-        if (q93.value === "ชอบทำงานที่มีขั้นตอนที่ชัดเจนและตามแผน") J_score += 1;
-        else if (q93.value === "ชอบทำงานที่สามารถทำตามขั้นตอน แต่ยังยืดหยุ่นได้บ้าง") J_score += 1;
-        else if (q93.value === "ชอบทำงานที่ปรับเปลี่ยนได้ตามสถานการณ์") P_score += 1;
-        else if (q93.value === "ชอบทำงานที่ไม่ต้องมีขั้นตอนที่กำหนด") P_score += 1;
+    if (q81) {
+        if (q81.value === "ชอบใช้มาก") J_score += 1;
+        else if (q81.value === "ใช้พอสมควร") J_score += 1;
+        else if (q81.value === "ใช้เล็กน้อย") P_score += 1;
+        else if (q81.value === "ไม่ใช้เลย") P_score += 1;
     }
 
-    if (q94) {
-        if (q94.value === "เริ่มต้นด้วยการวางแผนและเตรียมตัวล่วงหน้า") J_score += 1;
-        else if (q94.value === "วางแผนบางอย่างและปรับตัวตามสถานการณ์") J_score += 1;
-        else if (q94.value === "รอจนกว่าจะถึงเวลาที่ต้องทำจริงแล้วเริ่มงาน") P_score += 1;
-        else if (q94.value === "ไม่ชอบการวางแผนเลยและทำตามสถานการณ์ไปเรื่อย") P_score += 1;
+    if (q82) {
+        if (q82.value === "ไม่จริงเลย") J_score += 1;
+        else if (q82.value === "ค่อนข้างไม่จริง") J_score += 1;
+        else if (q82.value === "ค่อนข้างจริง") P_score += 1;
+        else if (q82.value === "จริงมาก") P_score += 1;
     }
 
-    if (q95) {
-        if (q95.value === "รู้สึกไม่สบายใจและต้องการกรอบเวลาและข้อกำหนดที่ชัดเจน") J_score += 1;
-        else if (q95.value === "รู้สึกสบายใจบ้าง แต่ต้องการบางส่วนที่มีกรอบ") J_score += 1;
-        else if (q95.value === "รู้สึกตื่นเต้นและสามารถทำงานได้โดยไม่ต้องมีข้อกำหนด") P_score += 1;
-        else if (q95.value === "รู้สึกดีมากและทำงานตามสถานการณ์") P_score += 1;
+    if (q83) {
+        if (q83.value === "จริงมาก") J_score += 1;
+        else if (q83.value === "ค่อนข้างจริง") J_score += 1;
+        else if (q83.value === "ค่อนข้างไม่จริง") P_score += 1;
+        else if (q83.value === "ไม่จริงเลย") P_score += 1;
     }
 
-    if (q96) {
-        if (q96.value === "ชอบทำงานให้เสร็จเร็วและตามแผน") J_score += 1;
-        else if (q96.value === "ชอบทำงานที่ต้องทำให้เสร็จในกรอบเวลา") J_score += 1;
-        else if (q96.value === "ชอบทำงานที่ยืดหยุ่นตามระยะเวลา") P_score += 1;
-        else if (q96.value === "ชอบทำงานที่ไม่ต้องเร่งรีบและทำตามจังหวะของตัวเอง") P_score += 1;
+    if (q84) {
+        if (q84.value === "ไม่จริงเลย") J_score += 1;
+        else if (q84.value === "ค่อนข้างไม่จริง") J_score += 1;
+        else if (q84.value === "ค่อนข้างจริง") P_score += 1;
+        else if (q84.value === "จริงมาก") P_score += 1;
     }
 
-    if (q97) {
-        if (q97.value === "ต้องการข้อมูลทุกอย่างและขั้นตอนที่ชัดเจน") J_score += 1;
-        else if (q97.value === "ต้องการแผนงานที่ค่อนข้างชัดเจน") J_score += 1;
-        else if (q97.value === "ชอบทำงานที่มีความยืดหยุ่นและไม่ต้องการแผนที่แน่นอน") P_score += 1;
-        else if (q97.value === "ต้องการทราบแค่สิ่งสำคัญแล้วทำตามสถานการณ์") P_score += 1;
+    if (q85) {
+        if (q85.value === "ไม่จริงเลย") J_score += 1;
+        else if (q85.value === "ค่อนข้างไม่จริง") J_score += 1;
+        else if (q85.value === "ค่อนข้างจริง") P_score += 1;
+        else if (q85.value === "จริงมาก") P_score += 1;
     }
 
-    if (q98) {
-        if (q98.value === "จัดลำดับความสำคัญและทำตามลำดับ") J_score += 1;
-        else if (q98.value === "ทำตามลำดับความสำคัญและวางแผนล่วงหน้า") J_score += 1;
-        else if (q98.value === "ทำงานตามที่สะดวกในขณะนั้น") P_score += 1;
-        else if (q98.value === "ทำงานตามความรู้สึกในขณะนั้น") P_score += 1;
+    if (q86) {
+        if (q86.value === "ชอบมาก") J_score += 1;
+        else if (q86.value === "ค่อนข้างชอบ") J_score += 1;
+        else if (q86.value === "ค่อนข้างไม่ชอบ") P_score += 1;
+        else if (q86.value === "ไม่ชอบเลย") P_score += 1;
     }
 
-    if (q99) {
-        if (q99.value === "เตรียมตัวล่วงหน้าอย่างละเอียด") J_score += 1;
-        else if (q99.value === "เตรียมตัวบ้าง แต่ยืดหยุ่นได้") J_score += 1;
-        else if (q99.value === "ชอบทำตามสถานการณ์และปรับตัว") P_score += 1;
-        else if (q99.value === "ชอบทำตามความรู้สึกในช่วงเวลานั้น") P_score += 1;
+    if (q87) {
+        if (q87.value === "จริงมาก") J_score += 1;
+        else if (q87.value === "ค่อนข้างจริง") J_score += 1;
+        else if (q87.value === "ค่อนข้างไม่จริง") P_score += 1;
+        else if (q87.value === "ไม่จริงเลย") P_score += 1;
     }
 
-    if (q100) {
-        if (q100.value === "รู้สึกเครียดและอยากให้กลับไปตามแผน") J_score += 1;
-        else if (q100.value === "รู้สึกไม่ค่อยพอใจแต่ยังพยายามแก้ไขตามแผนที่กำหนด") J_score += 1;
-        else if (q100.value === "รู้สึกไม่เป็นไรและจะหาวิธีปรับตัวไปตามสถานการณ์") P_score += 1;
-        else if (q100.value === "รู้สึกว่าสามารถยืดหยุ่นและปรับตัวไปตามเวลาที่มี") P_score += 1;
+    if (q88) {
+        if (q88.value === "จริงมาก") J_score += 1;
+        else if (q88.value === "ค่อนข้างจริง") J_score += 1;
+        else if (q88.value === "ค่อนข้างไม่จริง") P_score += 1;
+        else if (q88.value === "ไม่จริงเลย") P_score += 1;
     }
     // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-    if (!q91 || !q92 || !q93 || !q94 || !q95 || !q96 || !q97 || !q98 || !q99 || !q100) {
+    if (!q79 || !q80 || !q81 || !q82 || !q83 || !q84 || !q85 || !q86 || !q87 || !q88) {
         alert("กรุณาตอบคำถามให้ครบทุกข้อ!");
         return; // หยุดการทำงานและไม่ทำอะไรต่อ
     }
