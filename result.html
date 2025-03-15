@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
     
     <style>
         .body1 {
             background-image: url('dna.png');
             background-size: cover;
             background-position: center;
-            padding: 20px;
             height: 100%;
             display: flex;
             justify-content: center;
@@ -22,7 +22,6 @@
 
         .whitebox3 {
             background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
             border-radius: 10px;
             text-align: center;
         }
@@ -92,6 +91,10 @@ canvas {
                             <canvas id="chart1"></canvas>
                         </div>
                     </div>
+                    <div style="width: 100%; height: 400px; max-width: 800px;">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    </div>
                     <div class="result-box">
                         <div class="result" id="result"></div>
                         <div class="description" id="description"></div>
@@ -115,6 +118,145 @@ canvas {
     </div>
 
     <script>
+            // Get the scores from localStorage (or use default values if not available)
+        const E_score = parseInt(localStorage.getItem('E_score'))  ;
+        const I_score = parseInt(localStorage.getItem('I_score'))  ;
+        const S_score = parseInt(localStorage.getItem('S_score'))  ;
+        const N_score = parseInt(localStorage.getItem('N_score'))  ;
+        const T_score = parseInt(localStorage.getItem('T_score'))  ;
+        const F_score = parseInt(localStorage.getItem('F_score'))  ;
+        const J_score = parseInt(localStorage.getItem('J_score'))  ;
+        const P_score = parseInt(localStorage.getItem('P_score'))  ;
+
+      
+
+        const descriptions = {
+    'E:Extroversion': 'ชอบเข้าสังคม กระตือรือร้น มีความมั่นใจสูง ช่างพูดช่างเจรจา',
+    'I:Introversion': 'ชอบอยู่คนเดียว เก็บตัว เป็นผู้รับฟังที่ดี ชอบใช้ความคิด',
+    'S:Sensing': 'ใช้ความรู้สึก เก็บรายละเอียดเก่ง มีความเป็นระเบียบ อยู่กับปัจจุบัน',
+    'N:Intuition': 'ใช้สัญชาตญาณ มีจินตนาการสูง มองการณ์ไกล ชอบแก้ปัญหาด้วยวิธีใหม่ ๆ',
+    'T:Thinking': 'ใช้เหตุผล มีหลักการ ทำตามขั้นตอน มุ่งมั่นค้นหาความจริง',
+    'F:Feeling': 'ใช้ความรู้สึกส่วนตัว สนใจความต้องการของผู้อื่น เห็นอกเห็นใจ อ่อนไหวง่าย',
+    'J:Judging': 'มีระเบียบ การวางแผน ตั้งเป้าหมาย ตัดสินใจเร็ว รักษาเวลา',
+    'P:Perceiving': 'ใช้ชีวิตแบบยืดหยุ่น ปรับตัวตามสถานการณ์ ไม่ชอบระเบียบ มีความอยากรู้อยากเห็น'
+};
+// กำหนดสีของแต่ละคู่
+const colors = {
+    'E:Extroversion': 'rgba(54, 162, 235, 1)',  // ฟ้า
+    'I:Introversion': 'rgba(54, 162, 235, 1)',  // ฟ้า
+    'S:Sensing': 'rgba(255, 206, 86, 1)',  // เหลือง
+    'N:Intuition': 'rgba(255, 206, 86, 1)',  // เหลือง
+    'T:Thinking': 'rgba(255, 99, 132, 1)',  // แดง
+    'F:Feeling': 'rgba(255, 99, 132, 1)',  // แดง
+    'J:Judging': 'rgba(75, 192, 192, 1)',  // เขียว
+    'P:Perceiving': 'rgba(75, 192, 192, 1)'   // เขียว
+};
+const radarData = {
+    labels: ['E:Extroversion', 'I:Introversion', 'S:Sensing', 'N:Intuition', 'T:Thinking', 'F:Feeling', 'J:Judging', 'P:Perceiving'],
+    datasets: [{
+        label: '',
+        data: [E_score, I_score, S_score, N_score, T_score, F_score, J_score, P_score],
+        backgroundColor: 'rgba(0, 0, 0, 0)', // โปร่งใส
+        borderWidth: 2,
+        pointRadius: 3,
+        pointHoverRadius: 4,
+        pointBackgroundColor: Object.values(colors), // สีของจุด
+        borderColor: Object.values(colors) // สีเส้นกราฟ
+       [
+            'rgba(54, 162, 235, 1)', // E (ฟ้า)
+            'rgba(54, 162, 235, 1)', // I (ฟ้า)
+            'rgba(255, 206, 86, 1)', // S (เหลือง)
+            'rgba(255, 206, 86, 1)', // N (เหลือง)
+            'rgba(255, 99, 132, 1)', // T (แดง)
+            'rgba(255, 99, 132, 1)', // F (แดง)
+            'rgba(75, 192, 192, 1)', // J (เขียว)
+            'rgba(75, 192, 192, 1)'  // P (เขียว)
+        ],
+        borderColor: [
+            'rgba(54, 162, 235, 1)', // E (ฟ้า)
+            'rgba(54, 162, 235, 1)', // I (ฟ้า)
+            'rgba(255, 206, 86, 1)', // S (เหลือง)
+            'rgba(255, 206, 86, 1)', // N (เหลือง)
+            'rgba(255, 99, 132, 1)', // T (แดง)
+            'rgba(255, 99, 132, 1)', // F (แดง)
+            'rgba(75, 192, 192, 1)', // J (เขียว)
+            'rgba(75, 192, 192, 1)'  // P (เขียว)
+        ]
+    }]
+};
+
+        // Radar Chart Configuration
+const radarConfig = {
+    type: 'radar',
+    data: radarData,
+    options: {
+        responsive: true,
+        scales: {
+            r: {
+                beginAtZero: true,
+                angleLines: {
+                    display: true,
+                    color: 'rgba(54, 162, 235, 1)' // สีเส้น
+                },
+                grid: {
+                    color: 'rgba(54, 162, 235, 0.5)' // สีกริดเข้มขึ้น
+                },
+                suggestedMin: 0,
+                suggestedMax: 10,
+                pointLabels: {
+                    font: {
+                        size: 16, // ปรับขนาดตัวหนังสือใหญ่ขึ้น
+                        weight: 'bold'
+                    },
+                    color: Object.values(colors) // ทำให้ Label มีสีเดียวกับจุด
+                }
+            }
+        },
+        elements: {
+            line: {
+                borderWidth: 3
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 16,
+                        weight: 'bold'
+                    },
+                    color: 'rgba(54, 162, 235, 1)'
+                    
+                }
+                
+            },
+            tooltip: {
+
+                titleColor: '#fff', // สีของ title ใน tooltip
+                bodyColor: '#fff', // สีของข้อความใน tooltip
+                bodyFont: {
+                    size: 14 // ปรับขนาดตัวหนังสือใน tooltip
+                },
+                callbacks: {
+                    title: function(tooltipItems) {
+                        let index = tooltipItems[0].dataIndex;
+                        let label = radarData.labels[index];
+                        return label + ": " + descriptions[label]; // เพิ่มคำอธิบายเข้าไป
+                    },
+                    label: function(tooltipItem) {
+                        return 'Score: ' + tooltipItem.raw; // แสดงคะแนนใน tooltip
+                    }
+                }
+            }
+        }
+    }
+};
+
+// Render the Radar Chart
+const radarChartCtx = document.getElementById('radarChart').getContext('2d');
+new Chart(radarChartCtx, radarConfig);
+
+
+
         document.addEventListener('DOMContentLoaded', function() {
             recommendFaculty();
         });
@@ -255,6 +397,7 @@ canvas {
             }
         }
 
+        
     </script>
     
 </html>
